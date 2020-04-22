@@ -9,6 +9,7 @@ from scrapy.linkextractors import LinkExtractor
 from fiancescraper.items import FiancescraperItem
 import json
 import numpy as np
+from scrapy.loader import ItemLoader
 
 #creating first spider
 
@@ -44,14 +45,24 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         #links = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
         #intents = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
         
-        for sel in response.xpath('//div[@class="StandardArticleBody_body"]'):
-            item = FiancescraperItem()
-            item['articel_text'] = sel.xpath('//p/text()').extract()
-            print(item)
+        #intent = ItemLoader(item=FiancescraperItem(), response=response)
+        #intent.add_xpath('articel_text', '//div[@class="StandardArticleBody_body"]//p/text()')
+        #return intent.load_item
+        with open('article_intent.json', 'a') as fp:
+            for sel in response.xpath('//div[@class="StandardArticleBody_body"]'):
+                item = FiancescraperItem()
+                item['articel_text'] = sel.xpath('//p/text()').extract()
+                print(item)
+                json.dump(item['articel_text'], fp, indent = 6)
+        #for sel in response.xpath('//'):
+        #    item = FiancescraperItem()        
+        #    item['article_headline'] = sel.xpath('*[contains(@class,"ArticleHeader_headline")]/text()').extract()
+        #    item['article_date'] = sel.xpath('*[contains(@class,"ArticleHeader_date")]/text()').extract()[1]
+        #    item['articel_text'] = response.xpath('*[@class="StandardArticleBody_body"]//p/text()').extract()[2]    
         #intent = []
         #for i in intents:
-        #    with open('article_intent.json', 'a') as fp:
-        #        json.dump(i + '\n', fp, indent = 6)
+        #with open('article_intent.json', 'a') as fp:
+        #    json.dump(item, fp, indent = 6)
             #intent.append(i)
         #print(intent)
         #print(type(links))
@@ -60,7 +71,7 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         #counter=1
         #with open('article_intent%s.json' % counter, 'w') as fp:
         #with open('article_intent.json', 'a') as fp:
-        #    json.dump([l + '\n' for l in intent], fp, indent = 6)
+        #    json.dump([l + '\n' for l in intents], fp, indent = 6)
             #counter += 1
         #ch_titles_ext = [t.strip() for t in links]
         # Store this in our dictionary

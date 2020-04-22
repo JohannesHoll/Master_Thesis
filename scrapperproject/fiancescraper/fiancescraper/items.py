@@ -17,4 +17,6 @@ class FiancescraperItem(scrapy.Item):
     #articletext = scrapy.Field(input_processor=MapCompose(remove_tags(), remove_whitespace()),
     #                           output_processor=TakeFirst())
     articel_text = scrapy.Field()
-    #description = scrapy.Field()
+    article_date = scrapy.Field()
+    article_headline = scrapy.Field()
+    last_update = scrapy.Field(serializer=str)
