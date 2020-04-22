@@ -53,7 +53,7 @@ class FinanceNewsScraperSpider(scrapy.Spider):
                 item = FiancescraperItem()
                 item['articel_text'] = sel.xpath('//p/text()').extract()
                 print(item)
-                json.dump(item['articel_text'], fp, indent = 6)
+                json.dump([intent for intent in item], fp, indent = 6)
         #for sel in response.xpath('//'):
         #    item = FiancescraperItem()        
         #    item['article_headline'] = sel.xpath('*[contains(@class,"ArticleHeader_headline")]/text()').extract()
