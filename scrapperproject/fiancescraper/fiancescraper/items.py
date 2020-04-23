@@ -19,4 +19,5 @@ class FiancescraperItem(scrapy.Item):
     articel_text = scrapy.Field()
     article_date = scrapy.Field()
     article_headline = scrapy.Field()
+    article_link = scrapy.Field()
     last_update = scrapy.Field(serializer=str)
