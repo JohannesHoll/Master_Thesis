@@ -12,6 +12,7 @@ from scrapy.loader import ItemLoader
 import csv
 from datetime import datetime
 
+
 #creating spider for Daimler AG
 
 class FinanceNewsScraperSpider(scrapy.Spider):
@@ -46,11 +47,9 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         print(item)
         
         #saving data to file.
-        #file = 'article_intents.csv'
-        file = datetime.now().strftime('test_%Y-%m-%d_%H:%M:%S.csv')
-        #date = datetime.strftime(datetime.now(), 'test_%Y/%m/%d_%H:%M:%S.csv')
-        #file = 'test'+date+'.csv' # + str(datetime.datetime.now()) + '.csv'
-        file_name = open(file, 'a')
+        path = 'news/'
+        file = 'daimlernews_' + str(datetime.now().strftime("%Y%m%d-%H%M")) + '.csv'
+        file_name = open(path + file, 'a')
 
         fieldnames = ['article_link', 'article_headline','article_date','article_text'] #adding header to file
         #with open(file, 'w', newline='') as f:

@@ -10,6 +10,7 @@ from ferrari_scraper.items import FerrariItem
 import numpy as np
 from scrapy.loader import ItemLoader
 import csv
+from datetime import datetime
 
 #creating spider for Ferrari
 
@@ -45,8 +46,9 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         print(item)
         
         #saving data to file.
-        file = 'article_intents.csv'
-        file_name = open(file, 'a')
+        path = 'news/'
+        file = 'ferrarinews_' + str(datetime.now().strftime("%Y%m%d-%H%M")) + '.csv'
+        file_name = open(path + file, 'a')
 
         fieldnames = ['article_link', 'article_headline','article_date','article_text'] #adding header to file
         #with open(file, 'w', newline='') as f:
