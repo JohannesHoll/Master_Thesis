@@ -6,10 +6,11 @@ import scrapy
 from scrapy.crawler import CrawlerProcess
 from scrapy import Selector
 from scrapy.linkextractors import LinkExtractor
-from fiancescraper.items import FiancescraperItem
+from daimler_scraper.items import DaimlerscraperItem
 import numpy as np
 from scrapy.loader import ItemLoader
 import csv
+from datetime import datetime
 
 #creating spider for Daimler AG
 
@@ -36,7 +37,7 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         #links_contents = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
         #intents = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
             
-        item = FiancescraperItem()
+        item = DaimlerscraperItem()
         item['article_link'] = response.url
         item['article_headline'] = response.xpath('//*[contains(@class,"ArticleHeader_headline")]/text()').extract()
         item['article_date'] = response.xpath('//*[contains(@class,"ArticleHeader_date")]/text()').extract()
@@ -45,7 +46,10 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         print(item)
         
         #saving data to file.
-        file = 'article_intents.csv'
+        #file = 'article_intents.csv'
+        file = datetime.now().strftime('test_%Y-%m-%d_%H:%M:%S.csv')
+        #date = datetime.strftime(datetime.now(), 'test_%Y/%m/%d_%H:%M:%S.csv')
+        #file = 'test'+date+'.csv' # + str(datetime.datetime.now()) + '.csv'
         file_name = open(file, 'a')
 
         fieldnames = ['article_link', 'article_headline','article_date','article_text'] #adding header to file

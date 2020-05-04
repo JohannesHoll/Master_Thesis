@@ -12,7 +12,7 @@ from w3lib.html import remove_tags
 def remove_whitespace(val):
     return val.strip()
 
-class FiancescraperItem(scrapy.Item):
+class DaimlerscraperItem(scrapy.Item):
     # define the fields for your item here like:
     #articletext = scrapy.Field(input_processor=MapCompose(remove_tags(), remove_whitespace()),
     #                           output_processor=TakeFirst())

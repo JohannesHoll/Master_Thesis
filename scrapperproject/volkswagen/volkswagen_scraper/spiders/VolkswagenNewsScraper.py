@@ -6,7 +6,7 @@ import scrapy
 from scrapy.crawler import CrawlerProcess
 from scrapy import Selector
 from scrapy.linkextractors import LinkExtractor
-from fiancescraper.items import FiancescraperItem
+from volkswagen_scraper.items import VolkswagenItem
 import numpy as np
 from scrapy.loader import ItemLoader
 import csv
@@ -36,7 +36,7 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         #links_contents = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
         #intents = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
             
-        item = FiancescraperItem()
+        item = VolkswagenItem()
         item['article_link'] = response.url
         item['article_headline'] = response.xpath('//*[contains(@class,"ArticleHeader_headline")]/text()').extract()
         item['article_date'] = response.xpath('//*[contains(@class,"ArticleHeader_date")]/text()').extract()
