@@ -16,8 +16,8 @@ rics = ['VOLVb.ST']
 fields = ['OPEN','HIGH','LOW','CLOSE','VOLUME'] 
 df = ek.get_timeseries(rics=rics,
                        fields=fields, 
-                       start_date='2019-01-01T07:00:00', 
-                       end_date='2019-12-31T22:30:00', 
+                       start_date='2020-01-01T07:00:00', 
+                       end_date='2020-05-15T22:30:00', 
                        interval='minute') 
 print(df)
 
