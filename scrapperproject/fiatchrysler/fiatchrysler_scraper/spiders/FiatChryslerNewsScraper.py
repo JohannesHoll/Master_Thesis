@@ -15,7 +15,7 @@ from datetime import datetime
 #creating spider for Fiat Chrysler
 
 class FinanceNewsScraperSpider(scrapy.Spider):
-    name = "fiatchrylsernewsarticles"
+    name = "fiatchryslernewsarticles"
     
     def start_requests(self):
         start_urls = ['https://www.reuters.com/companies/FCHA.MI/news',
