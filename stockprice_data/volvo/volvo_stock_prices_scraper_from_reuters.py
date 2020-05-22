@@ -14,7 +14,7 @@ ek.set_app_key('2c673521ea4c45bc809415aaceceea8a2a1ce080')
 #date modfication
 current_date = datetime.today().strftime('%Y-%m-%d')
 current_date_for_modification = datetime.today()
-date_minus_certain_days = current_date_for_modification + timedelta(days=-1)
+date_minus_certain_days = current_date_for_modification + timedelta(days=-2)
 #date_minus_three = current_date_for_modification + timedelta(days=-3)
 modified_date = date_minus_certain_days.strftime("%Y-%m-%d")
 #modified_date_minus_three = date_minus_three.strftime("%Y-%m-%d")
