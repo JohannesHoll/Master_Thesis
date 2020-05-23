@@ -40,6 +40,7 @@ cleaned_list_of_files = concatenate_list_of_files.drop_duplicates(keep=False)
 
 print(cleaned_list_of_files)
 
+
 # New words and values
 new_words = {'crushes': 10,
              'beats': 5,
@@ -55,3 +56,14 @@ vader = SentimentIntensityAnalyzer()
 vader.lexicon.update(new_words)
 
 print('ok!')
+
+scores = cleaned_list_of_files['article content'].apply(vader.polarity_scores)
+print(scores)
+print(type(scores))
+# Convert the list of dicts into a DataFrame
+scores_df = pd.DataFrame.from_records(scores)
+print(type(scores_df))
+# Join the DataFrames
+scored_news = cleaned_list_of_files.join(scores_df)
+
+print(scored_news)
