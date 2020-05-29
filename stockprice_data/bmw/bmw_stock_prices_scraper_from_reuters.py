@@ -32,4 +32,4 @@ df = ek.get_timeseries(rics=rics,
                        interval='minute') 
 print(df)
 #safe to csv
-df.to_csv(r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\stock_prices\bmw_prices_' + str(modified_date) + '.csv')
+df.to_csv(r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\daily_stock_prices\bmw_prices_' + str(modified_date) + '.csv')
