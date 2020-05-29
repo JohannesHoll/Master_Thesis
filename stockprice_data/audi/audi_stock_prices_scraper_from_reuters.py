@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 ek.set_app_key('2c673521ea4c45bc809415aaceceea8a2a1ce080')
 
 #date modfication
-days = int(input('Enter number of days you want to go back'))
-print('Enter number of days you want to go back' + days)
+days = int(input('Enter number of days you want to go back: '))
+
 current_date = datetime.today().strftime('%Y-%m-%d')
 current_date_for_modification = datetime.today()
 date_minus_certain_days = current_date_for_modification + timedelta(days=-days)
