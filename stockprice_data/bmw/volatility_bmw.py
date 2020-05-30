@@ -32,5 +32,5 @@ plot2.legend(loc='center left', bbox_to_anchor=(1.2, 0.7))
 #plt.xticks(range(0,len(x_vals)),rotation=45)
 #plt.show()
 
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\plotted_evolution_of_daily_stock_prices\price_evolution_of_BMW_on_' + date + '.png')
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\plotted_evolution_of_daily_stock_prices\price_evolution_of_BMW_on_' + date + '.png', bbox_inches="tight")
 
