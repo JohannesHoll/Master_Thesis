@@ -34,5 +34,5 @@ plot2.set_ylabel('volume')
 #plt.xticks(range(0,len(x_vals)),rotation=45)
 #plt.show()
 
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_data\porsche\plotted_evolution_of_daily_stock_prices\price_evolution_of_BMW_on_' + date + '.png', bbox_inches="tight")
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_data\porsche\plotted_evolution_of_daily_stock_prices\price_evolution_of_Porsche_on_' + date + '.png', bbox_inches="tight")
 
