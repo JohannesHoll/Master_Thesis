@@ -15,7 +15,7 @@ import glob
 import os
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\scrapperproject\renault\renault_scraper\spiders\news'                     
+path = r'C:\Users\victo\Master_Thesis\scraperproject\renault\renault_scraper\spiders\news'                     
 all_files = glob.glob(os.path.join(path, "*.csv"))     
 
 # read files to pandas frame
@@ -26,7 +26,8 @@ for filename in all_files:
                                      sep=',', 
                                      encoding='cp1252',
                                      header=None,
-                                     names=["url", "header", "release time", "article content"])
+                                     names=["url", "header", "release time", "article content"]
+                                     )
                          )
 
 # Concatenate all content of files into one DataFrame
@@ -36,9 +37,9 @@ concatenate_list_of_files = pd.concat(list_of_files,
                                       )
 
 # removing duplicates
-cleaned_list_of_files = concatenate_list_of_files.drop_duplicates(keep=False)
+cleaned_dataframe = concatenate_list_of_files.drop_duplicates(keep=False, ignore_index=True)
 
-print(cleaned_list_of_files)
+print(cleaned_dataframe)
 
 
 # New words and values
@@ -57,13 +58,15 @@ vader.lexicon.update(new_words)
 
 print('ok!')
 
-scores = cleaned_list_of_files['article content'].apply(vader.polarity_scores)
-print(scores)
-print(type(scores))
-# Convert the list of dicts into a DataFrame
-scores_df = pd.DataFrame.from_records(scores)
-print(type(scores_df))
-# Join the DataFrames
-scored_news = cleaned_list_of_files.join(scores_df)
+score = []
 
-print(scored_news)
+for articlecontent in cleaned_dataframe['article content']:
+    polarity_score = vader.polarity_scores(articlecontent)
+    polarity_score['header'] = articlecontent
+    score.append(polarity_score)
+    
+# Join the DataFrames
+scores_df = pd.DataFrame(score)['compound']
+cleaned_dataframe['score'] = scores_df.to_frame('compound') 
+
+print(cleaned_dataframe)
