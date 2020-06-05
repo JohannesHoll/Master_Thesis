@@ -10,6 +10,7 @@ import pandas as pd
 import glob
 import os
 import matplotlib.pyplot as plt
+from numpy import sqrt,mean,log,diff
 
 # file where csv files are lieing
 date = str(input('Enter the date (format: yyyy-mm-dd) you want to calculate the volatility from: '))
@@ -36,3 +37,11 @@ plot2.set_ylabel('volume')
 
 plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\plotted_evolution_of_daily_stock_prices\price_evolution_of_BMW_on_' + date + '.png', bbox_inches="tight")
 
+close = df_daily_stock_prices['CLOSE']
+r = diff(log(close))
+r_mean = mean(r)
+diff_square = [(r[i]-r_mean)**2 for i in range(0,len(r))]
+std = sqrt(sum(diff_square)*(1.0/(len(r)-1)))
+vol = std*sqrt(252)
+
+print(vol)
