@@ -13,6 +13,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 import glob
 import os
+from datetime import datetime
 
 # file where csv files lies
 path = r'C:\Users\victo\Master_Thesis\scraperproject\fiatchrysler\fiatchrysler_scraper\spiders\news'                     
@@ -64,9 +65,14 @@ for articlecontent in cleaned_dataframe['article content']:
     polarity_score = vader.polarity_scores(articlecontent)
     polarity_score['header'] = articlecontent
     score.append(polarity_score)
-    
+   
 # Join the DataFrames
-scores_df = pd.DataFrame(score)['compound']
-cleaned_dataframe['score'] = scores_df.to_frame('compound') 
+cleaned_dataframe[['neg','neu','pos','compound']] = pd.DataFrame(score)[['neg','neu','pos','compound']]
+#cleaned_dataframe['score'] = scores_df.to_frame('compound') 
+
 
 print(cleaned_dataframe)
+
+## saving outcome of vader to csv
+current_date = datetime.today().strftime('%Y-%m-%d')
+cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\sentimentanalysis\fiatchrysler\outcome_using_vader\outcome_of_vader_on_fiatchrysler_news_' + str(current_date) + '.csv', index=False)
