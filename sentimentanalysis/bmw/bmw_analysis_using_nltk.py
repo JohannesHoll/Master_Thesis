@@ -75,4 +75,4 @@ print(cleaned_dataframe)
 
 ## saving outcome of vader to csv
 current_date = datetime.today().strftime('%Y-%m-%d')
-cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\sentimentanalysis\bmw\outcome_using_vader\outcome_of_vader_on_bmw_news_' + str(current_date) + '.csv', index=False)
+cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\sentimentanalysis\bmw\outcome_using_vader\outcome_of_vader_on_bmw_news__without_preprocessing_' + str(current_date) + '.csv', index=False)
