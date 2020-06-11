@@ -44,4 +44,7 @@ diff_square = [(r[i]-r_mean)**2 for i in range(0,len(r))]
 std = sqrt(sum(diff_square)*(1.0/(len(r)-1)))
 vol = std*sqrt(252)
 
+# calculate daily returns
+df_daily_stock_prices['Returns'] = df_daily_stock_prices['CLOSE']/df_daily_stock_prices['CLOSE'].shift(1) - 1 
+
 print(vol)
