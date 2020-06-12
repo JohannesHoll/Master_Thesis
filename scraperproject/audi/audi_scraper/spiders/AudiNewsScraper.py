@@ -11,6 +11,7 @@ import numpy as np
 from scrapy.loader import ItemLoader
 import csv
 from datetime import datetime
+from scrapy_splash import SplashRequest
 
 #creating spider for Audi
 
@@ -25,6 +26,11 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse_newspage)
+        #for url in urls:
+        #    yield SplashRequest(url=url, 
+        #                        callback=self.parse_newspage#, 
+        #                         #args={'wait': 0.5}
+        #                         )
                 
     def parse_newspage(self, response):
         links = response.xpath('//a[contains(@href,"/article/")]/@href').extract() #extract hyperlink
