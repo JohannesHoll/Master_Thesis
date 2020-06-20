@@ -31,7 +31,9 @@ df = ek.get_timeseries(rics=rics,
                        fields=fields, 
                        start_date=str(modified_date) + 'T07:00:00',#'2020-01-02T09:00:00', 
                        end_date=str(modified_date) + 'T22:01:00',#'2020-01-02T17:30:00', 
-                       interval='minute') 
+                       interval='minute')
+
 print(df)
+
 #safe to csv
 df.to_csv(r'C:\Users\victo\Master_Thesis\stockprice_data\audi\daily_stock_prices\audi_prices_' + str(modified_date) + '.csv')

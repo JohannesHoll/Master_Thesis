@@ -10,6 +10,7 @@ import pandas as pd
 import glob
 import os
 import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
 
 # file where csv files are lieing
 date = str(input('Enter the date (format: yyyy-mm-dd) you want to calculate the volatility from: '))
@@ -19,7 +20,12 @@ df_daily_stock_prices = pd.read_csv(path,
                                     sep=','
                                     )
 
+##change date time to german time
+#df_daily_stock_prices['Date'] = df_daily_stock_prices['Date'].apply(lambda x: x.tz_localize('UTC').tz_convert('Europe/Berlin'))
+df_daily_stock_prices['Date'] = pd.DatetimeIndex(pd.to_datetime(df_daily_stock_prices['Date'])).tz_localize('UTC').tz_convert('Europe/Berlin')
+
 print(df_daily_stock_prices)
+
 ###plotting price evolution for a certain day
 plot1 = df_daily_stock_prices[['OPEN','HIGH','LOW','CLOSE']].plot(legend=True)
 plot2 = df_daily_stock_prices['VOLUME'].plot(secondary_y=True, legend=True)
