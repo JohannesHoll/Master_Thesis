@@ -39,3 +39,5 @@ concatenate_list_of_files = pd.concat(list_of_files,
 # removing duplicates
 cleaned_dataframe = concatenate_list_of_files.drop_duplicates(keep=False, ignore_index=True)
 
+print(cleaned_dataframe)
+
