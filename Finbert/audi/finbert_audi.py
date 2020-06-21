@@ -67,7 +67,7 @@ logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(messa
 
 lm_path = project_dir/'models'/'sentiment'/'TRC2'/'finbertTRC2'
 cl_path = project_dir/'models'/'classifier_model'/'finbert-sentiment'
-cl_data_path = project_dir/'data'/'sentiment_data'
+cl_data_path = r'C:/Users/victo/Master_Thesis/Finbert/data/sentiment_data/'
 
 # Clean the cl_path
 try:
