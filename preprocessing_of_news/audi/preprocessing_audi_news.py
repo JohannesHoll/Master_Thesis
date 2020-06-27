@@ -15,6 +15,7 @@ import spacy
 from gensim.models.phrases import Phrases, Phraser
 from spacy.lang.en.stop_words import STOP_WORDS
 import re
+from gensim.models import Word2Vec
 
 
 # file where csv files lies
@@ -87,8 +88,11 @@ tokens = []
 lemma = []
 pos = []
 is_stop_word = []
+#vector = []
+vectornorm = []
+#isoov = []
 #removing the stopwords
-#filtered_sent=[]
+filtered_sent=[]
 
 for doc in nlp.pipe(cleaned_dataframe['article content'].astype('unicode').values, batch_size=50,
                         n_threads=3):
@@ -98,7 +102,10 @@ for doc in nlp.pipe(cleaned_dataframe['article content'].astype('unicode').value
         pos.append([n.pos_ for n in doc])
         is_stop_word.append([n.is_stop for n in doc])
         # filtering stop words
-        #filtered_sent.append([n.text for n in doc if n.is_stop==False]) 
+        filtered_sent.append([n.text for n in doc if n.is_stop==False])
+        #vector.append([n.vector for n in doc])
+        vectornorm.append([n.vector_norm for n in doc])
+        #isoov.append([n.is_oov for n in doc])
                 
     else:
         # We want to make sure that the lists of parsed results have the
@@ -106,38 +113,48 @@ for doc in nlp.pipe(cleaned_dataframe['article content'].astype('unicode').value
         tokens.append(None)
         lemma.append(None)
         pos.append(None)
-        #filtered_sent.append(None)
+        filtered_sent.append(None)
+        #vector.append(None)
+        vectornorm.append(None)
+        #isoov.append(None)
 
 cleaned_dataframe['article_content_tokens'] = tokens
 cleaned_dataframe['article_content_lemma'] = lemma
 #cleaned_dataframe['article_content_pos'] = pos
 #cleaned_dataframe['article_content_is_stop_word'] = is_stop_word
-#cleaned_dataframe['article_content_cleaned_of_stop_words'] = filtered_sent
+cleaned_dataframe['article_content_cleaned_of_stop_words'] = filtered_sent
+#cleaned_dataframe['token_vector'] = vector
+cleaned_dataframe['token_vector_norm'] = vectornorm
+#cleaned_dataframe['is oov'] = isoov
 
 ##n-gramming on news content
-bigram_phrases = Phrases(tokens, min_count=10, threshold=50, max_vocab_size=3) 
-trigram_phrases = Phrases(bigram_phrases[tokens], threshold=50)
+bigram_phrases = Phrases(filtered_sent, min_count=10, threshold=50, max_vocab_size=3)
+trigram_phrases = Phrases(bigram_phrases[filtered_sent], threshold=50)
 bigram_phraser = Phraser(bigram_phrases)
 trigram_phraser = Phraser(trigram_phrases)
 # Apply the n-gram models to the data
-texts_words = [trigram_phraser[bigram_phraser[token]] for token in tokens]
+texts_words = [trigram_phraser[bigram_phraser[word]] for word in filtered_sent]
+
+model = Word2Vec([trigram_phraser[bigram_phraser[word]] for word in filtered_sent], min_count=1)
+print(model)
 
 ##adding ngram to dataframe
 cleaned_dataframe['article_content_ngramm'] = texts_words
+cleaned_dataframe['vectors'] = model
 
 #removing the stopwords
-nlp2 = spacy.load('en_core_web_sm', parser=False, entity=False)
+#nlp2 = spacy.load('en_core_web_sm', parser=False, entity=False)
 
-filtered_sent=[]
+#filtered_sent=[]
 
-for doc in nlp2.pipe(cleaned_dataframe['article_content_ngramm'].astype('unicode').values, batch_size=50,
-                        n_threads=3):
-    if doc.is_parsed:
-        filtered_sent.append([n.text for n in doc if n.is_stop==False])
-    else:
-        filtered_sent.append(None)
+#for doc in nlp2.pipe(cleaned_dataframe['article_content_ngramm'].astype('unicode').values, batch_size=50,
+#                        n_threads=3):
+#    if doc.is_parsed:
+#        filtered_sent.append([n.text for n in doc if n.is_stop==False])
+#    else:
+#        filtered_sent.append(None)
 
-cleaned_dataframe['article_content_cleaned_of_stop_words'] = filtered_sent
+#cleaned_dataframe['article_content_cleaned_of_stop_words'] = filtered_sent
 
 ##saving preprocessed data to csv file
 current_date = datetime.today().strftime('%Y-%m-%d')

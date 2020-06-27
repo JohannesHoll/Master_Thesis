@@ -85,19 +85,23 @@ tokens = []
 lemma = []
 pos = []
 is_stop_word = []
+vectornorm = []
 #removing the stopwords
 filtered_sent=[]
 
 for doc in nlp.pipe(cleaned_dataframe['article content'].astype('unicode').values, batch_size=50,
-                        n_threads=3):
+                    n_threads=3):
     if doc.is_parsed:
         tokens.append([n.text for n in doc])
         lemma.append([n.lemma_ for n in doc])
         pos.append([n.pos_ for n in doc])
         is_stop_word.append([n.is_stop for n in doc])
         # filtering stop words
-        filtered_sent.append([n.text for n in doc if n.is_stop==False]) 
-                
+        filtered_sent.append([n.text for n in doc if n.is_stop == False])
+        # vector.append([n.vector for n in doc])
+        vectornorm.append([n.vector_norm for n in doc])
+        # isoov.append([n.is_oov for n in doc])
+
     else:
         # We want to make sure that the lists of parsed results have the
         # same number of entries of the original Dataframe, so add some blanks in case the parse fails
@@ -105,12 +109,18 @@ for doc in nlp.pipe(cleaned_dataframe['article content'].astype('unicode').value
         lemma.append(None)
         pos.append(None)
         filtered_sent.append(None)
+        # vector.append(None)
+        vectornorm.append(None)
+        # isoov.append(None)
 
 cleaned_dataframe['article_content_tokens'] = tokens
 cleaned_dataframe['article_content_lemma'] = lemma
-#cleaned_dataframe['article_content_pos'] = pos
-#cleaned_dataframe['article_content_is_stop_word'] = is_stop_word
+# cleaned_dataframe['article_content_pos'] = pos
+# cleaned_dataframe['article_content_is_stop_word'] = is_stop_word
 cleaned_dataframe['article_content_cleaned_of_stop_words'] = filtered_sent
+# cleaned_dataframe['token_vector'] = vector
+cleaned_dataframe['token_vector_norm'] = vectornorm
+# cleaned_dataframe['is oov'] = isoov
 
 ##n-gramming on news content
 bigram_phrases = Phrases(filtered_sent, min_count=10, threshold=50, max_vocab_size=3) 
