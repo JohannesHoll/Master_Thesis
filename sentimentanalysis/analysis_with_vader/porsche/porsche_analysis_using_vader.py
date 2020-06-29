@@ -16,7 +16,7 @@ import os
 from datetime import datetime
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\scraperproject\peugeot\peugeot_scraper\spiders\news'                     
+path = r'C:\Users\victo\Master_Thesis\scraperproject\porsche\porsche_scraper\spiders\news'                     
 all_files = glob.glob(os.path.join(path, "*.csv"))     
 
 # read files to pandas frame
@@ -99,6 +99,7 @@ for articlecontent in cleaned_dataframe['article content']:
     polarity_score['header'] = articlecontent
     score.append(polarity_score)
     
+    
 # Join the DataFrames
 cleaned_dataframe[['neg','neu','pos','compound']] = pd.DataFrame(score)[['neg','neu','pos','compound']]
 #cleaned_dataframe['score'] = scores_df.to_frame('compound') 
@@ -108,4 +109,4 @@ print(cleaned_dataframe)
 
 ## saving outcome of vader to csv
 current_date = datetime.today().strftime('%Y-%m-%d')
-cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\sentimentanalysis\analysis_with_vader\peugeot\outcome_using_vader_without_preprocessing\outcome_of_vader_on_peugeot_news_without_preprocessing_' + str(current_date) + '.csv', index=False)
+cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\sentimentanalysis\analysis_with_vader\porsche\outcome_using_vader\outcome_of_vader_on_porsche_news_' + str(current_date) + '.csv', index=False)
