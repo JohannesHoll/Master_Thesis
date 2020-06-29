@@ -13,6 +13,8 @@ from keras.models import Sequential
 from keras.layers import Dense, Embedding, LSTM, SpatialDropout1D
 from sklearn.model_selection import train_test_split
 from keras.utils.np_utils import to_categorical
+from keras.preprocessing.sequence import pad_sequences
+from keras.preprocessing.text import Tokenizer
 import re
 import glob
 import os
@@ -41,3 +43,19 @@ cleaned_dataframe = concatenate_list_of_files.drop_duplicates(keep=False, ignore
 
 print(cleaned_dataframe)
 
+X = pad_sequences(cleaned_dataframe['article_content_tokens'])
+print(X)
+#model = Sequential()
+#model.add(Embedding(top_words, embedding_vecor_length, input_length=max_review_length))
+#model.add(Conv1D(filters=32, kernel_size=3, padding='same', activation='relu'))
+#model.add(MaxPooling1D(pool_size=2))
+#model.add(LSTM(100))
+#model.add(Dense(1, activation='sigmoid'))
+#optimizer = Adam(lr=1e-3)
+#model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+
+#model.fit(X_train, y_train, validation_split=0.02, epochs=100, batch_size=64,
+#          callbacks=[checkpoint, earlyStopping, reduceLR])
+# Final evaluation of the model
+#model = load_model(model_name)
+#scores = model.evaluate(X_test, y_test, verbose=0)
