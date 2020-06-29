@@ -100,7 +100,7 @@ for articlecontent in cleaned_dataframe['article content']:
     score.append(polarity_score)
     
 # Join the DataFrames
-cleaned_dataframe[['neg','neu','pos','compound']] = pd.DataFrame(score)[['neg','neu','pos','compound']]
+cleaned_dataframe[['neg_vader','neu_vader','pos_vader','compound_vader']] = pd.DataFrame(score)[['neg','neu','pos','compound']]
 #cleaned_dataframe['score'] = scores_df.to_frame('compound') 
 
 
