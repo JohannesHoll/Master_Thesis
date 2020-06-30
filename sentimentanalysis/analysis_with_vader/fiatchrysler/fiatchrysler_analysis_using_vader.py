@@ -38,7 +38,8 @@ concatenate_list_of_files = pd.concat(list_of_files,
                                       )
 
 # removing duplicates
-cleaned_dataframe = concatenate_list_of_files.drop_duplicates(keep=False, ignore_index=True)
+cleaned_dataframe = concatenate_list_of_files.sort_values(by='url', ascending=False)
+cleaned_dataframe = cleaned_dataframe.drop_duplicates(subset=["url"], keep='first', ignore_index=True)
 
 print(cleaned_dataframe)
 
@@ -92,17 +93,41 @@ vader.lexicon.update(new_words)
 
 print('ok!')
 
-score = []
+## analysis of article header
+score_header = []
+
+for header in cleaned_dataframe['header']:
+    polarity_score = vader.polarity_scores(header)
+    score_header.append(polarity_score)
+
+# Join the DataFrames
+cleaned_dataframe[['neg_vader_header',
+                   'neu_vader_header',
+                   'pos_vader_header',
+                   'compound_vader_header'
+                   ]] = pd.DataFrame(score_header)[['neg',
+                                                    'neu',
+                                                    'pos',
+                                                    'compound'
+                                                    ]]
+
+## analysis of article content
+score_content = []
 
 for articlecontent in cleaned_dataframe['article content']:
     polarity_score = vader.polarity_scores(articlecontent)
-    polarity_score['header'] = articlecontent
-    score.append(polarity_score)
-   
-# Join the DataFrames
-cleaned_dataframe[['neg_vader','neu_vader','pos_vader','compound_vader']] = pd.DataFrame(score)[['neg','neu','pos','compound']]
-#cleaned_dataframe['score'] = scores_df.to_frame('compound') 
+    score_content.append(polarity_score)
 
+# Join the DataFrames
+cleaned_dataframe[['neg_vader_articel_content',
+                   'neu_vader_articel_content',
+                   'pos_vader_articel_content',
+                   'compound_vader_articel_content'
+                   ]] = pd.DataFrame(score_content)[['neg',
+                                                     'neu',
+                                                     'pos',
+                                                     'compound'
+                                                     ]]
 
 print(cleaned_dataframe)
 
