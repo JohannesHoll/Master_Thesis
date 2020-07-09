@@ -9,7 +9,7 @@ import eikon as ek
 from datetime import datetime, timedelta
 
 #Reuters API Key
-ek.set_app_key('2c673521ea4c45bc809415aaceceea8a2a1ce080')
+ek.set_app_key('7562ce3840dd4ebab1a05f901ca0777c959e70e8')
 
 #date modfication
 days = int(input('Enter number of days you want to go back: '))

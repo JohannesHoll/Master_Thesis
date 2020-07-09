@@ -9,7 +9,7 @@ import eikon as ek
 import os
 
 # Reuters API key
-ek.set_app_key('2c673521ea4c45bc809415aaceceea8a2a1ce080')
+ek.set_app_key('7562ce3840dd4ebab1a05f901ca0777c959e70e8')
 
 
 rics = ['RACE.MI'] 
