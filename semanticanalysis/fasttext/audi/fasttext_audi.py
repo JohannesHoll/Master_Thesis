@@ -83,14 +83,14 @@ del cleaned_dataframe['time']
 
 print(cleaned_dataframe)
 #preprocessing data for fasttext model
-path2 = 'C:/Users/victo/Master_Thesis/pre_trained_word_embeddings/FinancialPhraseBank/'
+path2 = 'C:/Users/victo/Master_Thesis/pre_trained_word_embeddings/FinancialPhraseBank/usage/'
 file = glob.glob(os.path.join(path2, "Sentences_AllAgree.txt"))
-(x_train, y_train), (x_test, y_test), preproc = text.texts_from_folder(file,
+(x_train, y_train), (x_test, y_test), preproc = text.texts_from_folder('C:/Users/victo/Master_Thesis/pre_trained_word_embeddings/FinancialPhraseBank/usage',
                                                                        max_features=80000,
                                                                        maxlen=2000,
                                                                        ngram_range=3,
                                                                        preprocess_mode='standard',
-                                                                       classes=['positive', 'neutral', 'negative']
+                                                                       classes=['positive', 'negative']
                                                                        )
 
 #preparing data for model
@@ -119,5 +119,3 @@ predictor = ktrain.get_predictor(learner.model, preproc)
 #testing data for model
 score = predictor.predict(cleaned_dataframe['article content'][4])
 print(score)
-
-
