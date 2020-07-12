@@ -2,8 +2,10 @@
 import pandas as pd
 import glob
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 import re
+import numpy as np
+import itertools
 
 # file where csv files of flair analysis lies
 path_flair = r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_flair\audi\outcome_using_flair'
@@ -57,8 +59,23 @@ print(cleaned_dataframe_vader)
 
 ##merging files together
 merged_df = pd.merge(cleaned_dataframe_flair, cleaned_dataframe_vader, on=['url','header','release time','article content','formatted date'])
+merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
+merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
-path_stockprices = r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_vader\audi\outcome_using_vader'
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\audi\daily_stock_prices'
 
+for file in glob.iglob(path_stockprices + '\*.csv'):
+    date = re.search('\d{4}-\d{2}-\d{2}', file)
+    date = date.group()
+    df_daily_stock_prices = pd.read_csv(file,
+                                        sep=',',
+                                        )
+    df_daily_stock_prices['Date'] = pd.DatetimeIndex(pd.to_datetime(df_daily_stock_prices['Date'])).tz_localize('UTC').tz_convert('Europe/Berlin')
+    df_daily_stock_prices['Date'] = pd.to_datetime(df_daily_stock_prices['Date'].dt.strftime('%Y-%m-%d %H:%M:%S'))
 
-merged_df.to_csv('test.csv', index=False)
+    df_stock_prices_semantics = df_daily_stock_prices.merge(merged_df,
+                                                            left_on='Date',
+                                                            right_on='formatteddate',
+                                                            how='left')
+    df_stock_prices_semantics.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\audi\merged_files\audiprices_with_semantics_' + date + '.csv', index=False)
+    print('File of ' + date + ' has been saved!')

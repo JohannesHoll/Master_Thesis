@@ -1,0 +1,6 @@
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content
+2020-02-03 13:37:00,810.0,810.0,810.0,810.0,2.0,,,,,,,,,,,,,,,
+2020-02-03 13:42:00,816.0,816.0,816.0,816.0,1.0,,,,,,,,,,,,,,,
+2020-02-03 17:03:00,810.0,810.0,810.0,810.0,1.0,,,,,,,,,,,,,,,
+2020-02-03 17:13:00,804.0,804.0,802.0,802.0,11.0,,,,,,,,,,,,,,,
+2020-02-03 17:37:00,816.0,816.0,816.0,816.0,1.0,,,,,,,,,,,,,,,
