@@ -137,7 +137,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-04-24 11:17:00,49.39,49.39,49.345,49.35,471.0,,,,,,,,,,,,,,,
 2020-04-24 11:18:00,49.32,49.32,49.315,49.315,1729.0,,,,,,,,,,,,,,,
 2020-04-24 11:19:00,49.315,49.32,49.29,49.29,527.0,,,,,,,,,,,,,,,
-2020-04-24 11:20:00,49.31,49.315,49.3,49.3,482.0,https://www.reuters.com/article/brief-bmw-to-start-production-in-stages/brief-bmw-to-start-production-in-stages-at-end-of-april-idUSS8N2CB0BE,['BRIEF-BMW To Start Production In Stages At End Of April'],"['April 24, 2020 /  11:20 AM / a month ago']","['April 24 (Reuters) - BMW: ', '* SPOKESMAN SAYS  TO BEGIN PRODUCTION IN STAGES AT THE END OF APRIL 2020 ', '* BMW SPOKESMAN SAYS PRODUCTION AT PLANT IN GOODWOOD AND SPARTANBURG TO BEGIN IN STEPS FROM MAY 4 (Berlin Speed Desk)']",2020-04-24 11:20:00,NEGATIVE (0.956),NEGATIVE (0.999),0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0
+2020-04-24 11:20:00,49.31,49.315,49.3,49.3,482.0,https://www.reuters.com/article/brief-bmw-to-start-production-in-stages/brief-bmw-to-start-production-in-stages-at-end-of-april-idUSS8N2CB0BE,['BRIEF-BMW To Start Production In Stages At End Of April'],"['April 24, 2020 /  11:20 AM / 3 months ago']","['April 24 (Reuters) - BMW: ', '* SPOKESMAN SAYS  TO BEGIN PRODUCTION IN STAGES AT THE END OF APRIL 2020 ', '* BMW SPOKESMAN SAYS PRODUCTION AT PLANT IN GOODWOOD AND SPARTANBURG TO BEGIN IN STEPS FROM MAY 4 (Berlin Speed Desk)']",2020-04-24 11:20:00,NEGATIVE (0.956),NEGATIVE (0.999),0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0
 2020-04-24 11:21:00,49.28,49.28,49.245,49.265,2339.0,,,,,,,,,,,,,,,
 2020-04-24 11:22:00,49.28,49.305,49.28,49.28,894.0,,,,,,,,,,,,,,,
 2020-04-24 11:23:00,49.295,49.295,49.245,49.245,582.0,,,,,,,,,,,,,,,
