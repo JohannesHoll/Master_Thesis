@@ -32,10 +32,6 @@ class FinanceNewsScraperSpider(scrapy.Spider):
             yield response.follow(url = url,callback = self.parse_article)    
 
     def parse_article(self, response):
-        #links = response.xpath('//*[contains(@class,"ArticleHeader_headline")]/text()').extract() # extract article headline 
-        #links = response.xpath('//*[contains(@class,"ArticleHeader_date")]/text()').extract() # extract article date
-        #links_contents = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
-        #intents = response.xpath('//div[@class="StandardArticleBody_body"]//p/text()').extract()
             
         item = FerrariItem()
         item['article_link'] = response.url
@@ -51,23 +47,6 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         file_name = open(path + file, 'a')
 
         fieldnames = ['article_link', 'article_headline','article_date','article_text'] #adding header to file
-        #with open(file, 'w', newline='') as f:
-        #    writer = csv.writer(f, delimiter=',')
-        #    writer.writerow(fieldnames)
-        #    writer
-        #writer = csv.DictWriter(file_name, fieldnames=fieldnames)
+
         writer = csv.writer(file_name, lineterminator='\n')
         writer.writerow([item[key] for key in item.keys()])
-        #writer.writerow(fieldnames)
-        #writer.writeheader()
-        #writer.writerow({'article_link': item['article_link'],
-        #                 'article_headline': item['article_headline'],
-        #                 'article_date': item['article_date'],
-        #                 'article_text': item['article_text']}) #writing data into file.
-        #with open('test.csv', 'a', newline ='') as file:
-        #    writer = csv.writer(file, delimiter=',')
-        #    writer.writerow(head for head in fieldnames)
-        #    with open('test.csv', 'a', newline='') as f:
-        #        writer = csv.writer(f, delimiter=',')
-        #        writer.writerow([item[key] for key in item.keys()])
-        
