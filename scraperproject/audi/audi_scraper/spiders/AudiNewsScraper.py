@@ -37,13 +37,13 @@ class FinanceNewsScraperSpider(scrapy.Spider):
         links = response.xpath('//a[contains(@href,"/article/")]/@href').extract() #extract hyperlink
         for url in links:
             yield scrapy.Request(url=url,
-                                 meta={'splash':{'args':{'html': 1,
-                                                         'wait': 0.5,
-                                                         'har': 1
-                                                         },
-                                                 'endpoint': 'render.json'
-                                                 }
-                                       },
+                                 # meta={'splash':{'args':{'html': 1,
+                                 #                         'wait': 0.5,
+                                 #                         'har': 1
+                                 #                         },
+                                 #                 'endpoint': 'render.json'
+                                 #                 }
+                                 #       },
                                  callback=self.parse_article)
 
     def parse_article(self, response):
