@@ -122,5 +122,5 @@ cleaned_dataframe['flair_sentiment_content'] = pd.DataFrame(score_content)
 
 ## saving outcome of flair to csv
 current_date = datetime.today().strftime('%Y-%m-%d')
-cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\sentimentanalysis\analysis_with_flair\bmw\outcome_using_flair\outcome_of_flair_on_bmw_news_' + str(current_date) + '.csv', index=False)
+cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_flair\bmw\outcome_using_flair\outcome_of_flair_on_bmw_news_' + str(current_date) + '.csv', index=False)
 #cleaned_dataframe.to_csv('test.csv', index=False)
