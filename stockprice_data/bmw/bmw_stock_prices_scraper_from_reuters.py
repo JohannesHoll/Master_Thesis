@@ -16,12 +16,9 @@ days = int(input('Enter number of days you want to go back: '))
 current_date = datetime.today().strftime('%Y-%m-%d')
 current_date_for_modification = datetime.today()
 date_minus_certain_days = current_date_for_modification + timedelta(days=-days)
-#date_minus_three = current_date_for_modification + timedelta(days=-4)
 modified_date = date_minus_certain_days.strftime("%Y-%m-%d")
-#modified_date_minus_three = date_minus_three.strftime("%Y-%m-%d")
 print(current_date)
 print(modified_date)
-#print(modified_date_minus_three)
 
 #RIC, fields, time to receive stock prices
 rics = ['BMWG.DE'] 
