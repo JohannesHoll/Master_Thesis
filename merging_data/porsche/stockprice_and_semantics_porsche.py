@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 import re
 import numpy as np
 import itertools
+from functools import reduce
 
 # file where csv files of flair analysis lies
 path_flair = r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_flair\porsche\outcome_using_flair'
@@ -57,14 +58,39 @@ cleaned_dataframe_vader = cleaned_dataframe_vader.drop_duplicates(subset=["url"]
 
 print(cleaned_dataframe_vader)
 
+# file where csv files of textblob analysis lies
+path_textblob = r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_textblob\porsche\outcome_using_texblob'
+all_files_textblob = glob.glob(os.path.join(path_textblob, "*.csv"))
+
+# read files to pandas frame
+list_of_files_textblob = []
+
+for filename in all_files_textblob:
+    list_of_files_textblob.append(pd.read_csv(filename,
+                                              sep=',',
+                                              )
+                                  )
+
+# Concatenate all content of files into one DataFrames
+concatenate_list_of_files_textblob = pd.concat(list_of_files_textblob,
+                                               ignore_index=True,
+                                               axis=0,
+                                               )
+
+# removing duplicates
+cleaned_dataframe_textblob = concatenate_list_of_files_textblob.sort_values(by='url', ascending=False)
+cleaned_dataframe_textblob = cleaned_dataframe_textblob.drop_duplicates(subset=["url"], keep='first', ignore_index=True)
+
+print(cleaned_dataframe_textblob)
+
 ##merging files together
 merged_df = pd.merge(cleaned_dataframe_flair, cleaned_dataframe_vader, on=['url','header','release time','article content','formatted date'])
+merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url','header','release time','article content','formatted date'])
 merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
 path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\porsche\daily_stock_prices'
 
-#check if semantics can be join to price files
 for file in glob.iglob(path_stockprices + '\*.csv'):
     date = re.search('\d{4}-\d{2}-\d{2}', file)
     date = date.group()

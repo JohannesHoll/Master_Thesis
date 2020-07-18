@@ -1,9 +1,9 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content
-2020-02-12 09:28:00,816.0,816.0,816.0,816.0,5.0,,,,,,,,,,,,,,,
-2020-02-12 11:47:00,816.0,816.0,816.0,816.0,2.0,,,,,,,,,,,,,,,
-2020-02-12 15:58:00,824.0,836.0,824.0,836.0,195.0,,,,,,,,,,,,,,,
-2020-02-12 15:59:00,822.0,822.0,822.0,822.0,16.0,,,,,,,,,,,,,,,
-2020-02-12 16:51:00,824.0,824.0,824.0,824.0,10.0,,,,,,,,,,,,,,,
-2020-02-12 17:07:00,830.0,830.0,830.0,830.0,2.0,,,,,,,,,,,,,,,
-2020-02-12 17:23:00,830.0,830.0,830.0,830.0,5.0,,,,,,,,,,,,,,,
-2020-02-12 17:37:00,836.0,836.0,836.0,836.0,2.0,,,,,,,,,,,,,,,
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2020-02-12 09:28:00,816.0,816.0,816.0,816.0,5.0,,,,,,,,,,,,,,,,,,,
+2020-02-12 11:47:00,816.0,816.0,816.0,816.0,2.0,,,,,,,,,,,,,,,,,,,
+2020-02-12 15:58:00,824.0,836.0,824.0,836.0,195.0,,,,,,,,,,,,,,,,,,,
+2020-02-12 15:59:00,822.0,822.0,822.0,822.0,16.0,,,,,,,,,,,,,,,,,,,
+2020-02-12 16:51:00,824.0,824.0,824.0,824.0,10.0,,,,,,,,,,,,,,,,,,,
+2020-02-12 17:07:00,830.0,830.0,830.0,830.0,2.0,,,,,,,,,,,,,,,,,,,
+2020-02-12 17:23:00,830.0,830.0,830.0,830.0,5.0,,,,,,,,,,,,,,,,,,,
+2020-02-12 17:37:00,836.0,836.0,836.0,836.0,2.0,,,,,,,,,,,,,,,,,,,

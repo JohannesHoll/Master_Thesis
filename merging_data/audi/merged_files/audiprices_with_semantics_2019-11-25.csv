@@ -1,4 +1,4 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content
-2019-11-25 12:15:00,804.0,804.0,796.0,796.0,3.0,,,,,,,,,,,,,,,
-2019-11-25 16:56:00,800.0,800.0,800.0,800.0,6.0,,,,,,,,,,,,,,,
-2019-11-25 17:37:00,804.0,804.0,804.0,804.0,0.0,,,,,,,,,,,,,,,
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2019-11-25 12:15:00,804.0,804.0,796.0,796.0,3.0,,,,,,,,,,,,,,,,,,,
+2019-11-25 16:56:00,800.0,800.0,800.0,800.0,6.0,,,,,,,,,,,,,,,,,,,
+2019-11-25 17:37:00,804.0,804.0,804.0,804.0,0.0,,,,,,,,,,,,,,,,,,,

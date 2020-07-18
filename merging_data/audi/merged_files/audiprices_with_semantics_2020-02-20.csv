@@ -1,7 +1,7 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content
-2020-02-20 09:03:00,832.0,832.0,832.0,832.0,1.0,,,,,,,,,,,,,,,
-2020-02-20 09:06:00,840.0,840.0,840.0,840.0,7.0,,,,,,,,,,,,,,,
-2020-02-20 09:17:00,838.0,838.0,834.0,834.0,4.0,,,,,,,,,,,,,,,
-2020-02-20 11:45:00,834.0,834.0,832.0,832.0,5.0,,,,,,,,,,,,,,,
-2020-02-20 13:23:00,832.0,832.0,830.0,830.0,17.0,,,,,,,,,,,,,,,
-2020-02-20 17:37:00,842.0,842.0,842.0,842.0,2.0,,,,,,,,,,,,,,,
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2020-02-20 09:03:00,832.0,832.0,832.0,832.0,1.0,,,,,,,,,,,,,,,,,,,
+2020-02-20 09:06:00,840.0,840.0,840.0,840.0,7.0,,,,,,,,,,,,,,,,,,,
+2020-02-20 09:17:00,838.0,838.0,834.0,834.0,4.0,,,,,,,,,,,,,,,,,,,
+2020-02-20 11:45:00,834.0,834.0,832.0,832.0,5.0,,,,,,,,,,,,,,,,,,,
+2020-02-20 13:23:00,832.0,832.0,830.0,830.0,17.0,,,,,,,,,,,,,,,,,,,
+2020-02-20 17:37:00,842.0,842.0,842.0,842.0,2.0,,,,,,,,,,,,,,,,,,,
