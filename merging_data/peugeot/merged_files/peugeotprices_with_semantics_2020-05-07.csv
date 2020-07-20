@@ -401,7 +401,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-05-07 16:01:00,13.07,13.07,13.06,13.06,1110.0,,,,,,,,,,,,,,,,,,,
 2020-05-07 16:02:00,13.06,13.06,13.045,13.05,2634.0,,,,,,,,,,,,,,,,,,,
 2020-05-07 16:03:00,13.06,13.07,13.06,13.07,5086.0,,,,,,,,,,,,,,,,,,,
-2020-05-07 16:04:00,13.08,13.08,13.08,13.08,400.0,,,,,,,,,,,,,,,,,,,
+2020-05-07 16:04:00,13.08,13.08,13.08,13.08,400.0,https://www.reuters.com/article/health-coronavirus-psa-slovakia/carmaker-psas-slovak-plant-to-restart-production-on-may-12-idUSL1N2CP1BU,"[""Carmaker PSA's Slovak plant to restart production on May 12""]","['May 7, 2020 /  4:04 PM / a day ago']","['BRATISLAVA, May 7 (Reuters) - French carmaker PSA’s Slovak plant will restart production on May 12, a spokesman said on Thursday. ', 'PSA Slovakia said it would run one shift from Wednesday to Friday and would update its plans on May 14. ', 'The plant, which produces Peugeot and Citroen models, suspended production on March 19 due to the coronavirus outbreak. (Reporting by Tomas Mrva)']",2020-05-07 16:04:00,NEGATIVE (0.9872),NEGATIVE (0.9997),0.0,1.0,0.0,0.0,0.048,0.9520000000000001,0.0,-0.4767,0.0,0.0,-0.0625,0.1875
 2020-05-07 16:05:00,13.08,13.08,13.075,13.075,3147.0,,,,,,,,,,,,,,,,,,,
 2020-05-07 16:06:00,13.07,13.07,13.05,13.055,22129.0,,,,,,,,,,,,,,,,,,,
 2020-05-07 16:07:00,13.055,13.055,13.03,13.035,15416.0,,,,,,,,,,,,,,,,,,,

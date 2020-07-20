@@ -89,7 +89,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-06-16 10:30:00,136.98,137.16,136.96,137.1,1953.0,,,,,,,,,,,,,,,,,,,
 2020-06-16 10:31:00,137.18,137.34,137.02,137.04,5392.0,,,,,,,,,,,,,,,,,,,
 2020-06-16 10:32:00,137.0,137.04,136.9,137.0,1175.0,,,,,,,,,,,,,,,,,,,
-2020-06-16 10:33:00,137.0,137.08,136.92,137.08,4507.0,,,,,,,,,,,,,,,,,,,
+2020-06-16 10:33:00,137.0,137.08,136.92,137.08,4507.0,https://www.reuters.com/article/us-volkswagen-electric-batteries/volkswagen-invests-extra-200-million-in-u-s-battery-company-quantumscape-idUSKBN23N1K1,['Volkswagen invests extra $200 million in U.S. battery company QuantumScape'],"['June 16, 2020 /  10:33 AM / 21 days ago']","['BERLIN (Reuters) - Volkswagen is increasing its stake in U.S. company QuantumScape by up to $200 million to boost the development of solid-state battery technology that aims to increase the ranges of electric cars and shorten charging times, the German carmaker said ', ' on Tuesday. ', 'Volkswagen added that plans for a pilot plant were expected to be firmed up in the course of this year. ', 'Reporting by Thomas Seythal; Editing by Michelle Martin']",2020-06-16 10:33:00,NEGATIVE (0.9951),NEGATIVE (0.9869),0.0,1.0,0.0,0.0,0.0,0.934,0.066,0.6124,0.0,0.1,-0.05,0.2
 2020-06-16 10:34:00,137.06,137.08,136.94,137.06,1918.0,,,,,,,,,,,,,,,,,,,
 2020-06-16 10:35:00,136.92,137.08,136.88,137.04,3593.0,,,,,,,,,,,,,,,,,,,
 2020-06-16 10:36:00,136.96,136.96,136.66,136.72,1519.0,,,,,,,,,,,,,,,,,,,
