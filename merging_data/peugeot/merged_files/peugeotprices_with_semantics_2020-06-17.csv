@@ -332,7 +332,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-06-17 14:31:00,13.815,13.83,13.815,13.83,3018.0,,,,,,,,,,,,,,,,,,,
 2020-06-17 14:32:00,13.84,13.855,13.835,13.835,2307.0,,,,,,,,,,,,,,,,,,,
 2020-06-17 14:33:00,13.85,13.86,13.85,13.85,988.0,,,,,,,,,,,,,,,,,,,
-2020-06-17 14:34:00,13.85,13.85,13.835,13.84,1388.0,,,,,,,,,,,,,,,,,,,
+2020-06-17 14:34:00,13.85,13.85,13.835,13.84,1388.0,https://www.reuters.com/article/brief-fiat-psa-say-merger-advancing-as-p/brief-fiat-psa-say-merger-advancing-as-planned-idUSR1N2CT00X,"['BRIEF-Fiat, PSA say merger advancing as planned']","['June 17, 2020 /  2:34 PM / a month ago']","['June 17 (Reuters) - After EU antitrust regulators said they opened a four-month investigation into their proposed merger, Fiat Chrysler and PSA Group say in a joint statement: ', '* WILL CONTINUE TO COOPERATE WITH EU COMMISSION, TO ANSWER COMMISSION’S QUESTIONS REGARDING MERGER ', '* WILL DETAIL “SUBSTANTIAL BENEFITS” OF PROPOSED MERGER TO COMMISSION ', '* PREPARATIONS FOR MERGER ARE ADVANCING AS PLANNED, CONFIRM TARGET TO CLOSE TRANSACTION BY END OF FIRST QUARTER 2021 ', '* MERGER HAS ALREADY BEEN GRANTED ANTITRUST APPROVAL IN U.S., CHINA, JAPAN AND RUSSIA (Reporting by Milan newsroom)']",2020-06-17 14:34:00,NEGATIVE (0.9413),NEGATIVE (0.9468),0.0,1.0,0.0,0.0,0.0,0.9309999999999999,0.069,0.7626,0.0,0.0,0.25,0.3333333333333333
 2020-06-17 14:35:00,13.845,13.845,13.825,13.83,1464.0,,,,,,,,,,,,,,,,,,,
 2020-06-17 14:36:00,13.825,13.825,13.805,13.815,4638.0,,,,,,,,,,,,,,,,,,,
 2020-06-17 14:37:00,13.82,13.82,13.82,13.82,75.0,,,,,,,,,,,,,,,,,,,

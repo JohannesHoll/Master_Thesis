@@ -250,7 +250,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-04-01 13:14:00,6.355,6.355,6.354,6.355,824.0,,,,,,,,,,,,,,,,,,,
 2020-04-01 13:15:00,6.353,6.356,6.352,6.356,9150.0,,,,,,,,,,,,,,,,,,,
 2020-04-01 13:16:00,6.359,6.3629999999999995,6.359,6.3629999999999995,5492.0,,,,,,,,,,,,,,,,,,,
-2020-04-01 13:17:00,6.364,6.367000000000001,6.3629999999999995,6.367000000000001,5547.0,https://www.reuters.com/article/health-coronavirus-autosales/fiat-chrysler-u-s-auto-sales-fall-10-in-first-quarter-idUSL4N2BP2XL,['Fiat Chrysler U.S. auto sales fall 10% in first quarter'],"['April 1, 2020 /  1:17 PM / a month ago']","['April 1 (Reuters) - Fiat Chrysler Automobiles NV on Wednesday reported a 10% decline in U.S. auto sales in the first quarter, as the fast-spreading coronavirus outbreak hurt demand and halted production from mid-March. ', 'The automaker said it sold 446,768 vehicles in the first three months of 2020, compared with 498,425 units a year earlier. (Reporting by Rachit Vats and Sanjana Shivdas in Bengaluru; Editing by Saumyadeb Chakrabarty)']",2020-04-01 13:17:00,NEGATIVE (0.9992),NEGATIVE (1.0),0.0,1.0,0.0,0.0,0.07200000000000001,0.9279999999999999,0.0,-0.5994,0.25,0.3333333333333333,0.16666666666666666,0.3888888888888888
+2020-04-01 13:17:00,6.364,6.367000000000001,6.3629999999999995,6.367000000000001,5547.0,,,,,,,,,,,,,,,,,,,
 2020-04-01 13:18:00,6.369,6.369,6.3629999999999995,6.364,3049.0,,,,,,,,,,,,,,,,,,,
 2020-04-01 13:19:00,6.365,6.369,6.364,6.365,3845.0,,,,,,,,,,,,,,,,,,,
 2020-04-01 13:20:00,6.364,6.372000000000001,6.364,6.372000000000001,5798.0,,,,,,,,,,,,,,,,,,,

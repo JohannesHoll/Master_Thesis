@@ -11,7 +11,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-05-15 09:10:00,118.86,119.0,118.84,118.9,1220.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 09:11:00,118.9,119.44,118.88,119.3,2706.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 09:12:00,119.32,119.36,118.9,118.92,5740.0,,,,,,,,,,,,,,,,,,,
-2020-05-15 09:13:00,118.94,119.08,118.84,119.02,7300.0,,,,,,,,,,,,,,,,,,,
+2020-05-15 09:13:00,118.94,119.08,118.84,119.02,7300.0,https://www.reuters.com/article/idUSS8N2AP0H1,['BRIEF-Volkswagen April Group\xa0Deliveries Down 45.4%'],"['May 15, 2020 /  9:13 AM / Updated 3 hours ago']","['May 15 (Reuters) - Volkswagen AG: ', '* VW SAYS APRIL GROUP DELIVERIES DOWN 45.4% AT 473,500 VEHICLES ', '* VW SAYS APRIL GROUP DELIVERIES DOWN 76.7% IN WESTERN EUROPE, DOWN 61.5% IN CENTRAL AND EASTERN EUROPE, DOWN 52.8% IN NORTH AMERICA, UP 1.0% IN CHINA ', '* VW SAYS JAN-APRIL GROUP DELIVERIES DOWN 28.6% AT 2,479,500 VEHICLES ', 'Further company coverage: (Gdansk Newsroom)']",2020-05-15 09:13:00,NEGATIVE (0.9983),NEGATIVE (0.9998),0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,-0.1555555555555556,0.2888888888888889,-0.1697530864197531,0.3549382716049383
 2020-05-15 09:14:00,119.06,119.5,119.06,119.5,7657.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 09:15:00,119.5,119.54,119.18,119.18,4458.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 09:16:00,119.28,119.44,118.96,118.96,4130.0,,,,,,,,,,,,,,,,,,,
@@ -299,7 +299,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-05-15 14:02:00,119.48,119.54,119.46,119.54,1991.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:03:00,119.5,119.5,119.34,119.42,1012.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:04:00,119.46,119.5,119.16,119.18,977.0,,,,,,,,,,,,,,,,,,,
-2020-05-15 14:05:00,119.2,119.24,119.12,119.16,938.0,https://www.reuters.com/article/us-volkswagen-golf/volkswagen-halts-deliveries-of-golf-8-due-to-software-problem-idUSKBN22R27E,['Volkswagen halts deliveries of Golf 8 due to software problem'],"['May 15, 2020 /  2:05 PM / 7 days ago']","['HAMBURG (Reuters) - Volkswagen is halting deliveries of its Golf 8 model after a software problem was found in some vehicles, a spokesman said on Friday. ', 'The software at issue enables emergency calls, a function required by E.U. regulations since 2018. ', 'The company will decide in the next few days how to deal with affected cars, such as a recall and software update. ', 'Reporting by Jan Schwartz; Writing by Tom Sims, editing by Thomas Escritt']",2020-05-15 14:05:00,NEGATIVE (0.9992),NEGATIVE (0.9697),0.0,1.0,0.0,0.0,0.091,0.909,0.0,-0.7096,-0.125,0.375,-0.06666666666666668,0.2
+2020-05-15 14:05:00,119.2,119.24,119.12,119.16,938.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:06:00,119.16,119.18,119.0,119.08,2912.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:07:00,119.22,119.5,119.18,119.4,2174.0,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:08:00,119.38,119.4,119.36,119.4,236.0,,,,,,,,,,,,,,,,,,,

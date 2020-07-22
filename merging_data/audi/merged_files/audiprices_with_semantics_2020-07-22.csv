@@ -1,0 +1,11 @@
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2020-07-22 09:03:00,1560.0,1560.0,1560.0,1560.0,1.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 09:50:00,1560.0,1560.0,1560.0,1560.0,10.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 10:49:00,1570.0,1570.0,1570.0,1570.0,45.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 13:18:00,1560.0,1560.0,1560.0,1560.0,1.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 13:26:00,1570.0,1570.0,1570.0,1570.0,10.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 14:43:00,1570.0,1570.0,1570.0,1570.0,50.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 15:46:00,1570.0,1570.0,1570.0,1570.0,1.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 16:54:00,1570.0,1570.0,1570.0,1570.0,2.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 17:09:00,1560.0,1560.0,1560.0,1560.0,1.0,,,,,,,,,,,,,,,,,,,
+2020-07-22 17:37:00,1570.0,1570.0,1570.0,1570.0,0.0,,,,,,,,,,,,,,,,,,,

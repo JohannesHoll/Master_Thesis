@@ -133,7 +133,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatte
 2020-04-16 11:12:00,49.82,49.82,49.78,49.79,1590.0,,,,,,,,,,,,,,,,,,,
 2020-04-16 11:13:00,49.915,49.965,49.905,49.965,630.0,,,,,,,,,,,,,,,,,,,
 2020-04-16 11:14:00,49.94,50.02,49.93,50.01,2485.0,,,,,,,,,,,,,,,,,,,
-2020-04-16 11:15:00,50.0,50.03,49.99,49.99,799.0,,,,,,,,,,,,,,,,,,,
+2020-04-16 11:15:00,50.0,50.03,49.99,49.99,799.0,https://www.reuters.com/article/us-bmw-daimler-carsharing/daimler-bmws-free-now-service-to-restructure-integrate-french-app-kapten-idUSKCN21Y1JZ,"[""Daimler/BMW's 'FREE NOW' service to restructure, integrate French app Kapten""]","['April 16, 2020 /  11:15 AM / a month ago']","['PARIS (Reuters) - The ‘FREE NOW’ taxi ride-hailing service run by Daimler and BMW announced on Thursday a corporate restructuring, which could lead to job cuts, and unveiled plans to merge with French app Kapten. ', 'The ‘FREE NOW’ company said in a statement that its restructuring was aimed at reducing costs in order to offset the hits to its business caused by the coronavirus crisis, which has hurt transport companies around the world. ', 'The ‘FREE NOW’ and Kapten ride-hailing apps are among many relatively new companies that have been set up across the globe to take on the likes of main players such as Uber. ', 'Reporting by Sudip Kar-Gupta; Editing by Susan Fenton']",2020-04-16 11:15:00,NEGATIVE (0.9894),NEGATIVE (0.9072),0.0,0.691,0.309,0.6166,0.08,0.897,0.023,-0.7845,0.2,0.4,0.2225589225589225,0.4653198653198654
 2020-04-16 11:16:00,49.985,50.06,49.96,50.06,3601.0,,,,,,,,,,,,,,,,,,,
 2020-04-16 11:17:00,50.04,50.04,49.95,49.965,1342.0,,,,,,,,,,,,,,,,,,,
 2020-04-16 11:18:00,49.94,49.94,49.935,49.935,626.0,,,,,,,,,,,,,,,,,,,
