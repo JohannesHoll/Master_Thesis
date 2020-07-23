@@ -89,7 +89,7 @@ merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url','header','
 merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
-path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\porsche\daily_stock_prices'
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\porsche\stockpricefiles_with_return'
 
 for file in glob.iglob(path_stockprices + '\*.csv'):
     date = re.search('\d{4}-\d{2}-\d{2}', file)

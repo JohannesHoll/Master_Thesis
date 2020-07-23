@@ -1,8 +1,8 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
-2020-02-07 09:03:00,820.0,820.0,820.0,820.0,1.0,,,,,,,,,,,,,,,,,,,
-2020-02-07 09:21:00,820.0,820.0,816.0,816.0,11.0,,,,,,,,,,,,,,,,,,,
-2020-02-07 11:27:00,816.0,816.0,816.0,816.0,20.0,,,,,,,,,,,,,,,,,,,
-2020-02-07 11:33:00,822.0,822.0,822.0,822.0,5.0,,,,,,,,,,,,,,,,,,,
-2020-02-07 13:28:00,822.0,822.0,822.0,822.0,1.0,,,,,,,,,,,,,,,,,,,
-2020-02-07 15:45:00,816.0,816.0,816.0,816.0,10.0,,,,,,,,,,,,,,,,,,,
-2020-02-07 17:37:00,824.0,824.0,824.0,824.0,3.0,,,,,,,,,,,,,,,,,,,
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2020-02-07 09:03:00,820.0,820.0,820.0,820.0,1.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,
+2020-02-07 09:21:00,820.0,820.0,816.0,816.0,11.0,-4.0,0,10.0,1,,,,,,,,,,,,,,,,,,,
+2020-02-07 11:27:00,816.0,816.0,816.0,816.0,20.0,-4.0,0,9.0,1,,,,,,,,,,,,,,,,,,,
+2020-02-07 11:33:00,822.0,822.0,822.0,822.0,5.0,6.0,1,-15.0,0,,,,,,,,,,,,,,,,,,,
+2020-02-07 13:28:00,822.0,822.0,822.0,822.0,1.0,0.0,0,-4.0,0,,,,,,,,,,,,,,,,,,,
+2020-02-07 15:45:00,816.0,816.0,816.0,816.0,10.0,-6.0,0,9.0,1,,,,,,,,,,,,,,,,,,,
+2020-02-07 17:37:00,824.0,824.0,824.0,824.0,3.0,8.0,1,-7.0,0,,,,,,,,,,,,,,,,,,,
