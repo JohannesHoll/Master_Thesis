@@ -299,7 +299,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,
 2020-05-15 14:02:00,119.48,119.54,119.46,119.54,1991.0,0.12000000000000455,1,736.0,1,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:03:00,119.5,119.5,119.34,119.42,1012.0,-0.060000000000002274,0,-979.0,0,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:04:00,119.46,119.5,119.16,119.18,977.0,-0.3199999999999932,0,-35.0,0,,,,,,,,,,,,,,,,,,,
-2020-05-15 14:05:00,119.2,119.24,119.12,119.16,938.0,-0.2999999999999972,0,-39.0,0,,,,,,,,,,,,,,,,,,,
+2020-05-15 14:05:00,119.2,119.24,119.12,119.16,938.0,-0.2999999999999972,0,-39.0,0,https://www.reuters.com/article/us-volkswagen-golf/volkswagen-halts-deliveries-of-golf-8-due-to-software-problem-idUSKBN22R27E,['Volkswagen halts deliveries of Golf 8 due to software problem'],"['May 15, 2020 /  2:05 PM / 14 days ago']","['HAMBURG (Reuters) - Volkswagen is halting deliveries of its Golf 8 model after a software problem was found in some vehicles, a spokesman said on Friday. ', 'The software at issue enables emergency calls, a function required by E.U. regulations since 2018. ', 'The company will decide in the next few days how to deal with affected cars, such as a recall and software update. ', 'Reporting by Jan Schwartz; Writing by Tom Sims, editing by Thomas Escritt']",2020-05-15 14:05:00,NEGATIVE (0.9992),NEGATIVE (0.9697),0.0,1.0,0.0,0.0,0.091,0.909,0.0,-0.7096,-0.125,0.375,-0.06666666666666668,0.2
 2020-05-15 14:06:00,119.16,119.18,119.0,119.08,2912.0,-0.12000000000000455,0,1974.0,1,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:07:00,119.22,119.5,119.18,119.4,2174.0,0.2400000000000091,1,-738.0,0,,,,,,,,,,,,,,,,,,,
 2020-05-15 14:08:00,119.38,119.4,119.36,119.4,236.0,0.18000000000000682,1,-1938.0,0,,,,,,,,,,,,,,,,,,,

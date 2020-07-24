@@ -4,7 +4,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,
 2020-05-26 09:03:00,32.37,32.375,32.2,32.2,16485.0,-0.07000000000000027,0,-9098.0,0,,,,,,,,,,,,,,,,,,,
 2020-05-26 09:04:00,32.24,32.3,32.19,32.19,14301.0,-0.17999999999999972,0,-2184.0,0,,,,,,,,,,,,,,,,,,,
 2020-05-26 09:05:00,32.19,32.23,32.19,32.23,2721.0,-0.010000000000005116,0,-11580.0,0,,,,,,,,,,,,,,,,,,,
-2020-05-26 09:06:00,32.2,32.355,32.15,32.355,9919.0,0.16499999999999915,1,7198.0,1,https://www.reuters.com/article/brief-rolls-royce-and-daimler-truck-ag-p/brief-rolls-royce-and-daimler-truck-ag-plan-cooperation-on-stationary-fuel-cell-systems-idUSFWN2D80BR,['BRIEF-Rolls-Royce And Daimler Truck AG Plan Cooperation On Stationary Fuel-Cell Systems'],"['May 26, 2020 /  9:06 AM / 2 months ago']","['May 26 (Reuters) - Daimler AG: ', '* DAIMLER AG - ROLLS-ROYCE AND DAIMLER TRUCK AG PLAN COOPERATION ON STATIONARY FUEL-CELL SYSTEMS Source text - ', ' Further company coverage: (Gdansk Newsroom)']",2020-05-26 09:06:00,NEGATIVE (0.7486),NEGATIVE (0.9215),0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,-0.375,0.75
+2020-05-26 09:06:00,32.2,32.355,32.15,32.355,9919.0,0.16499999999999915,1,7198.0,1,,,,,,,,,,,,,,,,,,,
 2020-05-26 09:07:00,32.395,32.5,32.39,32.5,52176.0,0.2999999999999972,1,42257.0,1,,,,,,,,,,,,,,,,,,,
 2020-05-26 09:08:00,32.475,32.515,32.38,32.44,25335.0,0.0449999999999946,1,-26841.0,0,,,,,,,,,,,,,,,,,,,
 2020-05-26 09:09:00,32.425,32.51,32.385,32.4,18994.0,-0.07500000000000284,0,-6341.0,0,,,,,,,,,,,,,,,,,,,
