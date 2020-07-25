@@ -96,3 +96,6 @@ plt.xlabel('Time')
 plt.ylabel('Daimler Stock Price')
 plt.legend()
 plt.show()
+
+date_today = str(datetime.now().strftime("%Y%m%d-%H%M"))
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\daimler\prediction_plot_with_semantics\prediction_daimler_with_semantics' + date_today + '.png', bbox_inches="tight")

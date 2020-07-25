@@ -95,3 +95,6 @@ plt.xlabel('Time')
 plt.ylabel('Audi Stock Price')
 plt.legend()
 plt.show()
+
+date_today = str(datetime.now().strftime("%Y%m%d-%H%M"))
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\audi\prediction_plot_without_semantics\prediction_audi_without_semantics' + date_today + '.png', bbox_inches="tight")
