@@ -19,7 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="" />
+    <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/daimler/daimler_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/ferrari/ferrari_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/fiatchrysler_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/peugeot/peugeot_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/volkswagen/volkswagen_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/volvo/volvo_prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,8 +56,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Python.audi_stock_price_return">
-    <configuration name="audi_stock_price_return" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.bmw_prediction">
+    <configuration name="audi_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -53,11 +65,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_data/audi" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/audi" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_data/audi/audi_stock_price_return.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -66,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bmw_stock_price_return" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="bmw_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,11 +86,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_data/bmw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/bmw" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_data/bmw/bmw_stock_price_return.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -87,7 +99,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="daimler_stock_price_return" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="renault_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -95,11 +107,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_data/daimler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/renault" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_data/daimler/daimler_stock_price_return.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,7 +120,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ferrari_stock_price_return" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="volkswagen_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,11 +128,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_data/ferrari" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/volkswagen" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_data/ferrari/ferrari_stock_price_return.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/volkswagen/volkswagen_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,7 +141,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="fiatchrysler_stock_price_return" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="volvo_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -137,11 +149,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_data/fiatchrysler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/volvo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_data/fiatchrysler/fiatchrysler_stock_price_return.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/volvo/volvo_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.audi_stock_price_return" />
-        <item itemvalue="Python.bmw_stock_price_return" />
-        <item itemvalue="Python.daimler_stock_price_return" />
-        <item itemvalue="Python.ferrari_stock_price_return" />
-        <item itemvalue="Python.fiatchrysler_stock_price_return" />
+        <item itemvalue="Python.bmw_prediction" />
+        <item itemvalue="Python.audi_prediction" />
+        <item itemvalue="Python.volvo_prediction" />
+        <item itemvalue="Python.volkswagen_prediction" />
+        <item itemvalue="Python.renault_prediction" />
       </list>
     </recent_temporary>
   </component>
@@ -186,25 +198,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1595614628906">
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1595680367011">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595614628906" />
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
     <state width="1515" height="203" key="GridCell.Tab.0.bottom/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
-    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1595614628906">
+    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1595680367011">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595614628906" />
+    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
     <state width="1515" height="203" key="GridCell.Tab.0.center/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1595614628906">
+    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1595680367011">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595614628906" />
+    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
     <state width="1515" height="203" key="GridCell.Tab.0.left/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1595614628906">
+    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1595680367011">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595614628906" />
+    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
     <state width="1515" height="203" key="GridCell.Tab.0.right/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1594575882722">
       <screen x="0" y="0" width="1536" height="834" />
