@@ -20,16 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/daimler/daimler_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/ferrari/ferrari_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/fiatchrysler_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/peugeot/peugeot_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/volkswagen/volkswagen_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stockprice_prediction/volvo/volvo_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stockprice_prediction/audi/audi_regression.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
