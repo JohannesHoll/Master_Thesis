@@ -95,7 +95,6 @@ plt.title('Porsche Stock Price Prediction')
 plt.xlabel('Time')
 plt.ylabel('Porsche Stock Price')
 plt.legend()
-plt.show()
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
 plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\porsche\prediction_plot_without_semantics\prediction_porsche_without_semantics_' + date_today + '.png', bbox_inches="tight")
