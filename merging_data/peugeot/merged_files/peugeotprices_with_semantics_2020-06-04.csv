@@ -143,7 +143,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,
 2020-06-04 11:22:00,14.145,14.145,14.12,14.12,880.0,-0.02000000000000135,0,-4031.0,0,,,,,,,,,,,,,,,,,,,
 2020-06-04 11:23:00,14.11,14.115,14.105,14.105,6560.0,-0.03999999999999915,0,5680.0,1,,,,,,,,,,,,,,,,,,,
 2020-06-04 11:24:00,14.11,14.11,14.06,14.075,12163.0,-0.035000000000000135,0,5603.0,1,,,,,,,,,,,,,,,,,,,
-2020-06-04 11:25:00,14.055,14.06,14.055,14.055,1762.0,-0.054999999999999716,0,-10401.0,0,https://www.reuters.com/article/brief-competition-commission-of-india-ap/brief-competition-commission-of-india-approves-proposed-peugeot-fiat-chrysler-merger-idUSFWN2DH0EC,['BRIEF-Competition Commission Of India Approves Proposed Peugeot-Fiat Chrysler Merger'],"['June 4, 2020 /  11:25 AM / 21 days ago']","['June 4 (Reuters) - Competition Commission of India: ', '* COMPETITION COMMISSION OF INDIA APPROVES PROPOSED MERGER BETWEEN PEUGEOT S.A AND FIAT CHRYSLER AUTOMOBILES N.V. - TWEET Source text: (', ') Further company coverage:']",2020-06-04 11:25:00,POSITIVE (0.548),NEGATIVE (0.9797),0.0,0.748,0.252,0.4019,0.0,0.897,0.10300000000000001,0.5319,0.0,0.0,-0.375,0.75
+2020-06-04 11:25:00,14.055,14.06,14.055,14.055,1762.0,-0.054999999999999716,0,-10401.0,0,,,,,,,,,,,,,,,,,,,
 2020-06-04 11:26:00,14.05,14.055,14.03,14.035,4343.0,-0.01999999999999957,0,2581.0,1,,,,,,,,,,,,,,,,,,,
 2020-06-04 11:27:00,14.035,14.035,14.025,14.03,12288.0,-0.02000000000000135,0,7945.0,1,,,,,,,,,,,,,,,,,,,
 2020-06-04 11:28:00,14.03,14.07,14.025,14.025,20495.0,-0.009999999999999787,0,8207.0,1,,,,,,,,,,,,,,,,,,,
