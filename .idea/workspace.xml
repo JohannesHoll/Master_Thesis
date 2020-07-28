@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction_without_semantics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Python.bmw_prediction">
+  <component name="RunManager" selected="Python.bmw_test">
     <configuration name="audi_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,7 +90,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="renault_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="bmw_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,11 +98,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/renault" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/bmw" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.bmw_test" />
         <item itemvalue="Python.bmw_prediction" />
         <item itemvalue="Python.audi_prediction" />
         <item itemvalue="Python.volvo_prediction" />
         <item itemvalue="Python.volkswagen_prediction" />
-        <item itemvalue="Python.renault_prediction" />
       </list>
     </recent_temporary>
   </component>
@@ -188,25 +189,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1595680367011">
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1595960961219">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595960961219" />
     <state width="1515" height="203" key="GridCell.Tab.0.bottom/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
-    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1595680367011">
+    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1595960961219">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
+    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595960961219" />
     <state width="1515" height="203" key="GridCell.Tab.0.center/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1595680367011">
+    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1595960961219">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
+    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595960961219" />
     <state width="1515" height="203" key="GridCell.Tab.0.left/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1595680367011">
+    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1595960961219">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595680367011" />
+    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595960961219" />
     <state width="1515" height="203" key="GridCell.Tab.0.right/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1594575882722">
       <screen x="0" y="0" width="1536" height="834" />
