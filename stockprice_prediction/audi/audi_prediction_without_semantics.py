@@ -72,8 +72,7 @@ model.add(Dense(units=1))
 ##compile model
 model.compile(optimizer='adam', loss='mean_squared_error')
 ##fitting model
-model.fit(X_train, y_train, epochs=100, batch_size=32)
-
+model.fit(X_train, y_train, epochs=10, batch_size=32)
 
 test_dataset = concatenate_dataframe.iloc[:split_point, 1:2].values
 
@@ -96,5 +95,6 @@ plt.ylabel('Audi Stock Price')
 plt.legend()
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
+#model.save(r'C:\Users\victo\Master_Thesis\stockprice_prediction\audi\resultstest' + date_today + '.h5')
 plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\audi\prediction_plot_without_semantics\prediction_audi_without_semantics_' + date_today + '.png', bbox_inches="tight")
 print('Run is finished and plot is saved!')

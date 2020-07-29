@@ -73,7 +73,7 @@ model.add(Dense(units=1))
 ##compile model
 model.compile(optimizer='adam', loss='mean_squared_error')
 ##fitting model
-model.fit(X_train, y_train, epochs=100, batch_size=32)
+model.fit(X_train, y_train, epochs=10, batch_size=32)
 
 
 test_dataset = concatenate_dataframe.iloc[:split_point, 1:2].values
