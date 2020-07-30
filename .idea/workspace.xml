@@ -20,13 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/correlation/audi/correlation_audi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/bmw/correlation_bmw.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/daimler/correlation_daimler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/ferrari/correlation_ferrari.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/fiatchrysler/correlation_fiatchrysler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/peugeot/correlation_peugeot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/porsche/correlation_porsche.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/renault/correlation_renault.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/volkswagen/correlation_volkswagen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/correlation/volvo/correlation_volvo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/vader/content/audi_prediction_with_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/audi/vader/content/audi_prediction_with_semantics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics/audi_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics/audi_prediction_without_semantics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/vader/content/bmw_prediction_with_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/bmw/vader/content/bmw_prediction_with_semantics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/without_semantics/bmw_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/bmw/without_semantics/bmw_prediction_without_semantics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/without_semantics/daimler_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/daimler/without_semantics/daimler_prediction_without_semantics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/without_semantics/prediction_plot_without_semantics/prediction_daimler_without_semantics_20200730.png" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/daimler/without_semantics/prediction_plot_without_semantics/prediction_daimler_without_semantics_20200730.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics/ferrari_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics/ferrari_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics/prediction_plot_without_semantics/prediction_ferrari_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/without_semantics/fiatchrysler_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/without_semantics/fiatchrysler_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/without_semantics/prediction_plot_without_semantics/prediction_fiatchrysler_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/without_semantics/peugeot_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/peugeot/without_semantics/peugeot_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/without_semantics/prediction_plot_without_semantics/prediction_peugeot_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/without_semantics/porsche_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/porsche/without_semantics/porsche_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/without_semantics/prediction_plot_without_semantics/prediction_porsche_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/without_semantics/prediction_plot_without_semantics/prediction_renault_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/without_semantics/renault_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/renault/without_semantics/renault_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/without_semantics/prediction_plot_without_semantics/prediction_volkswagen_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/without_semantics/volkswagen_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/volkswagen/without_semantics/volkswagen_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/without_semantics/volvo_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/volvo/without_semantics/volvo_prediction_without_semantics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Python.daimler_prediction_without_semantics">
+  <component name="RunManager" selected="Python.ferrari_prediction_without_semantics">
     <configuration name="audi_prediction_with_semantics (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,27 +104,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics/audi_prediction_without_semantics.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="bmw_prediction_with_semantics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Master_Thesis" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/bmw/vader/content" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/bmw/vader/content/bmw_prediction_with_semantics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,13 +154,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="ferrari_prediction_without_semantics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Master_Thesis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics/ferrari_prediction_without_semantics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ferrari_prediction_without_semantics" />
         <item itemvalue="Python.daimler_prediction_without_semantics" />
         <item itemvalue="Python.bmw_prediction_without_semantics" />
         <item itemvalue="Python.audi_prediction_without_semantics (1)" />
         <item itemvalue="Python.audi_prediction_with_semantics (1)" />
-        <item itemvalue="Python.bmw_prediction_with_semantics" />
       </list>
     </recent_temporary>
   </component>
