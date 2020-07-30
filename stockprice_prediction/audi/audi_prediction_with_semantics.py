@@ -39,7 +39,8 @@ print(concatenate_dataframe)
 #creating train data set
 split_percentage = 0.5
 split_point = round(len(concatenate_dataframe)*split_percentage)
-training_set = concatenate_dataframe.iloc[split_point:, [1,2,24]].values
+training_set = concatenate_dataframe.iloc[split_point:, 1:2:24].values
+print(training_set)
 
 ##normalize data
 scaler = MinMaxScaler(feature_range = (0, 1))
@@ -75,7 +76,7 @@ model.compile(optimizer='adam', loss='mean_squared_error')
 ##fitting model
 model.fit(X_train, y_train, epochs=10, batch_size=32)
 
-test_dataset = concatenate_dataframe.iloc[:split_point, [1,2,24]].values
+test_dataset = concatenate_dataframe.iloc[:split_point, 1:2:24].values
 
 inputs = concatenate_dataframe.OPEN[len(concatenate_dataframe) - len(test_dataset) - 60:].values
 inputs = inputs.reshape(-1,1)
