@@ -19,40 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/prediction_plot_without_semantics/prediction_audi_without_semantics_20200730.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/prediction_plot_without_semantics/prediction_bmw_without_semantics_20200726.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/daimler_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/daimler_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/prediction_plot_without_semantics/prediction_daimler_without_semantics_20200726.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/ferrari_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/ferrari_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/prediction_plot_without_semantics/prediction_ferrari_without_semantics_20200726.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/fiatchrysler_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/fiatchrysler_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/prediction_plot_without_semantics/prediction_fiatchrysler_without_semantics_20200727.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/peugeot_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/peugeot_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/prediction_plot_without_semantics/prediction_peugeot_without_semantics_20200727.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/prediction_plot_without_semantics/prediction_porsche_without_semantics_20200728.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/prediction_plot_without_semantics/prediction_renault_without_semantics_20200726.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/prediction_plot_without_semantics/prediction_volkswagen_without_semantics_20200728.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/volkswagen_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/volkswagen_prediction_without_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/prediction_plot_without_semantics/prediction_volvo_without_semantics_20200728.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/volvo_prediction_with_semantics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/volvo_prediction_without_semantics.py" beforeDir="false" />
-    </list>
+    <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
