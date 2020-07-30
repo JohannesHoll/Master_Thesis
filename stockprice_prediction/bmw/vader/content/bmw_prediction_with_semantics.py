@@ -16,7 +16,7 @@ import os
 from datetime import datetime
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\audi\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -37,6 +37,7 @@ concatenate_dataframe = pd.concat(list_of_files,
 print(concatenate_dataframe)
 
 new_df = concatenate_dataframe[['Date','OPEN','HIGH','compound_vader_articel_content']]
+new_df['compound_vader_articel_content'] = new_df['compound_vader_articel_content'].fillna(0)
 print(new_df)
 
 #creating train data set
@@ -45,7 +46,7 @@ split_point = round(len(new_df)*split_percentage)
 training_set = new_df.iloc[split_point:, 1:3].values
 
 ##normalize data
-scaler = MinMaxScaler(feature_range = (0, 1))
+scaler = MinMaxScaler(feature_range=(0, 1))
 training_set_scaled = scaler.fit_transform(training_set)
 # Creating a data structure with 60 time-steps and 1 output
 X_train = []
@@ -81,7 +82,9 @@ model.fit(X_train, y_train, epochs=10, batch_size=32)
 test_dataset = new_df.iloc[:split_point, 1:3].values
 
 inputs = new_df.OPEN[len(new_df) - len(test_dataset) - 60:].values
+print(inputs.shape)
 inputs = inputs.reshape(-1,1)
+print(inputs.shape)
 inputs = scaler.transform(inputs)
 X_test = []
 for i in range(60, len(test_dataset)):
@@ -91,13 +94,13 @@ X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
 predicted_stock_price = model.predict(X_test)
 predicted_stock_price = scaler.inverse_transform(predicted_stock_price)
 
-plt.plot(test_dataset, color = 'black', label = 'Audi Stock Price')
-plt.plot(predicted_stock_price, color = 'green', label = 'Predicted Audi Stock Price')
-plt.title('Audi Stock Price Prediction')
+plt.plot(test_dataset, color = 'black', label = 'BMW Stock Price')
+plt.plot(predicted_stock_price, color = 'green', label = 'Predicted BMW Stock Price')
+plt.title('BMW Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('Audi Stock Price')
+plt.ylabel('BMW Stock Price')
 plt.legend()
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\audi\vader\content\prediction_plot_with_semantics\prediction_audi_with_vadercontent_' + date_today + '.png', bbox_inches="tight")
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\vader\content\prediction_plot_with_semantics\prediction_bmw_with_vadercontent_' + date_today + '.png', bbox_inches="tight")
 print('Run is finished and plot is saved!')
