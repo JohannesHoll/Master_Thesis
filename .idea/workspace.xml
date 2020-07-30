@@ -21,7 +21,37 @@
   <component name="ChangeListManager">
     <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction_with_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction_with_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/prediction_plot_without_semantics/prediction_audi_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/prediction_plot_without_semantics/prediction_bmw_without_semantics_20200726.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/daimler_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/daimler_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/prediction_plot_without_semantics/prediction_daimler_without_semantics_20200726.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/ferrari_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/ferrari_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/prediction_plot_without_semantics/prediction_ferrari_without_semantics_20200726.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/fiatchrysler_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/fiatchrysler_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/prediction_plot_without_semantics/prediction_fiatchrysler_without_semantics_20200727.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/peugeot_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/peugeot_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/prediction_plot_without_semantics/prediction_peugeot_without_semantics_20200727.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/porsche_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/prediction_plot_without_semantics/prediction_porsche_without_semantics_20200728.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/prediction_plot_without_semantics/prediction_renault_without_semantics_20200726.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/renault_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/prediction_plot_without_semantics/prediction_volkswagen_without_semantics_20200728.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/volkswagen_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/volkswagen_prediction_without_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/prediction_plot_without_semantics/prediction_volvo_without_semantics_20200728.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/volvo_prediction_with_semantics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/volvo_prediction_without_semantics.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +77,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Python.audi_prediction_without_semantics">
-    <configuration name="audi_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.audi_prediction_with_semantics (1)">
+    <configuration name="audi_prediction_with_semantics (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -56,11 +86,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/audi" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/audi/vader/content" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/audi/vader/content/audi_prediction_with_semantics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,7 +120,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="audi_prediction_without_semantics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="audi_prediction_without_semantics (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,11 +128,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/audi" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/audi/audi_prediction_without_semantics.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics/audi_prediction_without_semantics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -111,7 +141,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bmw_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="bmw_prediction_without_semantics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Master_Thesis" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,11 +149,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/bmw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/stockprice_prediction/bmw/without_semantics" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/bmw/bmw_prediction.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stockprice_prediction/bmw/without_semantics/bmw_prediction_without_semantics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.audi_prediction_without_semantics" />
-        <item itemvalue="Python.audi_prediction_with_semantics" />
+        <item itemvalue="Python.audi_prediction_with_semantics (1)" />
         <item itemvalue="Python.bmw_test" />
-        <item itemvalue="Python.bmw_prediction" />
-        <item itemvalue="Python.audi_prediction" />
+        <item itemvalue="Python.bmw_prediction_without_semantics" />
+        <item itemvalue="Python.audi_prediction_without_semantics (1)" />
+        <item itemvalue="Python.audi_prediction_with_semantics" />
       </list>
     </recent_temporary>
   </component>
@@ -190,25 +220,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1596067811137">
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1596114463470">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1596067811137" />
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1596114463470" />
     <state width="1515" height="203" key="GridCell.Tab.0.bottom/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
-    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1596067811137">
+    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1596114463470">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1596067811137" />
+    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1596114463470" />
     <state width="1515" height="203" key="GridCell.Tab.0.center/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1596067811137">
+    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1596114463470">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1596067811137" />
+    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1596114463470" />
     <state width="1515" height="203" key="GridCell.Tab.0.left/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1596067811137">
+    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1596114463470">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1596067811137" />
+    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1596114463470" />
     <state width="1515" height="203" key="GridCell.Tab.0.right/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1596067811133">
       <screen x="0" y="0" width="1536" height="834" />
