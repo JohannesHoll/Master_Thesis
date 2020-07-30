@@ -14,6 +14,7 @@ from numpy import newaxis
 import glob
 import os
 from datetime import datetime
+from numpy.random import seed
 
 # file where csv files lies
 path = r'C:\Users\victo\Master_Thesis\merging_data\audi\merged_files'
