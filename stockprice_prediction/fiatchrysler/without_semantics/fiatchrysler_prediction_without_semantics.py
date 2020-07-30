@@ -13,6 +13,13 @@ from numpy import newaxis
 import glob
 import os
 from datetime import datetime
+from numpy.random import seed
+import tensorflow as tf
+
+model_seed = 100
+#ensure same output results
+seed(101)
+tf.random.set_seed(model_seed)
 
 # file where csv files lies
 path = r'C:\Users\victo\Master_Thesis\merging_data\fiatchrysler\merged_files'
