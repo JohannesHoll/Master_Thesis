@@ -50,11 +50,11 @@ training_set = concatenate_dataframe.iloc[split_point:, 1:2].values
 ##normalize data
 scaler = MinMaxScaler(feature_range = (0, 1))
 training_set_scaled = scaler.fit_transform(training_set)
-# Creating a data structure with 60 time-steps and 1 output
+# Creating a data structure with 30 time-steps and 1 output
 X_train = []
 y_train = []
-for i in range(60, len(training_set)):
-    X_train.append(training_set_scaled[i - 60: i, 0])
+for i in range(30, len(training_set)):
+    X_train.append(training_set_scaled[i - 30: i, 0])
     y_train.append(training_set_scaled[i, 0])
 X_train, y_train = np.array(X_train), np.array(y_train)
 
@@ -83,12 +83,12 @@ model.fit(X_train, y_train, epochs=10, batch_size=32)
 
 test_dataset = concatenate_dataframe.iloc[:split_point, 1:2].values
 
-inputs = concatenate_dataframe.OPEN[len(concatenate_dataframe) - len(test_dataset) - 60:].values
+inputs = concatenate_dataframe.OPEN[len(concatenate_dataframe) - len(test_dataset) - 30:].values
 inputs = inputs.reshape(-1,1)
 inputs = scaler.transform(inputs)
 X_test = []
-for i in range(60, len(test_dataset)):
-    X_test.append(inputs[i-60:i, 0])
+for i in range(30, len(test_dataset)):
+    X_test.append(inputs[i-30:i, 0])
 X_test = np.array(X_test)
 X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
 predicted_stock_price = model.predict(X_test)
