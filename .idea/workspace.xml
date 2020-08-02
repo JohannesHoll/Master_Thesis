@@ -20,38 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ffa885a-19cb-48ba-88b0-49c229f419f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1667796.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1697370.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1706891.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1804564.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1868449.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1903993.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1928722.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/1975768.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2022136.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2035408.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2047518.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2066553.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2067323.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2071245.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2080968.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2099229.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2152749.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2199977.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2204847.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2216058.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2230648.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2232814.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2255644.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2260624.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2288268.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2320747.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2330664.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2344432.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2357343.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2380975.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2423529.driveupload" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.tmp.drivedownload/2424348.driveupload" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1607363.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1608173.driveupload" beforeDir="false" />
@@ -213,7 +181,7 @@
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1744190.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1744967.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1745301.driveupload" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1746652.driveupload" beforeDir="false" afterPath="$PROJECT_DIR$/.tmp.drivedownload/1767423.driveupload" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1746652.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1747786.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1747789.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/1750412.driveupload" beforeDir="false" />
@@ -7727,6 +7695,29 @@
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/9997198.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/9997591.driveupload" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.tmp.drivedownload/9999509.driveupload" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/correlation/audi/correlation_audi.py" beforeDir="false" afterPath="$PROJECT_DIR$/correlation/audi/correlation_audi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics/audi_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics/audi_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/audi/without_semantics/prediction_plot_without_semantics/prediction_audi_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/without_semantics/bmw_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/bmw/without_semantics/bmw_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/bmw/without_semantics/prediction_plot_without_semantics/prediction_bmw_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/without_semantics/daimler_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/daimler/without_semantics/daimler_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/daimler/without_semantics/prediction_plot_without_semantics/prediction_daimler_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics/ferrari_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics/ferrari_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/ferrari/without_semantics/prediction_plot_without_semantics/prediction_ferrari_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/without_semantics/fiatchrysler_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/without_semantics/fiatchrysler_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/fiatchrysler/without_semantics/prediction_plot_without_semantics/prediction_fiatchrysler_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/without_semantics/peugeot_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/peugeot/without_semantics/peugeot_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/peugeot/without_semantics/prediction_plot_without_semantics/prediction_peugeot_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/without_semantics/porsche_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/porsche/without_semantics/porsche_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/porsche/without_semantics/prediction_plot_without_semantics/prediction_porsche_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/without_semantics/prediction_plot_without_semantics/prediction_renault_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/without_semantics/prediction_plot_without_semantics/prediction_renault_without_semantics_20200731.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/renault/without_semantics/renault_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/renault/without_semantics/renault_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/without_semantics/prediction_plot_without_semantics/prediction_volkswagen_without_semantics_20200730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/without_semantics/prediction_plot_without_semantics/prediction_volkswagen_without_semantics_20200731.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volkswagen/without_semantics/volkswagen_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/volkswagen/without_semantics/volkswagen_prediction_without_semantics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/without_semantics/prediction_plot_without_semantics/prediction_volvo_without_semantics_20200731.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockprice_prediction/volvo/without_semantics/volvo_prediction_without_semantics.py" beforeDir="false" afterPath="$PROJECT_DIR$/stockprice_prediction/volvo/without_semantics/volvo_prediction_without_semantics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -7895,25 +7886,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1596197433610">
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1596236178285">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1596197433610" />
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1596236178285" />
     <state width="1515" height="203" key="GridCell.Tab.0.bottom/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
-    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1596197433610">
+    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1596236178285">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1596197433610" />
+    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1596236178285" />
     <state width="1515" height="203" key="GridCell.Tab.0.center/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1596197433610">
+    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1596236178285">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1596197433610" />
+    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1596236178285" />
     <state width="1515" height="203" key="GridCell.Tab.0.left/0.28.1536.806@0.28.1536.806" timestamp="1594910079436" />
-    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1596197433610">
+    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1596236178285">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1596197433610" />
+    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1596236178285" />
     <state width="1515" height="203" key="GridCell.Tab.0.right/0.28.1536.806@0.28.1536.806" timestamp="1594910079437" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1596067811133">
       <screen x="0" y="0" width="1536" height="834" />
