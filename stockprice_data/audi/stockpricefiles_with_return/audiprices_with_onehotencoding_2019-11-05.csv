@@ -1,3 +1,0 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded
-2019-11-05 16:17:00,820.0,820.0,820.0,820.0,1.0,0.0,0,0.0,0
-2019-11-05 16:37:00,816.0,816.0,816.0,816.0,0.0,-4.0,0,-1.0,0
