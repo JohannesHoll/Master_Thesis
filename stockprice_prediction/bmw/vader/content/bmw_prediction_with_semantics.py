@@ -76,8 +76,9 @@ model.add(Dropout(0.2))
 model.add(Dense(units=1))
 ##compile model
 model.compile(optimizer='adam', loss='mean_squared_error')
+model.summary()
 ##fitting model
-model.fit(X_train, y_train, epochs=10, batch_size=32)
+model.fit(X_train, y_train, epochs=3, batch_size=32)
 
 test_dataset = new_df.iloc[:split_point, 1:3].values
 
