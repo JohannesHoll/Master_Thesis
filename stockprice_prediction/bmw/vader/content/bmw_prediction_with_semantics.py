@@ -36,18 +36,18 @@ concatenate_dataframe = pd.concat(list_of_files,
 
 print(concatenate_dataframe)
 
-new_df = concatenate_dataframe[['Date','OPEN','HIGH','compound_vader_articel_content']]
+new_df = concatenate_dataframe[['Date','OPEN','HIGH','LOW','CLOSE','VOLUME','compound_vader_articel_content']]
 new_df['compound_vader_articel_content'] = new_df['compound_vader_articel_content'].fillna(0)
 print(new_df)
 
 #creating train data set
 split_percentage = 0.5
 split_point = round(len(new_df)*split_percentage)
-training_set = new_df.iloc[split_point:, 1:3].values
+training_set = new_df.iloc[split_point:, 1:6].values
 
 ##normalize data
 scaler = MinMaxScaler(feature_range=(0, 1))
-training_set_scaled = scaler.fit_transform(training_set)
+training_set_scaled = scaler.fit_transform(new_df.iloc[split_point:, 1:])
 # Creating a data structure with 60 time-steps and 1 output
 X_train = []
 y_train = []
@@ -78,9 +78,9 @@ model.add(Dense(units=1))
 model.compile(optimizer='adam', loss='mean_squared_error')
 model.summary()
 ##fitting model
-model.fit(X_train, y_train, epochs=3, batch_size=32)
+model.fit(X_train, y_train, epochs=1, batch_size=32)
 
-test_dataset = new_df.iloc[:split_point, 1:3].values
+test_dataset = new_df.iloc[:split_point, 1:]
 
 inputs = new_df.OPEN[len(new_df) - len(test_dataset) - 60:].values
 print(inputs.shape)
