@@ -28,7 +28,7 @@ concatenate_dataframe = pd.concat(list_of_files,
                                       axis=0,
                                       )
 
-print(concatenate_dataframe)
+#print(concatenate_dataframe)
 
 new_df = concatenate_dataframe[['return_one_hot_encoded',
                                 'flair_sentiment_header',
@@ -40,18 +40,23 @@ new_df = concatenate_dataframe[['return_one_hot_encoded',
 
 #new_df = new_df.fillna(0)
 
-print(new_df)
+#print(new_df)
 
 # header = []
 # for i in new_df['flair_sentiment_header']:
 #     i = str(i)
-new_df['flair_sentiment_header'] = new_df['flair_sentiment_header'].astype('string')
-if new_df[new_df.flair_sentiment_header.str.contains('POSTIVE', case=False)]:
-    value_postive = new_df['flair_sentiment_header'].str.extract(r'\((.*?)\)', expand=False)
-    print(value_postive)
-elif new_df[new_df.flair_sentiment_header.str.contains('NEGATIVE', case=False)]:
-    value_negative = new_df['flair_sentiment_header'].str.extract(r'\((.*?)\)', expand=False)
-    print(value_negative)
+#new_df['flair_sentiment_header'] = new_df['flair_sentiment_header'].astype('string')
+for i in new_df['flair_sentiment_header']:
+    #i = str(i)
+    if r'POSITIVE' in i.values:
+        #value_postive = i.str.extract(r'\((.*?)\)', expand=False)
+        print(i)
+    # if new_df[new_df.flair_sentiment_header.str.contains('POSTIVE', case=False)]:
+    #     value_postive = new_df['flair_sentiment_header'].str.extract(r'\((.*?)\)', expand=False)
+    #     print(value_postive)
+    # elif new_df[new_df.flair_sentiment_header.str.contains('NEGATIVE', case=False)]:
+    #     value_negative = new_df['flair_sentiment_header'].str.extract(r'\((.*?)\)', expand=False)
+    #     print(value_negative)
 
 # print(new_df)
 #

@@ -99,7 +99,7 @@ flair_sentiment = flair.models.TextClassifier.load('en-sentiment')
 score_header = []
 for header in cleaned_dataframe['header']:
     score = flair.data.Sentence(header)
-    flair_sentiment.predict(score)
+    pre = flair_sentiment.predict(score)
     total_sentiment = score.labels
     score_header.append(total_sentiment)
 
@@ -107,7 +107,7 @@ for header in cleaned_dataframe['header']:
 score_content = []
 for articlecontent in cleaned_dataframe['article content']:
     score = flair.data.Sentence(articlecontent)
-    flair_sentiment.predict(score)
+    pre = flair_sentiment.predict(score)
     total_sentiment = score.labels
     score_content.append(total_sentiment)
 
@@ -122,5 +122,5 @@ cleaned_dataframe['flair_sentiment_content'] = pd.DataFrame(score_content)
 
 ## saving outcome of flair to csv
 current_date = datetime.today().strftime('%Y-%m-%d')
-cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_flair\audi\outcome_using_flair\outcome_of_flair_on_audi_news_' + str(current_date) + '.csv', index=False)
+#cleaned_dataframe.to_csv(r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_flair\audi\outcome_using_flair\outcome_of_flair_on_audi_news_' + str(current_date) + '.csv', index=False)
 #cleaned_dataframe.to_csv('test.csv', index=False)

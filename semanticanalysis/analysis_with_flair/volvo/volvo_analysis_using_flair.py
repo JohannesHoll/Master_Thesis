@@ -76,23 +76,6 @@ cleaned_dataframe['formatted date'] = cleaned_dataframe['date'] + str(' ') + cle
 del cleaned_dataframe['date']
 del cleaned_dataframe['time']
 
-# New words and values
-# new_words = {'crushes': 10,
-#             'beats': 5,
-#             'misses': -5,
-#             'trouble': -10,
-#             'falls': -100,
-#             }
-
-# print('Start!')
-# Instantiate the sentiment intensity analyzer with the existing lexicon
-# vader = SentimentIntensityAnalyzer()
-# Update the lexicon
-# vader.lexicon.update(new_words)
-
-# print('ok!')
-
-
 flair_sentiment = flair.models.TextClassifier.load('en-sentiment')
 
 ## analysis on header
