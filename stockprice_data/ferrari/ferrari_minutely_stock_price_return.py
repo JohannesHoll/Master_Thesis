@@ -9,7 +9,7 @@ import itertools
 from functools import reduce
 
 ##folder of stockprice
-path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\ferrari\daily_stock_prices'
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\ferrari\minutely_stock_prices'
 
 price_return = []
 volume_onehot = []
@@ -51,7 +51,7 @@ for file in glob.iglob(path_stockprices + '\*.csv'):
     df_daily_stock_prices['volume_one_hot_encoded'] = volume_onehot
 
     ##saving file
-    df_daily_stock_prices.to_csv(r'C:\Users\victo\Master_Thesis\stockprice_data\ferrari\stockpricefiles_with_return\ferrariprices_with_onehotencoding_' + date + '.csv', index=False)
+    df_daily_stock_prices.to_csv(r'C:\Users\victo\Master_Thesis\stockprice_data\ferrari\minutely_stockpricefiles_with_return\ferrariprices_with_onehotencoding_' + date + '.csv', index=False)
     print('File of ' + date + ' has been saved!')
 
     ##clear list
