@@ -22,7 +22,7 @@ rics = ['BMWG.DE']
 fields = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME']
 for date in date_range:
     try:
-        sdate = str(date)[0:10] + 'T07:00:00'
+        sdate = str(date)[0:10] + 'T06:00:00'
         edate = str(date)[0:10] + 'T22:01:00'
         df = ek.get_timeseries(rics=rics,
                                fields=fields,
