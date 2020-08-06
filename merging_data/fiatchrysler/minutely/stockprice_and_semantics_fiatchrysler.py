@@ -89,7 +89,7 @@ merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url','header','
 merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
-path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\fiatchrysler\stockpricefiles_with_return'
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\fiatchrysler\minutely_stockpricefiles_with_return'
 
 for file in glob.iglob(path_stockprices + '\*.csv'):
     date = re.search('\d{4}-\d{2}-\d{2}', file)
@@ -104,5 +104,6 @@ for file in glob.iglob(path_stockprices + '\*.csv'):
                                                             left_on='Date',
                                                             right_on='formatteddate',
                                                             how='left')
-    df_stock_prices_semantics.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\fiatchrysler\merged_files\fiatchryslerprices_with_semantics_' + date + '.csv', index=False)
+
+    df_stock_prices_semantics.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\fiatchrysler\minutely\merged_files\fiatchryslerprices_with_semantics_' + date + '.csv', index=False)
     print('File of ' + date + ' has been saved!')

@@ -261,7 +261,7 @@ Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,
 2020-07-01 13:27:00,8.749,8.754,8.746,8.746,1516.0,-0.011999999999998678,0,-5247.0,0,,,,,,,,,,,,,,,,,,,
 2020-07-01 13:28:00,8.747,8.747,8.746,8.746,481.0,-0.0030000000000001137,0,-1035.0,0,,,,,,,,,,,,,,,,,,,
 2020-07-01 13:29:00,8.749,8.758,8.749,8.758,1477.0,0.010999999999999231,1,996.0,1,,,,,,,,,,,,,,,,,,,
-2020-07-01 13:31:00,8.758,8.758,8.754,8.754,766.0,0.004999999999999004,1,-711.0,0,,,,,,,,,,,,,,,,,,,
+2020-07-01 13:31:00,8.758,8.758,8.754,8.754,766.0,0.004999999999999004,1,-711.0,0,https://www.reuters.com/article/usa-autos-sales/fiat-chrysler-quarterly-u-s-auto-sales-slump-39-idUSL4N2E83GL,['Fiat Chrysler quarterly U.S. auto sales slump 39%'],"['July 1, 2020 /  1:31 PM / a month ago']","['July 1 (Reuters) - Fiat Chrysler Automobiles NV reported a 39% drop in U.S. sales in the second quarter, hit by lower demand for its Jeep and Dodge sport utility vehicles and Ram pick-up trucks due to the coronavirus crisis. ', 'The company said it sold 367,086 vehicles in the quarter, compared with 597,685 units a year earlier. (Reporting by Ankit Ajmera and Sanjana Shivdas in Bengaluru; Editing by Shinjini Ganguli)']",2020-07-01 13:31:00,NEGATIVE (0.9994),NEGATIVE (0.9997),0.0,1.0,0.0,0.0,0.136,0.8640000000000001,0.0,-0.836,0.0,0.0,-0.04166666666666666,0.2916666666666667
 2020-07-01 13:32:00,8.749,8.758,8.749,8.758,7572.0,0.0,0,6806.0,1,,,,,,,,,,,,,,,,,,,
 2020-07-01 13:33:00,8.755,8.755,8.734,8.745,11597.0,-0.004000000000001336,0,4025.0,1,,,,,,,,,,,,,,,,,,,
 2020-07-01 13:34:00,8.743,8.743,8.73,8.736,28172.0,-0.019000000000000128,0,16575.0,1,,,,,,,,,,,,,,,,,,,
