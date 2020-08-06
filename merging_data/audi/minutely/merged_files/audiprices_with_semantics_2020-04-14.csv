@@ -1,0 +1,8 @@
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2020-04-14 09:03:00,985.0,985.0,985.0,985.0,2.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,
+2020-04-14 14:51:00,985.0,985.0,985.0,985.0,37.0,0.0,0,35.0,1,,,,,,,,,,,,,,,,,,,
+2020-04-14 16:32:00,990.0,990.0,990.0,990.0,5.0,5.0,1,-32.0,0,,,,,,,,,,,,,,,,,,,
+2020-04-14 16:34:00,995.0,995.0,995.0,995.0,5.0,5.0,1,0.0,0,,,,,,,,,,,,,,,,,,,
+2020-04-14 17:29:00,985.0,985.0,985.0,985.0,74.0,-10.0,0,69.0,1,,,,,,,,,,,,,,,,,,,
+2020-04-14 17:30:00,975.0,975.0,975.0,975.0,7.0,-10.0,0,-67.0,0,,,,,,,,,,,,,,,,,,,
+2020-04-14 17:36:00,985.0,985.0,985.0,985.0,0.0,10.0,1,-7.0,0,,,,,,,,,,,,,,,,,,,
