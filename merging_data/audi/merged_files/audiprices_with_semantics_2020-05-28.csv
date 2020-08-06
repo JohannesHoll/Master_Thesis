@@ -1,6 +1,0 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
-2020-05-28 09:03:00,1050.0,1050.0,1050.0,1050.0,1.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,
-2020-05-28 09:54:00,1030.0,1030.0,1030.0,1030.0,15.0,-20.0,0,14.0,1,,,,,,,,,,,,,,,,,,,
-2020-05-28 16:19:00,1050.0,1050.0,1050.0,1050.0,1.0,20.0,1,-14.0,0,,,,,,,,,,,,,,,,,,,
-2020-05-28 16:53:00,1050.0,1050.0,1050.0,1050.0,1.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,
-2020-05-28 17:37:00,1040.0,1040.0,1040.0,1040.0,0.0,-10.0,0,-1.0,0,,,,,,,,,,,,,,,,,,,

@@ -1,9 +1,0 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
-2020-03-30 11:22:00,946.0,946.0,944.0,944.0,6.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,
-2020-03-30 13:09:00,964.0,964.0,964.0,964.0,5.0,18.0,1,-1.0,0,,,,,,,,,,,,,,,,,,,
-2020-03-30 14:24:00,964.0,964.0,954.0,954.0,14.0,-10.0,0,9.0,1,,,,,,,,,,,,,,,,,,,
-2020-03-30 14:27:00,954.0,954.0,954.0,954.0,6.0,-10.0,0,-8.0,0,,,,,,,,,,,,,,,,,,,
-2020-03-30 16:41:00,970.0,970.0,954.0,954.0,11.0,0.0,0,5.0,1,,,,,,,,,,,,,,,,,,,
-2020-03-30 16:42:00,948.0,948.0,942.0,942.0,46.0,-28.0,0,35.0,1,,,,,,,,,,,,,,,,,,,
-2020-03-30 17:22:00,950.0,952.0,950.0,952.0,14.0,4.0,1,-32.0,0,,,,,,,,,,,,,,,,,,,
-2020-03-30 17:37:00,960.0,960.0,960.0,960.0,0.0,10.0,1,-14.0,0,,,,,,,,,,,,,,,,,,,
