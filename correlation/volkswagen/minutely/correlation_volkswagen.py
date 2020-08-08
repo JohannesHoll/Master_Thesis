@@ -8,7 +8,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\audi\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\volkswagen\minutely\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -52,3 +52,4 @@ new_df[['return_one_hot_encoded',
 
 corr = new_df.corr()
 print(corr)
+corr.to_excel(r'C:\Users\victo\Master_Thesis\correlation\volkswagen\minutely\correlation\volkswagen_correlation_minutely_price_with_semantics.xlsx')

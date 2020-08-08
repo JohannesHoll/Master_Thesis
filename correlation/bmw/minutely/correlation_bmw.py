@@ -52,4 +52,4 @@ new_df[['return_one_hot_encoded',
 
 corr = new_df.corr()
 print(corr)
-corr.to_excel(r'C:\Users\victo\Master_Thesis\correlation\bmw\corrtest.xml', index=False)
+corr.to_excel(r'C:\Users\victo\Master_Thesis\correlation\bmw\minutely\correlation\bmw_correlation_minutely_price_with_semantics.xlsx')
