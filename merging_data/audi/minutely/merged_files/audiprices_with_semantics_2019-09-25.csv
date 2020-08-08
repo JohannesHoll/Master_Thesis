@@ -1,8 +1,8 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
-2019-09-25 09:03:00,798.0,798.0,798.0,798.0,50.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,
-2019-09-25 10:52:00,804.0,804.0,804.0,804.0,2.0,6.0,1,-48.0,0,,,,,,,,,,,,,,,,,,,
-2019-09-25 14:03:00,804.0,804.0,804.0,804.0,10.0,0.0,0,8.0,1,,,,,,,,,,,,,,,,,,,
-2019-09-25 15:52:00,808.0,808.0,808.0,808.0,1.0,4.0,1,-9.0,0,,,,,,,,,,,,,,,,,,,
-2019-09-25 16:18:00,804.0,804.0,804.0,804.0,2.0,-4.0,0,1.0,1,,,,,,,,,,,,,,,,,,,
-2019-09-25 17:25:00,808.0,810.0,808.0,810.0,130.0,6.0,1,128.0,1,,,,,,,,,,,,,,,,,,,
-2019-09-25 17:37:00,808.0,808.0,808.0,808.0,0.0,0.0,0,-130.0,0,,,,,,,,,,,,,,,,,,,
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header_label,flair_sentiment_header_score,flair_sentiment_content_label,flair_sentiment_content_score,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2019-09-25 09:03:00,798.0,798.0,798.0,798.0,50.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,,,
+2019-09-25 10:52:00,804.0,804.0,804.0,804.0,2.0,6.0,1,-48.0,0,,,,,,,,,,,,,,,,,,,,,
+2019-09-25 14:03:00,804.0,804.0,804.0,804.0,10.0,0.0,0,8.0,1,,,,,,,,,,,,,,,,,,,,,
+2019-09-25 15:52:00,808.0,808.0,808.0,808.0,1.0,4.0,1,-9.0,0,,,,,,,,,,,,,,,,,,,,,
+2019-09-25 16:18:00,804.0,804.0,804.0,804.0,2.0,-4.0,0,1.0,1,,,,,,,,,,,,,,,,,,,,,
+2019-09-25 17:25:00,808.0,810.0,808.0,810.0,130.0,6.0,1,128.0,1,,,,,,,,,,,,,,,,,,,,,
+2019-09-25 17:37:00,808.0,808.0,808.0,808.0,0.0,0.0,0,-130.0,0,,,,,,,,,,,,,,,,,,,,,

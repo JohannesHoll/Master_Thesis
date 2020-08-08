@@ -1,7 +1,7 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header,flair_sentiment_content,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
-2019-11-06 09:11:00,812.0,812.0,810.0,810.0,10.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,
-2019-11-06 11:11:00,810.0,810.0,810.0,810.0,1.0,-2.0,0,-9.0,0,,,,,,,,,,,,,,,,,,,
-2019-11-06 12:30:00,806.0,806.0,806.0,806.0,2.0,-4.0,0,1.0,1,,,,,,,,,,,,,,,,,,,
-2019-11-06 15:28:00,810.0,810.0,810.0,810.0,9.0,4.0,1,7.0,1,,,,,,,,,,,,,,,,,,,
-2019-11-06 17:10:00,806.0,806.0,806.0,806.0,1.0,-4.0,0,-8.0,0,,,,,,,,,,,,,,,,,,,
-2019-11-06 17:37:00,820.0,820.0,820.0,820.0,1.0,14.0,1,0.0,0,,,,,,,,,,,,,,,,,,,
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header_label,flair_sentiment_header_score,flair_sentiment_content_label,flair_sentiment_content_score,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2019-11-06 09:11:00,812.0,812.0,810.0,810.0,10.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,,,
+2019-11-06 11:11:00,810.0,810.0,810.0,810.0,1.0,-2.0,0,-9.0,0,,,,,,,,,,,,,,,,,,,,,
+2019-11-06 12:30:00,806.0,806.0,806.0,806.0,2.0,-4.0,0,1.0,1,,,,,,,,,,,,,,,,,,,,,
+2019-11-06 15:28:00,810.0,810.0,810.0,810.0,9.0,4.0,1,7.0,1,,,,,,,,,,,,,,,,,,,,,
+2019-11-06 17:10:00,806.0,806.0,806.0,806.0,1.0,-4.0,0,-8.0,0,,,,,,,,,,,,,,,,,,,,,
+2019-11-06 17:37:00,820.0,820.0,820.0,820.0,1.0,14.0,1,0.0,0,,,,,,,,,,,,,,,,,,,,,
