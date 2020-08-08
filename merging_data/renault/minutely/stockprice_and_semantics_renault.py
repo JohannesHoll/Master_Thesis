@@ -97,7 +97,7 @@ for file in glob.iglob(path_stockprices + '\*.csv'):
     df_daily_stock_prices = pd.read_csv(file,
                                         sep=',',
                                         )
-    df_daily_stock_prices['Date'] = pd.DatetimeIndex(pd.to_datetime(df_daily_stock_prices['Date'])).tz_localize('UTC').tz_convert('Europe/Berlin')
+    df_daily_stock_prices['Date'] = pd.DatetimeIndex(pd.to_datetime(df_daily_stock_prices['Date'])).tz_localize('GMT').tz_convert('Europe/Berlin')
     df_daily_stock_prices['Date'] = pd.to_datetime(df_daily_stock_prices['Date'].dt.strftime('%Y-%m-%d %H:%M:%S'))
 
     df_stock_prices_semantics = df_daily_stock_prices.merge(merged_df,

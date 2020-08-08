@@ -17,7 +17,7 @@ from datetime import datetime
 from numpy.random import seed
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\audi\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\audi\minutely\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame

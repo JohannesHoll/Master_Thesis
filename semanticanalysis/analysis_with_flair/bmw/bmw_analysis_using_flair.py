@@ -77,46 +77,56 @@ cleaned_dataframe['formatted date'] = cleaned_dataframe['date'] + str(' ') + cle
 del cleaned_dataframe['date']
 del cleaned_dataframe['time']
 
-# New words and values
-# new_words = {'crushes': 10,
-#             'beats': 5,
-#             'misses': -5,
-#             'trouble': -10,
-#             'falls': -100,
-#             }
-
-# print('Start!')
-# Instantiate the sentiment intensity analyzer with the existing lexicon
-# vader = SentimentIntensityAnalyzer()
-# Update the lexicon
-# vader.lexicon.update(new_words)
-
-# print('ok!')
-
-
 flair_sentiment = flair.models.TextClassifier.load('en-sentiment')
 
 ## analysis on header
 score_header = []
+score_header_label = []
 for header in cleaned_dataframe['header']:
     score = flair.data.Sentence(header)
-    flair_sentiment.predict(score)
-    total_sentiment = score.labels
-    score_header.append(total_sentiment)
+    pre = flair_sentiment.predict(score)
+    total_sentiment = score.labels[0]
+    labscore = (total_sentiment.score)
+    response = {'result': total_sentiment.value, 'score': "%.4f" % labscore}
+    if response.get('result') == 'NEGATIVE':
+        neg = response.get('score')
+        neg = float(neg) * (-1)
+        neg_label = response.get('result')
+        score_header.append(neg)
+        score_header_label.append(neg_label)
+    else:
+        pos = response.get('score')
+        pos_label = response.get('result')
+        score_header.append(pos)
 
 ## analysis on article content
 score_content = []
+score_content_label = []
 for articlecontent in cleaned_dataframe['article content']:
     score = flair.data.Sentence(articlecontent)
-    flair_sentiment.predict(score)
-    total_sentiment = score.labels
-    score_content.append(total_sentiment)
+    pre = flair_sentiment.predict(score)
+    total_sentiment = score.labels[0]
+    labscore = (total_sentiment.score)
+    response = {'result': total_sentiment.value, 'score': "%.4f" % labscore}
+    if response.get('result') == 'NEGATIVE':
+        neg = response.get('score')
+        neg = float(neg) * (-1)
+        neg_label = response.get('result')
+        score_content.append(neg)
+        score_content_label.append(neg_label)
+    else:
+        pos = response.get('score')
+        pos_label = response.get('result')
+        score_content.append(pos)
+        score_content_label.append(pos_label)
 
 # print(type(score_content))
 
 # Join the DataFrames
-cleaned_dataframe['flair_sentiment_header'] = pd.DataFrame(score_header)
-cleaned_dataframe['flair_sentiment_content'] = pd.DataFrame(score_content)
+cleaned_dataframe['flair_sentiment_header_label'] = pd.DataFrame(score_header_label)
+cleaned_dataframe['flair_sentiment_header_score'] = pd.DataFrame(score_header)
+cleaned_dataframe['flair_sentiment_content_label'] = pd.DataFrame(score_content_label)
+cleaned_dataframe['flair_sentiment_content_score'] = pd.DataFrame(score_content)
 
 # print(cleaned_dataframe)
 

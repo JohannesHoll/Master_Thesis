@@ -2,9 +2,9 @@
 import numpy as np
 import pandas as pd
 from subprocess import check_output
-from keras.layers.core import Dense, Activation, Dropout
-from keras.layers.recurrent import LSTM
-from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout, Input, LSTM
+from keras.models import Model
+from keras.layers import Embedding
 from sklearn.model_selection import train_test_split
 import time #helper libraries
 from sklearn.preprocessing import MinMaxScaler
@@ -22,7 +22,7 @@ seed(101)
 tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\minutely\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -60,30 +60,33 @@ X_train, y_train = np.array(X_train), np.array(y_train)
 
 X_train = np.reshape(X_train, newshape=(X_train.shape[0], X_train.shape[1], 1))
 
-# model
-model = Sequential()
-##first lstm layer
-model.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
-model.add(Dropout(0.2))
-##second lstm layer
-model.add(LSTM(units=50, return_sequences=True))
-model.add(Dropout(0.2))
-##third lstm layer
-model.add(LSTM(units=50, return_sequences=True))
-model.add(Dropout(0.2))
-##fourtg lstm layer
-model.add(LSTM(units=50, return_sequences=False))
-model.add(Dropout(0.2))
-##output layer
-model.add(Dense(units=1))
-##compile model
+first_lstm_size = 50
+second_lstm_size = 30
+dropout = 0.2
+## model wit use of funcational API of Keras
+# input layer
+input_layer = Input(shape=(X_train.shape[1], 1))
+# first LSTM layer
+first_lstm = LSTM(first_lstm_size,
+                  return_sequences=True,
+                  dropout=dropout,
+                  )(input_layer)
+# second LTSM layer
+second_lstm = LSTM(second_lstm_size,
+                   return_sequences=False,
+                   dropout=dropout)(first_lstm)
+# output layer
+output_layer = Dense(1)(second_lstm)
+# creating Model
+model = Model(inputs=input_layer, outputs=output_layer)
+#compile model
 model.compile(optimizer='adam', loss='mean_squared_error')
-##fitting model
-model.fit(X_train, y_train, epochs=10, batch_size=32)
+#fitting model
+model.fit(X_train, y_train, epochs=1, batch_size=32)
 
 test_dataset = concatenate_dataframe.iloc[:split_point, 1:2].values
 
-inputs = concatenate_dataframe.OPEN[len(concatenate_dataframe) - len(test_dataset) - 30:].values
+inputs = concatenate_dataframe.iloc[(len(concatenate_dataframe) - len(test_dataset) - 30):, 1:2].values
 inputs = inputs.reshape(-1,1)
 inputs = scaler.transform(inputs)
 X_test = []
@@ -100,8 +103,9 @@ plt.title('BMW Stock Price Prediction')
 plt.xlabel('Time')
 plt.ylabel('BMW Stock Price')
 plt.legend()
+plt.show()
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
-#model.save(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\resultstest' + date_today + '.h5')
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\without_semantics\prediction_plot_without_semantics\prediction_bmw_without_semantics_' + date_today + '.png', bbox_inches="tight")
+#plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\minutely\without_semantics\prediction_plot_without_semantics\prediction_bmw_without_semantics_' + date_today + '.png', bbox_inches="tight")
+
 print('Run is finished and plot is saved!')

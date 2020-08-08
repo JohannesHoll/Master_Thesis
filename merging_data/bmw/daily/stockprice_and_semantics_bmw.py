@@ -89,20 +89,33 @@ merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url','header','
 merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
-path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\stockpricefiles_with_return'
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\daily_stockpricefiles_with_return'
+merged_df = merged_df.fillna(0)
 
 for file in glob.iglob(path_stockprices + '\*.csv'):
-    date = re.search('\d{4}-\d{2}-\d{2}', file)
-    date = date.group()
+    #date = re.search('\d{4}-\d{2}-\d{2}', file)
+    #date = date.group()
     df_daily_stock_prices = pd.read_csv(file,
                                         sep=',',
                                         )
-    df_daily_stock_prices['Date'] = pd.DatetimeIndex(pd.to_datetime(df_daily_stock_prices['Date'])).tz_localize('UTC').tz_convert('Europe/Berlin')
-    df_daily_stock_prices['Date'] = pd.to_datetime(df_daily_stock_prices['Date'].dt.strftime('%Y-%m-%d %H:%M:%S'))
+    #df_daily_stock_prices['Date'] = pd.DatetimeIndex(pd.to_datetime(df_daily_stock_prices['Date'])).tz_localize('UTC').tz_convert('Europe/Berlin')
+    #df_daily_stock_prices['Date'] = pd.to_datetime(df_daily_stock_prices['Date'].dt.strftime('%Y-%m-%d %H:%M:%S'))
+    print(df_daily_stock_prices)
+    for i in merged_df['formatteddate']:
+        date_merged = re.search('\d{4}-\d{2}-\d{2}', str(i))
+        date_merged = date_merged.group()
+        #date_stock = re.search('\d{4}-\d{2}-\d{2}', str(z))
+        #date_stock = date_stock.group()
+        #print('Date stock: ' + date_stock)
+        #print('Date merge: ' + date_merged)
+        for z in df_daily_stock_prices['Date']:
+            if z == date_merged:
+                print(z)
+                print(merged_df['compound_vader_header'].mean())
 
-    df_stock_prices_semantics = df_daily_stock_prices.merge(merged_df,
-                                                            left_on='Date',
-                                                            right_on='formatteddate',
-                                                            how='left')
-    df_stock_prices_semantics.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\bmw\merged_files\bmwprices_with_semantics_' + date + '.csv', index=False)
-    print('File of ' + date + ' has been saved!')
+    # df_stock_prices_semantics = df_daily_stock_prices.merge(merged_df,
+    #                                                         left_on='Date',
+    #                                                         right_on='formatteddate',
+    #                                                         how='left')
+    # df_stock_prices_semantics.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\bmw\merged_files\bmwprices_with_semantics_' + date + '.csv', index=False)
+    # print('File of ' + date + ' has been saved!')
