@@ -29,30 +29,60 @@ concatenate_dataframe = pd.concat(list_of_files,
 
 #print(concatenate_dataframe)
 
-new_df = concatenate_dataframe[['return_one_hot_encoded',
-                                'flair_sentiment_header_score',
-                                'flair_sentiment_content_score',
-                                'compound_vader_header',
-                                'compound_vader_articel_content',
-                                'polarity_textblob_sentiment_header',
-                                'polarity_textblob_sentiment_content']]
+#calculating correlation price vs semantics
+new_df_price = concatenate_dataframe[['return_one_hot_encoded',
+                                      'flair_sentiment_header_score',
+                                      'flair_sentiment_content_score',
+                                      'compound_vader_header',
+                                      'compound_vader_articel_content',
+                                      'polarity_textblob_sentiment_header',
+                                      'polarity_textblob_sentiment_content']]
 
-new_df[['return_one_hot_encoded',
-        'flair_sentiment_header_score',
-        'flair_sentiment_content_score',
-        'compound_vader_header',
-        'compound_vader_articel_content',
-        'polarity_textblob_sentiment_header',
-        'polarity_textblob_sentiment_content']] = new_df[['return_one_hot_encoded',
-                                                          'flair_sentiment_header_score',
-                                                          'flair_sentiment_content_score',
-                                                          'compound_vader_header',
-                                                          'compound_vader_articel_content',
-                                                          'polarity_textblob_sentiment_header',
-                                                          'polarity_textblob_sentiment_content']].fillna(0)
+new_df_price[['return_one_hot_encoded',
+              'flair_sentiment_header_score',
+              'flair_sentiment_content_score',
+              'compound_vader_header',
+              'compound_vader_articel_content',
+              'polarity_textblob_sentiment_header',
+              'polarity_textblob_sentiment_content']] = new_df_price[['return_one_hot_encoded',
+                                                                      'flair_sentiment_header_score',
+                                                                      'flair_sentiment_content_score',
+                                                                      'compound_vader_header',
+                                                                      'compound_vader_articel_content',
+                                                                      'polarity_textblob_sentiment_header',
+                                                                      'polarity_textblob_sentiment_content']].fillna(0)
 
-print(new_df)
-corr = new_df.corr()
-corr.fillna(0)
-print(corr)
-corr.to_excel(r'C:\Users\victo\Master_Thesis\correlation\audi\minutely\correlation\audi_correlation_minutely_price_with_semantics.xlsx')
+print(new_df_price)
+corr_price = new_df_price.corr()
+corr_price.fillna(0)
+print(corr_price)
+corr_price.to_excel(r'C:\Users\victo\Master_Thesis\correlation\audi\minutely\correlation\audi_correlation_price_with_semantics.xlsx')
+
+#calculating correlation volume vs semantics
+new_df_volume = concatenate_dataframe[['volume_one_hot_encoded',
+                                       'flair_sentiment_header_score',
+                                       'flair_sentiment_content_score',
+                                       'compound_vader_header',
+                                       'compound_vader_articel_content',
+                                       'polarity_textblob_sentiment_header',
+                                       'polarity_textblob_sentiment_content']]
+
+new_df_volume[['volume_one_hot_encoded',
+               'flair_sentiment_header_score',
+               'flair_sentiment_content_score',
+               'compound_vader_header',
+               'compound_vader_articel_content',
+               'polarity_textblob_sentiment_header',
+               'polarity_textblob_sentiment_content']] = new_df_volume[['volume_one_hot_encoded',
+                                                                        'flair_sentiment_header_score',
+                                                                        'flair_sentiment_content_score',
+                                                                        'compound_vader_header',
+                                                                        'compound_vader_articel_content',
+                                                                        'polarity_textblob_sentiment_header',
+                                                                        'polarity_textblob_sentiment_content']].fillna(0)
+
+print(new_df_volume)
+corr_volume = new_df_volume.corr()
+corr_volume.fillna(0)
+print(corr_volume)
+corr_volume.to_excel(r'C:\Users\victo\Master_Thesis\correlation\audi\minutely\correlation\audi_correlation_volume_with_semantics.xlsx')
