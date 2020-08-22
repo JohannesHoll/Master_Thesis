@@ -174,7 +174,6 @@ plt.ylabel('BMW Stock Price')
 plt.legend()
 plt.show()
 
-
 # date_today = str(datetime.now().strftime("%Y%m%d"))
 # plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\minutely\vader\content\
 # prediction_plot_with_semantics\prediction_bmw_without_semantics_' + date_today + '.png', bbox_inches="tight")

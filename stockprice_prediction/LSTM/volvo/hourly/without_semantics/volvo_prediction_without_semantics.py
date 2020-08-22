@@ -22,7 +22,7 @@ seed(101)
 tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\volvo\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -36,72 +36,142 @@ for filename in all_files:
 
 # Concatenate all content of files into one DataFrames
 concatenate_dataframe = pd.concat(list_of_files,
-                                      ignore_index=True,
-                                      axis=0,
-                                      )
+                                  ignore_index=True,
+                                  axis=0,
+                                  )
 
-print(concatenate_dataframe)
+# print(concatenate_dataframe)
 
-#creating train data set
-split_percentage = 0.5
-split_point = round(len(concatenate_dataframe)*split_percentage)
-training_set = concatenate_dataframe.iloc[split_point:, 1:2].values
+new_df = concatenate_dataframe[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']]
+new_df['compound_vader_articel_content'] = new_df['compound_vader_articel_content'].fillna(0)
+# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']].astype(np.float64)
+# print(new_df)
 
-##normalize data
-scaler = MinMaxScaler(feature_range = (0, 1))
-training_set_scaled = scaler.fit_transform(training_set)
-# Creating a data structure with 30 time-steps and 1 output
-X_train = []
-y_train = []
-for i in range(30, len(training_set)):
-    X_train.append(training_set_scaled[i - 30: i, 0])
-    y_train.append(training_set_scaled[i, 0])
-X_train, y_train = np.array(X_train), np.array(y_train)
+# train, valid, test split
+valid_test_size_split = 0.1
 
-X_train = np.reshape(X_train, newshape=(X_train.shape[0], X_train.shape[1], 1))
+X_train, X_else, y_train, y_else = train_test_split(new_df,
+                                                    new_df['OPEN'],
+                                                    test_size=valid_test_size_split*2,
+                                                    shuffle=False)
 
-# model
-model = Sequential()
-##first lstm layer
-model.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
-model.add(Dropout(0.2))
-##second lstm layer
-model.add(LSTM(units=50, return_sequences=True))
-model.add(Dropout(0.2))
-##third lstm layer
-model.add(LSTM(units=50, return_sequences=True))
-model.add(Dropout(0.2))
-##fourtg lstm layer
-model.add(LSTM(units=50, return_sequences=False))
-model.add(Dropout(0.2))
-##output layer
-model.add(Dense(units=1))
-##compile model
-model.compile(optimizer='adam', loss='mean_squared_error')
-##fitting model
-model.fit(X_train, y_train, epochs=10, batch_size=32)
+X_valid, X_test, y_valid, y_test = train_test_split(X_else,
+                                                    y_else,
+                                                    test_size=0.5,
+                                                    shuffle=False)
+print(y_else)
+warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
-test_dataset = concatenate_dataframe.iloc[:split_point, 1:2].values
 
-inputs = concatenate_dataframe.OPEN[len(concatenate_dataframe) - len(test_dataset) - 30:].values
-inputs = inputs.reshape(-1,1)
-inputs = scaler.transform(inputs)
-X_test = []
-for i in range(30, len(test_dataset)):
-    X_test.append(inputs[i-30:i, 0])
-X_test = np.array(X_test)
-X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
-predicted_stock_price = model.predict(X_test)
-predicted_stock_price = scaler.inverse_transform(predicted_stock_price)
+# normalize data
+def minmax_scale(df_x, series_y, normalizers=None):
+    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']
 
-plt.plot(test_dataset, color = 'black', label = 'Volvo Stock Price')
-plt.plot(predicted_stock_price, color = 'green', label = 'Predicted Volvo Stock Price')
-plt.title('Volvo Stock Price Prediction')
-plt.xlabel('Time')
-plt.ylabel('Volvo Stock Price')
+    if not normalizers:
+        normalizers = {}
+
+    for feat in features_to_minmax:
+        if feat not in normalizers:
+            normalizers[feat] = MinMaxScaler()
+            normalizers[feat].fit(df_x[feat].values.reshape(-1, 1))
+
+        df_x[feat] = normalizers[feat].transform(df_x[feat].values.reshape(-1, 1))
+
+    series_y = normalizers['OPEN'].transform(series_y.values.reshape(-1, 1))
+
+    return df_x, series_y, normalizers
+
+X_train_norm, y_train_norm, normalizers = minmax_scale(X_train, y_train)
+X_valid_norm, y_valid_norm, _ = minmax_scale(X_valid, y_valid, normalizers=normalizers)
+X_test_norm, y_test_norm, _ = minmax_scale(X_test, y_test, normalizers=normalizers)
+
+# Creating target (y) and "windows" (X) for modeling
+TIME_WINDOW = 30
+FORECAST_DISTANCE = 60
+
+segmenter = SegmentXYForecast(width=TIME_WINDOW, step=1, y_func=last, forecast=FORECAST_DISTANCE)
+
+X_train_rolled, y_train_rolled, _ = segmenter.fit_transform([X_train_norm.values], [y_train_norm.flatten()])
+X_valid_rolled, y_valid_rolled, _ = segmenter.fit_transform([X_valid_norm.values], [y_valid_norm.flatten()])
+X_test_rolled, y_test_rolled, _ = segmenter.fit_transform([X_test_norm.values], [y_test_norm.flatten()])
+# LSTM Model
+first_lstm_size = 75
+second_lstm_size = 40
+dropout = 0.1
+EPOCHS = 3
+BATCH_SIZE = 32
+column_count = len(X_train_norm.columns)
+# model with use of Funcational API of Keras
+# input layer
+input_layer = Input(shape=(TIME_WINDOW, column_count))
+# first LSTM layer
+first_lstm = LSTM(first_lstm_size,
+                  return_sequences=True,
+                  dropout=dropout)(input_layer)
+# second LTSM layer
+second_lstm = LSTM(second_lstm_size,
+                   return_sequences=False,
+                   dropout=dropout)(first_lstm)
+# output layer
+output_layer = Dense(1)(second_lstm)
+# creating Model
+model = Model(inputs=input_layer, outputs=output_layer)
+# compile model
+model.compile(optimizer='adam', loss='mean_absolute_error')
+# model summary
+model.summary()
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
+# fitting model
+hist = model.fit(x=X_train_rolled,
+                 y=y_train_rolled,
+                 batch_size=BATCH_SIZE,
+                 validation_data=(X_valid_rolled, y_valid_rolled),
+                 epochs=EPOCHS,
+                 verbose=1,
+                 shuffle=False)
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
+
+plt.plot(hist.history['loss'], label='train')
+plt.plot(hist.history['val_loss'], label='test')
 plt.legend()
+plt.show()
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
+rms_LSTM = math.sqrt(min(hist.history['val_loss']))
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
+# predicting stock prices
+predicted_stock_price = model.predict(X_test_rolled)
+
+#predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(1, -1)
+print(' ')
+print("Root mean squared error on valid:", rms_LSTM)
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers["OPEN"].inverse_transform(np.array([rms_LSTM]).reshape(1, -1)))
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
+print(predicted_stock_price)
+
+
+#plt.plot(new_df.OPEN, color='black', label='BMW Stock Price')
+plt.plot(predicted_stock_price, color='green', label='Predicted BMW Stock Price')
+plt.title('BMW Stock Price Prediction')
+plt.xlabel('Time')
+plt.ylabel('BMW Stock Price')
+plt.legend()
+plt.show()
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
-#model.save(r'C:\Users\victo\Master_Thesis\stockprice_prediction\volvo\resultstest' + date_today + '.h5')
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\volvo\without_semantics\prediction_plot_without_semantics\prediction_volvo_without_semantics_' + date_today + '.png', bbox_inches="tight")
+#model.save(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\resultstest' + date_today + '.h5')
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\without_semantics\prediction_plot_without_semantics\prediction_bmw_without_semantics_' + date_today + '.png', bbox_inches="tight")
 print('Run is finished and plot is saved!')
