@@ -1,6 +1,6 @@
-Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header,release time,article content,formatteddate,flair_sentiment_header_label,flair_sentiment_header_score,flair_sentiment_content_label,flair_sentiment_content_score,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
-2019-08-29 09:15:00,796.0,796.0,796.0,796.0,5.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,,,
-2019-08-29 09:53:00,794.0,794.0,794.0,794.0,6.0,-2.0,0,1.0,1,,,,,,,,,,,,,,,,,,,,,
-2019-08-29 14:18:00,800.0,800.0,800.0,800.0,4.0,6.0,1,-2.0,0,,,,,,,,,,,,,,,,,,,,,
-2019-08-29 15:36:00,798.0,798.0,796.0,796.0,35.0,-4.0,0,31.0,1,,,,,,,,,,,,,,,,,,,,,
-2019-08-29 17:37:00,798.0,798.0,798.0,798.0,0.0,0.0,0,-35.0,0,,,,,,,,,,,,,,,,,,,,,
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,url,header_x,release time_x,article content_x,formatted date_x,flair_sentiment_header_label,flair_sentiment_header_score,flair_sentiment_content_label,flair_sentiment_content_score,header_y,release time_y,article content_y,formatted date_y,neg_vader_header,neu_vader_header,pos_vader_header,compound_vader_header,neg_vader_articel_content,neu_vader_articel_content,pos_vader_articel_content,compound_vader_articel_content,header,release time,article content,formatteddate,polarity_textblob_sentiment_header,subjectivity_textblob_sentiment_header,polarity_textblob_sentiment_content,subjectivity_textblob_sentiment_content
+2019-08-29 09:15:00,796.0,796.0,796.0,796.0,5.0,0.0,0,0.0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2019-08-29 09:53:00,794.0,794.0,794.0,794.0,6.0,-2.0,0,1.0,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2019-08-29 14:18:00,800.0,800.0,800.0,800.0,4.0,6.0,1,-2.0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2019-08-29 15:36:00,798.0,798.0,796.0,796.0,35.0,-4.0,0,31.0,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2019-08-29 17:37:00,798.0,798.0,798.0,798.0,0.0,0.0,0,-35.0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
