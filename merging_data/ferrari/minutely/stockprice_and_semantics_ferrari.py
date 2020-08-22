@@ -84,8 +84,8 @@ cleaned_dataframe_textblob = cleaned_dataframe_textblob.drop_duplicates(subset=[
 print(cleaned_dataframe_textblob)
 
 ##merging files together
-merged_df = pd.merge(cleaned_dataframe_flair, cleaned_dataframe_vader, on=['url','header','release time','article content','formatted date'])
-merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url','header','release time','article content','formatted date'])
+merged_df = pd.merge(cleaned_dataframe_flair, cleaned_dataframe_vader, on=['url'])
+merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url'])
 merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
