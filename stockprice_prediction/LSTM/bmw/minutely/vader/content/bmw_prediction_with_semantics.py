@@ -166,15 +166,15 @@ print(' ')
 print(predicted_stock_price)
 
 
-#plt.plot(new_df.OPEN, color='black', label='BMW Stock Price')
-plt.plot(predicted_stock_price, color='green', label='Predicted BMW Stock Price')
-plt.title('BMW Stock Price Prediction')
+#plt.plot(new_df.OPEN, color='black', label='bmw Stock Price')
+plt.plot(predicted_stock_price, color='green', label='Predicted bmw Stock Price')
+plt.title('bmw Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('BMW Stock Price')
+plt.ylabel('bmw Stock Price')
 plt.legend()
 plt.show()
 
-# date_today = str(datetime.now().strftime("%Y%m%d"))
-# plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\minutely\vader\content\
-# prediction_plot_with_semantics\prediction_bmw_without_semantics_' + date_today + '.png', bbox_inches="tight")
-# print('Run is finished and plot is saved!')
+
+date_today = str(datetime.now().strftime("%Y%m%d"))
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\bmw\minutely\vader\content\prediction_plot_with_semantics\prediction_bmw_with_vadercontent_' + date_today + '.png', bbox_inches="tight")
+print('Run is finished and plot is saved!')

@@ -1,22 +1,31 @@
 ###necessary libaries###
 import numpy as np
 import pandas as pd
+from seglearn.transform import FeatureRep, SegmentXYForecast, last
 from subprocess import check_output
-from keras.layers.core import Dense, Activation, Dropout
-from keras.layers.recurrent import LSTM
-from keras.models import Sequential
-from keras.layers import Embedding
+from keras.layers import Dense, Activation, Dropout, Input, LSTM, Flatten
+from keras.models import Model
+from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
-import time #helper libraries
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 from numpy import newaxis
 import glob
 import os
 from datetime import datetime
+import math
+from numpy.random import seed
+import tensorflow as tf
+import warnings
+from sklearn.exceptions import DataConversionWarning
+
+model_seed = 100
+# ensure same output results
+seed(101)
+tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\porsche\minutely\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -36,8 +45,8 @@ concatenate_dataframe = pd.concat(list_of_files,
 
 # print(concatenate_dataframe)
 
-new_df = concatenate_dataframe[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']]
-new_df['compound_vader_articel_content'] = new_df['compound_vader_articel_content'].fillna(0)
+new_df = concatenate_dataframe[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_header_score']]
+new_df['flair_sentiment_header_score'] = new_df['flair_sentiment_header_score'].fillna(0)
 # new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']].astype(np.float64)
 # print(new_df)
 
@@ -59,7 +68,7 @@ warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 # normalize data
 def minmax_scale(df_x, series_y, normalizers=None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']
+    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_header_score']
 
     if not normalizers:
         normalizers = {}
@@ -157,14 +166,15 @@ print(' ')
 print(predicted_stock_price)
 
 
-#plt.plot(new_df.OPEN, color='black', label='BMW Stock Price')
-plt.plot(predicted_stock_price, color='green', label='Predicted BMW Stock Price')
-plt.title('BMW Stock Price Prediction')
+#plt.plot(new_df.OPEN, color='black', label='porsche Stock Price')
+plt.plot(predicted_stock_price, color='green', label='Predicted porsche Stock Price')
+plt.title('porsche Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('BMW Stock Price')
+plt.ylabel('porsche Stock Price')
 plt.legend()
 plt.show()
 
+
 date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\prediction_plot_with_semantics\prediction_bmw_with_semantics_' + date_today + '.png', bbox_inches="tight")
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\porsche\minutely\flair\header\prediction_plot_with_semantics\prediction_porsche_with_semantics_' + date_today + '.png', bbox_inches="tight")
 print('Run is finished and plot is saved!')

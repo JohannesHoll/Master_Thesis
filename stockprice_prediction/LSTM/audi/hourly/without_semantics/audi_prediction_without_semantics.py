@@ -1,28 +1,31 @@
 ###necessary libaries###
 import numpy as np
 import pandas as pd
+from seglearn.transform import FeatureRep, SegmentXYForecast, last
 from subprocess import check_output
-from keras.layers.core import Dense, Activation, Dropout
-from keras.layers.recurrent import LSTM
-from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout, Input, LSTM, Flatten
+from keras.models import Model
+from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
-import time #helper libraries
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 from numpy import newaxis
 import glob
 import os
 from datetime import datetime
+import math
 from numpy.random import seed
 import tensorflow as tf
+import warnings
+from sklearn.exceptions import DataConversionWarning
 
 model_seed = 100
-#ensure same output results
+# ensure same output results
 seed(101)
 tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\audi\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\audi\hourly\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -174,5 +177,5 @@ plt.show()
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
 #model.save(r'C:\Users\victo\Master_Thesis\stockprice_prediction\audi\resultstest' + date_today + '.h5')
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\audi\without_semantics\prediction_plot_without_semantics\prediction_audi_without_semantics_' + date_today + '.png', bbox_inches="tight")
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\audi\hourly\without_semantics\prediction_plot_without_semantics\prediction_audi_without_semantics_' + date_today + '.png', bbox_inches="tight")
 print('Run is finished and plot is saved!')

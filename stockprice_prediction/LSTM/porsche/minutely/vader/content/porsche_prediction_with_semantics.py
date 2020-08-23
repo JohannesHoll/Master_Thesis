@@ -25,7 +25,7 @@ seed(101)
 tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\minutely\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\porsche\minutely\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -166,15 +166,15 @@ print(' ')
 print(predicted_stock_price)
 
 
-#plt.plot(new_df.OPEN, color='black', label='BMW Stock Price')
-plt.plot(predicted_stock_price, color='green', label='Predicted BMW Stock Price')
-plt.title('BMW Stock Price Prediction')
+#plt.plot(new_df.OPEN, color='black', label='porsche Stock Price')
+plt.plot(predicted_stock_price, color='green', label='Predicted porsche Stock Price')
+plt.title('porsche Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('BMW Stock Price')
+plt.ylabel('porsche Stock Price')
 plt.legend()
 plt.show()
 
-# date_today = str(datetime.now().strftime("%Y%m%d"))
-# plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\minutely\vader\content\
-# prediction_plot_with_semantics\prediction_bmw_without_semantics_' + date_today + '.png', bbox_inches="tight")
-# print('Run is finished and plot is saved!')
+
+date_today = str(datetime.now().strftime("%Y%m%d"))
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\porsche\minutely\vader\content\prediction_plot_with_semantics\prediction_porsche_with_vadercontent_' + date_today + '.png', bbox_inches="tight")
+print('Run is finished and plot is saved!')

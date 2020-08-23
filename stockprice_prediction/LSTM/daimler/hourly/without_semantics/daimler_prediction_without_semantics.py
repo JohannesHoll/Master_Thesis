@@ -1,28 +1,31 @@
 ###necessary libaries###
 import numpy as np
 import pandas as pd
+from seglearn.transform import FeatureRep, SegmentXYForecast, last
 from subprocess import check_output
-from keras.layers.core import Dense, Activation, Dropout
-from keras.layers.recurrent import LSTM
-from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout, Input, LSTM, Flatten
+from keras.models import Model
+from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
-import time #helper libraries
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 from numpy import newaxis
 import glob
 import os
 from datetime import datetime
+import math
 from numpy.random import seed
 import tensorflow as tf
+import warnings
+from sklearn.exceptions import DataConversionWarning
 
 model_seed = 100
-#ensure same output results
+# ensure same output results
 seed(101)
 tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\daimler\hourly\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -163,15 +166,16 @@ print(' ')
 print(predicted_stock_price)
 
 
-#plt.plot(new_df.OPEN, color='black', label='BMW Stock Price')
-plt.plot(predicted_stock_price, color='green', label='Predicted BMW Stock Price')
-plt.title('BMW Stock Price Prediction')
+#plt.plot(new_df.OPEN, color='black', label='daimler Stock Price')
+plt.plot(predicted_stock_price, color='green', label='Predicted daimler Stock Price')
+plt.title('daimler Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('BMW Stock Price')
+plt.ylabel('daimler Stock Price')
 plt.legend()
 plt.show()
 
+
 date_today = str(datetime.now().strftime("%Y%m%d"))
-#model.save(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\resultstest' + date_today + '.h5')
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\bmw\without_semantics\prediction_plot_without_semantics\prediction_bmw_without_semantics_' + date_today + '.png', bbox_inches="tight")
+#model.save(r'C:\Users\victo\Master_Thesis\stockprice_prediction\daimler\resultstest' + date_today + '.h5')
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\daimler\hourly\without_semantics\prediction_plot_without_semantics\prediction_daimler_without_semantics_' + date_today + '.png', bbox_inches="tight")
 print('Run is finished and plot is saved!')
