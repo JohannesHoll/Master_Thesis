@@ -84,25 +84,99 @@ cleaned_dataframe_textblob = cleaned_dataframe_textblob.drop_duplicates(subset=[
 print(cleaned_dataframe_textblob)
 
 ##merging files together
-merged_df = pd.merge(cleaned_dataframe_flair, cleaned_dataframe_vader, on=['url','header','release time','article content','formatted date'])
-merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url','header','release time','article content','formatted date'])
+merged_df = pd.merge(cleaned_dataframe_flair, cleaned_dataframe_vader, on=['url']) #,'header','release time','article content','formatted date'])
+merged_df = pd.merge(merged_df, cleaned_dataframe_textblob, on=['url'])#,'header','release time','article content','formatted date'])
 merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
-path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\audi\stockpricefiles_with_return'
+#importing of stock price files
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\daily_stockpricefiles_with_return'
+
+##filling empty cells with 0
+#merged_df[['flair_sentiment_header_score', 'flair_sentiment_content_score', 'neg_vader_header', 'neu_vader_header',
+#           'pos_vader_header', 'compound_vader_header', 'neg_vader_articel_content', 'neu_vader_articel_content',
+#           'pos_vader_articel_content', 'compound_vader_articel_content', 'polarity_textblob_sentiment_header',
+#           'subjectivity_textblob_sentiment_header', 'polarity_textblob_sentiment_content',
+#           'subjectivity_textblob_sentiment_content'
+#           ]] = merged_df[['flair_sentiment_header_score', 'flair_sentiment_content_score', 'neg_vader_header', 'neu_vader_header',
+#                           'pos_vader_header', 'compound_vader_header', 'neg_vader_articel_content',
+#                           'neu_vader_articel_content', 'pos_vader_articel_content', 'compound_vader_articel_content',
+#                           'polarity_textblob_sentiment_header', 'subjectivity_textblob_sentiment_header',
+#                           'polarity_textblob_sentiment_content', 'subjectivity_textblob_sentiment_content'
+#                           ]].fillna(0)
+
+#creating new column with formatted date
+dates = []
+for date in merged_df['formatteddate']:
+    matches = re.finditer('\d{4}-\d{2}-\d{2}', str(date))
+    for d in matches:
+        date_merged = d.group()
+        dates.append(date_merged)
+
+merged_df['Date'] = dates
+
+# new dataframe for merging later with stockprices
+dates_merger = []
+flair_sentiment_header_score = []
+flair_sentiment_content_score = []
+compound_vader_header = []
+compound_vader_articel_content = []
+polarity_textblob_sentiment_header = []
+polarity_textblob_sentiment_content = []
+
+for dates in merged_df['formatteddate']:
+    matches2 = re.search('\d{4}-\d{2}-\d{2}', str(dates))
+    date_merged2 = matches2.group()
+    for index, row in merged_df.iterrows():
+        if row['Date'] == date_merged2:
+            dates_merger.append(row['Date'])
+            #print(row['Date'])
+            flair_sentiment_header_score.append(row['flair_sentiment_header_score'])
+            #print(row['flair_sentiment_header_score'])
+            flair_sentiment_content_score.append(row['flair_sentiment_content_score'])
+            #print(row['flair_sentiment_content_score'])
+            compound_vader_header.append(row['compound_vader_header'])
+            #print(row['compound_vader_header'])
+            compound_vader_articel_content.append(row['compound_vader_articel_content'])
+            #print(row['compound_vader_articel_content'])
+            polarity_textblob_sentiment_header.append(row['polarity_textblob_sentiment_header'])
+            #print(row['polarity_textblob_sentiment_header'])
+            polarity_textblob_sentiment_content.append(row['polarity_textblob_sentiment_content'])
+            #print(row['polarity_textblob_sentiment_content'])
+
+merge_list = list(zip(dates_merger,
+                      flair_sentiment_header_score,
+                      flair_sentiment_content_score,
+                      compound_vader_header,
+                      compound_vader_articel_content,
+                      polarity_textblob_sentiment_header,
+                      polarity_textblob_sentiment_content))
+
+new_merged_df = pd.DataFrame(data=merge_list,
+                             columns=['Date',
+                                      'flair_sentiment_header_score',
+                                      'flair_sentiment_content_score',
+                                      'compound_vader_header',
+                                      'compound_vader_articel_content',
+                                      'polarity_textblob_sentiment_header',
+                                      'polarity_textblob_sentiment_content']
+                             )
+
+#new_merged_df['Date'] = pd.to_datetime(new_merged_df['Date'])
+
+new_merged_df = new_merged_df.groupby('Date').mean()
+
+print(new_merged_df)
 
 for file in glob.iglob(path_stockprices + '\*.csv'):
-    date = re.search('\d{4}-\d{2}-\d{2}', file)
-    date = date.group()
     df_daily_stock_prices = pd.read_csv(file,
                                         sep=',',
                                         )
-    df_daily_stock_prices['Date'] = pd.DatetimeIndex(pd.to_datetime(df_daily_stock_prices['Date'])).tz_localize('UTC').tz_convert('Europe/Berlin')
-    df_daily_stock_prices['Date'] = pd.to_datetime(df_daily_stock_prices['Date'].dt.strftime('%Y-%m-%d %H:%M:%S'))
 
-    df_stock_prices_semantics = df_daily_stock_prices.merge(merged_df,
-                                                            left_on='Date',
-                                                            right_on='formatteddate',
-                                                            how='left')
-    df_stock_prices_semantics.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\audi\merged_files\audiprices_with_semantics_' + date + '.csv', index=False)
-    print('File of ' + date + ' has been saved!')
+    new_df_daily_stockprices = df_daily_stock_prices.merge(new_merged_df,
+                                                           left_on='Date',
+                                                           right_on='Date',
+                                                           how='left')
+
+    new_df_daily_stockprices.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\audi\daily\merged_files\daily_audiprices_with_semantics_.csv', index=False)
+    print('File has been saved!')
