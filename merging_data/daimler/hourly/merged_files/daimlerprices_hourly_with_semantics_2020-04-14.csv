@@ -1,0 +1,6 @@
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,flair_sentiment_header_score,flair_sentiment_content_score,compound_vader_header,compound_vader_articel_content,polarity_textblob_sentiment_header,polarity_textblob_sentiment_content
+2020-04-14 09:00:00,30.845,30.925,29.845,29.885,884181.0,0.0,0,0.0,0,,,,,,
+2020-04-14 14:00:00,30.25,30.25,29.535,29.67,1056653.0,-1.1749999999999972,0,172472.0,1,,,,,,
+2020-04-14 15:00:00,29.67,30.085,29.61,30.01,999395.0,-0.23999999999999844,0,-57258.0,0,,,,,,
+2020-04-14 16:00:00,30.0,30.11,29.525,29.555,866753.0,-0.115000000000002,0,-132642.0,0,,,,,,
+2020-04-14 17:00:00,29.56,29.685,29.365,29.4,1997241.0,-0.6000000000000014,0,1130488.0,1,,,,,,

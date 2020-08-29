@@ -1,0 +1,4 @@
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,flair_sentiment_header_score,flair_sentiment_content_score,compound_vader_header,compound_vader_articel_content,polarity_textblob_sentiment_header,polarity_textblob_sentiment_content
+2020-02-10 09:00:00,816.0,816.0,816.0,816.0,4.0,0.0,0,0.0,0,,,,,,
+2020-02-10 12:00:00,822.0,824.0,816.0,816.0,110.0,0.0,0,106.0,1,,,,,,
+2020-02-10 17:00:00,816.0,826.0,816.0,826.0,16.0,4.0,1,-94.0,0,,,,,,

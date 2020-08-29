@@ -1,0 +1,5 @@
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,flair_sentiment_header_score,flair_sentiment_content_score,compound_vader_header,compound_vader_articel_content,polarity_textblob_sentiment_header,polarity_textblob_sentiment_content
+2020-07-03 09:00:00,1570.0,1570.0,1570.0,1570.0,514.0,0.0,0,0.0,0,,,,,,
+2020-07-03 13:00:00,1560.0,1560.0,1560.0,1560.0,20.0,-10.0,0,-494.0,0,0.9479,-0.5263,0.4019,0.7269,0.0,-0.02063492063492064
+2020-07-03 15:00:00,1570.0,1570.0,1570.0,1570.0,6.0,10.0,1,-14.0,0,,,,,,
+2020-07-03 17:00:00,1560.0,1570.0,1560.0,1570.0,4.0,0.0,0,-2.0,0,,,,,,

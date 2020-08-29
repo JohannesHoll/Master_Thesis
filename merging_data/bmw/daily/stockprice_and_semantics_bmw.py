@@ -108,13 +108,12 @@ path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\daily_stoc
 #creating new column with formatted date
 dates = []
 for date in merged_df['formatteddate']:
-    matches = re.finditer('\d{4}-\d{2}-\d{2}', str(date))
-    for d in matches:
-        date_merged = d.group()
-        dates.append(date_merged)
+    matches = re.search('\d{4}-\d{2}-\d{2}', str(date))
+    date_merged = matches.group()
+    dates.append(date_merged)
 
 merged_df['Date'] = dates
-
+print(merged_df.Date)
 # new dataframe for merging later with stockprices
 dates_merger = []
 flair_sentiment_header_score = []

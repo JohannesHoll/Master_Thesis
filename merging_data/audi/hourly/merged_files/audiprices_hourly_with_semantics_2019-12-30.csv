@@ -1,0 +1,4 @@
+Date,OPEN,HIGH,LOW,CLOSE,VOLUME,return,return_one_hot_encoded,volume_difference,volume_one_hot_encoded,flair_sentiment_header_score,flair_sentiment_content_score,compound_vader_header,compound_vader_articel_content,polarity_textblob_sentiment_header,polarity_textblob_sentiment_content
+2019-12-30 09:00:00,802.0,802.0,802.0,802.0,4.0,0.0,0,0.0,0,,,,,,
+2019-12-30 13:00:00,804.0,804.0,802.0,802.0,35.0,0.0,0,31.0,1,,,,,,
+2019-12-30 14:00:00,800.0,800.0,800.0,800.0,75.0,-4.0,0,40.0,1,,,,,,
