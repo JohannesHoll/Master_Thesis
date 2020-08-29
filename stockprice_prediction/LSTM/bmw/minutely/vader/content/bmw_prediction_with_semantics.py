@@ -150,6 +150,7 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 # predicting stock prices
+
 predicted_stock_price = model.predict(X_test_rolled)
 
 #predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(1, -1)
@@ -175,6 +176,6 @@ plt.legend()
 plt.show()
 
 
-date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\bmw\minutely\vader\content\prediction_plot_with_semantics\prediction_bmw_with_vadercontent_' + date_today + '.png', bbox_inches="tight")
-print('Run is finished and plot is saved!')
+#date_today = str(datetime.now().strftime("%Y%m%d"))
+#plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\bmw\minutely\vader\content\prediction_plot_with_semantics\prediction_bmw_with_vadercontent_' + date_today + '.png', bbox_inches="tight")
+#print('Run is finished and plot is saved!')

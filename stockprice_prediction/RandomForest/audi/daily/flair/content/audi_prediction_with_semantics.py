@@ -10,6 +10,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 from numpy import newaxis
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+from math import sqrt
 import glob
 import os
 from datetime import datetime
@@ -97,83 +100,52 @@ segmenter = SegmentXYForecast(width=TIME_WINDOW, step=1, y_func=last, forecast=F
 X_train_rolled, y_train_rolled, _ = segmenter.fit_transform([X_train_norm.values], [y_train_norm.flatten()])
 X_valid_rolled, y_valid_rolled, _ = segmenter.fit_transform([X_valid_norm.values], [y_valid_norm.flatten()])
 X_test_rolled, y_test_rolled, _ = segmenter.fit_transform([X_test_norm.values], [y_test_norm.flatten()])
-# LSTM Model
-first_lstm_size = 75
-second_lstm_size = 40
-dropout = 0.1
-EPOCHS = 3
-BATCH_SIZE = 32
-column_count = len(X_train_norm.columns)
-# model with use of Funcational API of Keras
-# input layer
-input_layer = Input(shape=(TIME_WINDOW, column_count))
-# first LSTM layer
-first_lstm = LSTM(first_lstm_size,
-                  return_sequences=True,
-                  dropout=dropout)(input_layer)
-# second LTSM layer
-second_lstm = LSTM(second_lstm_size,
-                   return_sequences=False,
-                   dropout=dropout)(first_lstm)
-# output layer
-output_layer = Dense(1)(second_lstm)
-# creating Model
-model = Model(inputs=input_layer, outputs=output_layer)
-# compile model
-model.compile(optimizer='adam', loss='mean_absolute_error')
-# model summary
-model.summary()
-print(' ')
-print("----------------------------------------------------------------")
-print(' ')
-# fitting model
-hist = model.fit(x=X_train_rolled,
-                 y=y_train_rolled,
-                 batch_size=BATCH_SIZE,
-                 validation_data=(X_valid_rolled, y_valid_rolled),
-                 epochs=EPOCHS,
-                 verbose=1,
-                 shuffle=False)
-print(' ')
-print("----------------------------------------------------------------")
-print(' ')
 
-plt.plot(hist.history['loss'], label='train')
-plt.plot(hist.history['val_loss'], label='test')
-plt.legend()
-plt.show()
+shape = X_train_rolled.shape
+X_train_flattened = X_train_rolled.reshape(shape[0],shape[1]*shape[2])
+X_train_flattened.shape
+shape = X_valid_rolled.shape
+X_valid_flattened = X_valid_rolled.reshape(shape[0],shape[1]*shape[2])
+
+# Random Forest
+N_ESTIMATORS = 30
+RANDOM_STATE = 452543634
+
+RF_base_model = RandomForestRegressor(random_state=RANDOM_STATE, n_estimators=N_ESTIMATORS, n_jobs=-1, verbose=100)
+RF_base_model.fit(X_train_flattened, y_train_rolled)
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-rms_LSTM = math.sqrt(min(hist.history['val_loss']))
+RF_base_model_predictions = RF_base_model.predict(X_valid_flattened)
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-# predicting stock prices
-predicted_stock_price = model.predict(X_test_rolled)
+rms_base = sqrt(mean_squared_error(y_valid_rolled, RF_base_model_predictions))
 
-#predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(1, -1)
-print(' ')
-print("Root mean squared error on valid:", rms_LSTM)
+print("Root mean squared error on valid:",rms_base)
+print("Root mean squared error on valid inverse transformed from normalization:",normalizers["pm2.5"].inverse_transform(np.array([rms_base]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers["OPEN"].inverse_transform(np.array([rms_LSTM]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print(predicted_stock_price)
+RF_feature_model = RandomForestRegressor(random_state=RANDOM_STATE, n_estimators=N_ESTIMATORS, n_jobs=-1, verbose=100)
+feature_converter = FeatureRep()
+RF_feature_model.fit(feature_converter.fit_transform(X_train_rolled),y_train_rolled)
+print(' ')
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
+X_valid_rolled, y_valid_rolled,_=segmenter.fit_transform([X_valid_norm.values],[y_valid_norm.flatten()])
+RF_feature_model_predictions = RF_feature_model.predict(feature_converter.transform(X_valid_rolled))
+rms_feature = sqrt(mean_squared_error(y_valid_rolled, RF_feature_model_predictions))
 
-
-#plt.plot(new_df.OPEN, color='black', label='Audi Stock Price')
-plt.plot(predicted_stock_price, color='green', label='Predicted Audi Stock Price')
-plt.title('Audi Stock Price Prediction')
-plt.xlabel('Time')
-plt.ylabel('Audi Stock Price')
-plt.legend()
-plt.show()
-
+print("Root mean squared error on valid:",rms_feature)
+print("Root mean squared error on valid inverse transformed from normalization:",normalizers["pm2.5"].inverse_transform(np.array([rms_feature]).reshape(1, -1)))
+print(' ')
+print("----------------------------------------------------------------")
+print(' ')
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
 plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\audi\daily\flair\content\prediction_plot_with_semantics\prediction_audi_with_semantics_' + date_today + '.png', bbox_inches="tight")
