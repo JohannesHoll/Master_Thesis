@@ -153,7 +153,7 @@ print(' ')
 
 predicted_stock_price = model.predict(X_test_rolled)
 
-#predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(1, -1)
+predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(-1, 1)
 print(' ')
 print("Root mean squared error on valid:", rms_LSTM)
 print(' ')

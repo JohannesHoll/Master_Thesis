@@ -45,129 +45,180 @@ concatenate_dataframe = pd.concat(list_of_files,
 
 # print(concatenate_dataframe)
 
-new_df = concatenate_dataframe[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'polarity_textblob_sentiment_header']]
-new_df['polarity_textblob_sentiment_header'] = new_df['polarity_textblob_sentiment_header'].fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']].astype(np.float64)
-# print(new_df)
+new_df_textblob_header = concatenate_dataframe[['OPEN',
+                                                'HIGH',
+                                                'LOW',
+                                                'CLOSE',
+                                                'VOLUME',
+                                                'polarity_textblob_sentiment_header']]
+
+new_df_textblob_header = new_df_textblob_header.fillna(0)
+new_df_textblob_header[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'polarity_textblob_sentiment_header']].astype(np.float64)
+print(new_df_textblob_header)
 
 # train, valid, test split
-valid_test_size_split = 0.1
+valid_test_size_split_textblob_header = 0.1
 
-X_train, X_else, y_train, y_else = train_test_split(new_df,
-                                                    new_df['OPEN'],
-                                                    test_size=valid_test_size_split*2,
-                                                    shuffle=False)
+X_train_textblob_header, \
+X_else_textblob_header,\
+y_train_textblob_header, \
+y_else_textblob_header = train_test_split(new_df_textblob_header,
+                                          new_df_textblob_header['OPEN'],
+                                          test_size=valid_test_size_split_textblob_header*2,
+                                          shuffle=False)
 
-X_valid, X_test, y_valid, y_test = train_test_split(X_else,
-                                                    y_else,
-                                                    test_size=0.5,
-                                                    shuffle=False)
-print(y_else)
+X_valid_textblob_header, \
+X_test_textblob_header, \
+y_valid_textblob_header, \
+y_test_textblob_header = train_test_split(X_else_textblob_header,
+                                          y_else_textblob_header,
+                                          test_size=0.5,
+                                          shuffle=False)
+
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
-def minmax_scale(df_x, series_y, normalizers=None):
+def minmax_scale_textblob_header(df_x, series_y, normalizers_textblob_header = None):
     features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'polarity_textblob_sentiment_header']
 
-    if not normalizers:
-        normalizers = {}
+    if not normalizers_textblob_header:
+        normalizers_textblob_header = {}
 
     for feat in features_to_minmax:
-        if feat not in normalizers:
-            normalizers[feat] = MinMaxScaler()
-            normalizers[feat].fit(df_x[feat].values.reshape(-1, 1))
+        if feat not in normalizers_textblob_header:
+            normalizers_textblob_header[feat] = MinMaxScaler()
+            normalizers_textblob_header[feat].fit(df_x[feat].values.reshape(-1, 1))
 
-        df_x[feat] = normalizers[feat].transform(df_x[feat].values.reshape(-1, 1))
+        df_x[feat] = normalizers_textblob_header[feat].transform(df_x[feat].values.reshape(-1, 1))
 
-    series_y = normalizers['OPEN'].transform(series_y.values.reshape(-1, 1))
+    series_y = normalizers_textblob_header['OPEN'].transform(series_y.values.reshape(-1, 1))
 
-    return df_x, series_y, normalizers
+    return df_x, series_y, normalizers_textblob_header
 
-X_train_norm, y_train_norm, normalizers = minmax_scale(X_train, y_train)
-X_valid_norm, y_valid_norm, _ = minmax_scale(X_valid, y_valid, normalizers=normalizers)
-X_test_norm, y_test_norm, _ = minmax_scale(X_test, y_test, normalizers=normalizers)
+X_train_norm_textblob_header, \
+y_train_norm_textblob_header, \
+normalizers_textblob_header = minmax_scale_textblob_header(X_train_textblob_header,
+                                                           y_train_textblob_header
+                                                           )
+
+X_valid_norm_textblob_header, \
+y_valid_norm_textblob_header, \
+_ = minmax_scale_textblob_header(X_valid_textblob_header,
+                                 y_valid_textblob_header,
+                                 normalizers_textblob_header=normalizers_textblob_header
+                                 )
+
+X_test_norm_textblob_header, \
+y_test_norm_textblob_header, \
+_ = minmax_scale_textblob_header(X_test_textblob_header,
+                                 y_test_textblob_header,
+                                 normalizers_textblob_header=normalizers_textblob_header
+                                 )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW = 30
-FORECAST_DISTANCE = 60
+TIME_WINDOW_textblob_header = 2
+FORECAST_DISTANCE_textblob_header = 9
 
-segmenter = SegmentXYForecast(width=TIME_WINDOW, step=1, y_func=last, forecast=FORECAST_DISTANCE)
+segmenter_textblob_header = SegmentXYForecast(width=TIME_WINDOW_textblob_header,
+                                              step=1,
+                                              y_func=last,
+                                              forecast=FORECAST_DISTANCE_textblob_header
+                                              )
 
-X_train_rolled, y_train_rolled, _ = segmenter.fit_transform([X_train_norm.values], [y_train_norm.flatten()])
-X_valid_rolled, y_valid_rolled, _ = segmenter.fit_transform([X_valid_norm.values], [y_valid_norm.flatten()])
-X_test_rolled, y_test_rolled, _ = segmenter.fit_transform([X_test_norm.values], [y_test_norm.flatten()])
+X_train_rolled_textblob_header, \
+y_train_rolled_textblob_header, \
+_ = segmenter_textblob_header.fit_transform([X_train_norm_textblob_header.values],
+                                            [y_train_norm_textblob_header.flatten()]
+                                            )
+
+X_valid_rolled_textblob_header, \
+y_valid_rolled_textblob_header, \
+_ = segmenter_textblob_header.fit_transform([X_valid_norm_textblob_header.values],
+                                            [y_valid_norm_textblob_header.flatten()]
+                                            )
+
+X_test_rolled_textblob_header,\
+y_test_rolled_textblob_header, \
+_ = segmenter_textblob_header.fit_transform([X_test_norm_textblob_header.values],
+                                            [y_test_norm_textblob_header.flatten()]
+                                            )
+
 # LSTM Model
-first_lstm_size = 75
-second_lstm_size = 40
-dropout = 0.1
-EPOCHS = 3
-BATCH_SIZE = 32
-column_count = len(X_train_norm.columns)
+first_lstm_size_textblob_header = 75
+second_lstm_size_textblob_header = 40
+dropout_textblob_header = 0.1
+EPOCHS_textblob_header = 50
+BATCH_SIZE_textblob_header = 32
+column_count_textblob_header = len(X_train_norm_textblob_header.columns)
 # model with use of Funcational API of Keras
 # input layer
-input_layer = Input(shape=(TIME_WINDOW, column_count))
+input_layer_textblob_header = Input(shape=(TIME_WINDOW_textblob_header, column_count_textblob_header))
 # first LSTM layer
-first_lstm = LSTM(first_lstm_size,
-                  return_sequences=True,
-                  dropout=dropout)(input_layer)
+first_lstm_textblob_header = LSTM(first_lstm_size_textblob_header,
+                                  return_sequences=True,
+                                  dropout=dropout_textblob_header)(input_layer_textblob_header)
 # second LTSM layer
-second_lstm = LSTM(second_lstm_size,
-                   return_sequences=False,
-                   dropout=dropout)(first_lstm)
+second_lstm_textblob_header = LSTM(second_lstm_size_textblob_header,
+                                   return_sequences=False,
+                                   dropout=dropout_textblob_header)(first_lstm_textblob_header)
 # output layer
-output_layer = Dense(1)(second_lstm)
+output_layer_textblob_header = Dense(1)(second_lstm_textblob_header)
 # creating Model
-model = Model(inputs=input_layer, outputs=output_layer)
+model_textblob_header = Model(inputs=input_layer_textblob_header, outputs=output_layer_textblob_header)
 # compile model
-model.compile(optimizer='adam', loss='mean_absolute_error')
+model_textblob_header.compile(optimizer='adam', loss='mean_absolute_error')
 # model summary
-model.summary()
+model_textblob_header.summary()
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 # fitting model
-hist = model.fit(x=X_train_rolled,
-                 y=y_train_rolled,
-                 batch_size=BATCH_SIZE,
-                 validation_data=(X_valid_rolled, y_valid_rolled),
-                 epochs=EPOCHS,
-                 verbose=1,
-                 shuffle=False)
+hist_textblob_header = model_textblob_header.fit(x=X_train_rolled_textblob_header,
+                                                 y=y_train_rolled_textblob_header,
+                                                 batch_size=BATCH_SIZE_textblob_header,
+                                                 validation_data=(X_valid_rolled_textblob_header,
+                                                                  y_valid_rolled_textblob_header
+                                                                  ),
+                                                 epochs=EPOCHS_textblob_header,
+                                                 verbose=1,
+                                                 shuffle=False
+                                                 )
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 
-plt.plot(hist.history['loss'], label='train')
-plt.plot(hist.history['val_loss'], label='test')
+plt.plot(hist_textblob_header.history['loss'], label='train_textblob_header')
+plt.plot(hist_textblob_header.history['val_loss'], label='test_textblob_header')
 plt.legend()
 plt.show()
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-rms_LSTM = math.sqrt(min(hist.history['val_loss']))
+rms_LSTM_textblob_header = math.sqrt(min(hist_textblob_header.history['val_loss']))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 # predicting stock prices
-predicted_stock_price = model.predict(X_test_rolled)
+predicted_stock_price_textblob_header = model_textblob_header.predict(X_test_rolled_textblob_header)
 
-#predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(1, -1)
+predicted_stock_price_textblob_header = normalizers_textblob_header['OPEN']\
+                                      .inverse_transform(predicted_stock_price_textblob_header).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM)
+print("Root mean squared error on valid:", rms_LSTM_textblob_header)
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers["OPEN"].inverse_transform(np.array([rms_LSTM]).reshape(1, -1)))
+      normalizers_textblob_header["OPEN"].inverse_transform(np.array([rms_LSTM_textblob_header]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print(predicted_stock_price)
+print(predicted_stock_price_textblob_header)
 
 
 #plt.plot(new_df.OPEN, color='black', label='bmw Stock Price')
-plt.plot(predicted_stock_price, color='green', label='Predicted bmw Stock Price')
+plt.plot(predicted_stock_price_textblob_header, color='green', label='Predicted bmw Stock Price')
 plt.title('bmw Stock Price Prediction')
 plt.xlabel('Time')
 plt.ylabel('bmw Stock Price')

@@ -28,27 +28,29 @@ tf.random.set_seed(model_seed)
 path = r'C:\Users\victo\Master_Thesis\merging_data\bmw\daily\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
-# read files to pandas frame
-list_of_files = []
-
-for filename in all_files:
-    list_of_files.append(pd.read_csv(filename,
-                                     sep=',',
-                                     )
-                         )
-
-# Concatenate all content of files into one DataFrames
-concatenate_dataframe = pd.concat(list_of_files,
-                                  ignore_index=True,
-                                  axis=0,
-                                  )
+# # read files to pandas frame
+# list_of_files = []
+#
+# for filename in all_files:
+#     list_of_files.append(pd.read_csv(filename,
+#                                      sep=',',
+#                                      )
+#                          )
+#
+# # Concatenate all content of files into one DataFrames
+# concatenate_dataframe = pd.concat(list_of_files,
+#                                   ignore_index=True,
+#                                   axis=0,
+#                                   )
 
 # print(concatenate_dataframe)
+concatenate_dataframe = pd.read_csv(r'C:\Users\victo\Master_Thesis\merging_data\bmw\daily\merged_files\daily_bmwprices_with_semantics_.csv',
+                                    sep=','
+                                    )
 
 new_df = concatenate_dataframe[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']]
 new_df['compound_vader_articel_content'] = new_df['compound_vader_articel_content'].fillna(0)
 # new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']].astype(np.float64)
-# print(new_df)
 
 # train, valid, test split
 valid_test_size_split = 0.1
@@ -89,19 +91,22 @@ X_valid_norm, y_valid_norm, _ = minmax_scale(X_valid, y_valid, normalizers=norma
 X_test_norm, y_test_norm, _ = minmax_scale(X_test, y_test, normalizers=normalizers)
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW = 30
-FORECAST_DISTANCE = 60
+TIME_WINDOW = 2
+FORECAST_DISTANCE = 9
 
 segmenter = SegmentXYForecast(width=TIME_WINDOW, step=1, y_func=last, forecast=FORECAST_DISTANCE)
 
 X_train_rolled, y_train_rolled, _ = segmenter.fit_transform([X_train_norm.values], [y_train_norm.flatten()])
 X_valid_rolled, y_valid_rolled, _ = segmenter.fit_transform([X_valid_norm.values], [y_valid_norm.flatten()])
 X_test_rolled, y_test_rolled, _ = segmenter.fit_transform([X_test_norm.values], [y_test_norm.flatten()])
+
+print('Valid Data: ' + str(X_valid_rolled))
+
 # LSTM Model
 first_lstm_size = 75
 second_lstm_size = 40
 dropout = 0.1
-EPOCHS = 3
+EPOCHS = 50
 BATCH_SIZE = 32
 column_count = len(X_train_norm.columns)
 # model with use of Funcational API of Keras

@@ -89,8 +89,8 @@ X_valid_norm, y_valid_norm, _ = minmax_scale(X_valid, y_valid, normalizers=norma
 X_test_norm, y_test_norm, _ = minmax_scale(X_test, y_test, normalizers=normalizers)
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW = 30
-FORECAST_DISTANCE = 60
+TIME_WINDOW = 2
+FORECAST_DISTANCE = 9
 
 segmenter = SegmentXYForecast(width=TIME_WINDOW, step=1, y_func=last, forecast=FORECAST_DISTANCE)
 
@@ -101,7 +101,7 @@ X_test_rolled, y_test_rolled, _ = segmenter.fit_transform([X_test_norm.values], 
 first_lstm_size = 75
 second_lstm_size = 40
 dropout = 0.1
-EPOCHS = 3
+EPOCHS = 50
 BATCH_SIZE = 32
 column_count = len(X_train_norm.columns)
 # model with use of Funcational API of Keras
@@ -151,7 +151,7 @@ print("----------------------------------------------------------------")
 print(' ')
 # predicting stock prices
 predicted_stock_price = model.predict(X_test_rolled)
-
+predicted_stock_price = normalizers["OPEN"].inverse_transform(np.array(predicted_stock_price).reshape(-1, 1))
 #predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(1, -1)
 print(' ')
 print("Root mean squared error on valid:", rms_LSTM)
@@ -165,7 +165,9 @@ print("----------------------------------------------------------------")
 print(' ')
 print(predicted_stock_price)
 
+print(predicted_stock_price.shape)
 
+#plt.plot(predicted_stock_price)
 #plt.plot(new_df.OPEN, color='black', label='bmw Stock Price')
 plt.plot(predicted_stock_price, color='green', label='Predicted bmw Stock Price')
 plt.title('bmw Stock Price Prediction')
