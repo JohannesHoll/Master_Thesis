@@ -31,7 +31,7 @@ concatenate_list_of_files_flair = pd.concat(list_of_files_flair,
 cleaned_dataframe_flair = concatenate_list_of_files_flair.sort_values(by='url', ascending=False)
 cleaned_dataframe_flair = cleaned_dataframe_flair.drop_duplicates(subset=["url"], keep='first', ignore_index=True)
 
-print(cleaned_dataframe_flair)
+#print(cleaned_dataframe_flair)
 
 # file where csv files of vader analysis lies
 path_vader = r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_vader\audi\outcome_using_vader'
@@ -56,7 +56,7 @@ concatenate_list_of_files_vader = pd.concat(list_of_files_vader,
 cleaned_dataframe_vader = concatenate_list_of_files_vader.sort_values(by='url', ascending=False)
 cleaned_dataframe_vader = cleaned_dataframe_vader.drop_duplicates(subset=["url"], keep='first', ignore_index=True)
 
-print(cleaned_dataframe_vader)
+#print(cleaned_dataframe_vader)
 
 # file where csv files of textblob analysis lies
 path_textblob = r'C:\Users\victo\Master_Thesis\semanticanalysis\analysis_with_textblob\audi\outcome_using_texblob'
@@ -81,7 +81,7 @@ concatenate_list_of_files_textblob = pd.concat(list_of_files_textblob,
 cleaned_dataframe_textblob = concatenate_list_of_files_textblob.sort_values(by='url', ascending=False)
 cleaned_dataframe_textblob = cleaned_dataframe_textblob.drop_duplicates(subset=["url"], keep='first', ignore_index=True)
 
-print(cleaned_dataframe_textblob)
+#print(cleaned_dataframe_textblob)
 
 ##merging files together
 merged_df = pd.merge(cleaned_dataframe_flair, cleaned_dataframe_vader, on=['url']) #,'header','release time','article content','formatted date'])
@@ -90,7 +90,7 @@ merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
 #importing of stock price files
-path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\audi\daily_stockpricefiles_with_return'
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\audi\daily_stock_pricefiles_with_return'
 
 ##filling empty cells with 0
 #merged_df[['flair_sentiment_header_score', 'flair_sentiment_content_score', 'neg_vader_header', 'neu_vader_header',
@@ -113,7 +113,7 @@ for date in merged_df['formatteddate']:
     dates.append(date_merged)
 
 merged_df['Date'] = dates
-print(merged_df.Date)
+#print(merged_df.Date)
 
 # new dataframe for merging later with stockprices
 dates_merger = []
@@ -172,11 +172,12 @@ for file in glob.iglob(path_stockprices + '\*.csv'):
     df_daily_stock_prices = pd.read_csv(file,
                                         sep=',',
                                         )
-
+    #df_daily_stock_prices['Date'] = pd.to_datetime(df_daily_stock_prices['Date'])
+    print(df_daily_stock_prices)
     new_df_daily_stockprices = df_daily_stock_prices.merge(new_merged_df,
                                                            left_on='Date',
                                                            right_on='Date',
                                                            how='left')
 
-    new_df_daily_stockprices.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\audi\daily\merged_files\daily_audiprices_with_semantics_.csv', index=False)
+    new_df_daily_stockprices.to_csv(r'C:\Users\victo\Master_Thesis\merging_data\audi\daily\merged_files\daily_audiprices_with_semantics.csv', index=False)
     print('File has been saved!')
