@@ -90,7 +90,7 @@ merged_df['formatted date'] = pd.to_datetime(merged_df['formatted date'])
 merged_df.rename(columns={'formatted date': 'formatteddate'}, inplace=True)
 
 #importing of stock price files
-path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\bmw\daily_stockpricefiles_with_return'
+path_stockprices = r'C:\Users\victo\Master_Thesis\stockprice_data\audi\daily_stockpricefiles_with_return'
 
 ##filling empty cells with 0
 #merged_df[['flair_sentiment_header_score', 'flair_sentiment_content_score', 'neg_vader_header', 'neu_vader_header',
