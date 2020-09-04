@@ -25,7 +25,7 @@ seed(101)
 tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\daimler\hourly\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\ferrari\hourly\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -1249,21 +1249,21 @@ print(' ')
 print(predicted_stock_price_without_semantics)
 
 plt.figure(figsize=(10,5))
-#plt.plot(X_test, color='black', label='Daimler Stock Price')
-plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted Daimler Stock Price with flair content analysis')
-plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted Daimler Stock Price with flair header analysis')
-plt.plot(predicted_stock_price_textblob_header, color='yellow', label='Predicted Daimler Stock Price with textblob header analysis')
-plt.plot(predicted_stock_price_textblob_content, color='blue', label='Predicted Daimler Stock Price with textblob content analysis')
-plt.plot(predicted_stock_price_vader_content, color='cyan', label='Predicted Daimler Stock Price with vader content analysis')
-plt.plot(predicted_stock_price_vader_header, color='magenta', label='Predicted Daimler Stock Price with vader header analysis')
-plt.plot(predicted_stock_price_without_semantics, color='orange', label='Predicted Daimler Stock Price without semantics analysis')
+#plt.plot(X_test, color='black', label='Ferrari Stock Price')
+plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted Ferrari Stock Price with flair content analysis')
+plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted Ferrari Stock Price with flair header analysis')
+plt.plot(predicted_stock_price_textblob_header, color='yellow', label='Predicted Ferrari Stock Price with textblob header analysis')
+plt.plot(predicted_stock_price_textblob_content, color='blue', label='Predicted Ferrari Stock Price with textblob content analysis')
+plt.plot(predicted_stock_price_vader_content, color='cyan', label='Predicted Ferrari Stock Price with vader content analysis')
+plt.plot(predicted_stock_price_vader_header, color='magenta', label='Predicted Ferrari Stock Price with vader header analysis')
+plt.plot(predicted_stock_price_without_semantics, color='orange', label='Predicted Ferrari Stock Price without semantics analysis')
 #plt.rcParams['figure.facecolor'] = 'salmon'
-plt.title('Daimler Stock Price Prediction')
+plt.title('Ferrari Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('Daimler Stock Price')
+plt.ylabel('Ferrari Stock Price')
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.005), borderaxespad=8)
 date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\daimler\hourly\prediction_daimler_with_all_' + date_today + '.png',
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\ferrari\hourly\prediction_ferrari_with_all_' + date_today + '.png',
             bbox_inches="tight",
             dpi=100,
             pad_inches=1.5)

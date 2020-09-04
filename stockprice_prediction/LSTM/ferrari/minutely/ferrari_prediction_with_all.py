@@ -25,7 +25,7 @@ seed(101)
 tf.random.set_seed(model_seed)
 
 # file where csv files lies
-path = r'C:\Users\victo\Master_Thesis\merging_data\daimler\hourly\merged_files'
+path = r'C:\Users\victo\Master_Thesis\merging_data\ferrari\minutely\merged_files'
 all_files = glob.glob(os.path.join(path, "*.csv"))
 
 # read files to pandas frame
@@ -118,8 +118,8 @@ _ = minmax_scale_flair_content(X_test_flair_content,
                                )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_flair_content = 2
-FORECAST_DISTANCE_flair_content = 9
+TIME_WINDOW_flair_content = 30
+FORECAST_DISTANCE_flair_content = 60
 
 segmenter_flair_content = SegmentXYForecast(width=TIME_WINDOW_flair_content,
                                             step=1,
@@ -149,7 +149,7 @@ _ = segmenter_flair_content.fit_transform([X_test_norm_flair_content.values],
 first_lstm_size_flair_content = 75
 second_lstm_size_flair_content = 40
 dropout_flair_content = 0.1
-EPOCHS_flair_content = 50
+EPOCHS_flair_content = 10
 BATCH_SIZE_flair_content = 32
 column_count_flair_content = len(X_train_norm_flair_content.columns)
 # model with use of Funcational API of Keras
@@ -290,8 +290,8 @@ _ = minmax_scale_flair_header(X_test_flair_header,
                               )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_flair_header = 2
-FORECAST_DISTANCE_flair_header = 9
+TIME_WINDOW_flair_header = 30
+FORECAST_DISTANCE_flair_header = 60
 
 segmenter_flair_header = SegmentXYForecast(width=TIME_WINDOW_flair_header,
                                            step=1,
@@ -321,7 +321,7 @@ _ = segmenter_flair_header.fit_transform([X_test_norm_flair_header.values],
 first_lstm_size_flair_header = 75
 second_lstm_size_flair_header = 40
 dropout_flair_header = 0.1
-EPOCHS_flair_header = 50
+EPOCHS_flair_header = 10
 BATCH_SIZE_flair_header = 32
 column_count_flair_header = len(X_train_norm_flair_header.columns)
 # model with use of Funcational API of Keras
@@ -462,8 +462,8 @@ _ = minmax_scale_textblob_content(X_test_textblob_content,
                                   )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_textblob_content = 2
-FORECAST_DISTANCE_textblob_content = 9
+TIME_WINDOW_textblob_content = 30
+FORECAST_DISTANCE_textblob_content = 60
 
 segmenter_textblob_content = SegmentXYForecast(width=TIME_WINDOW_textblob_content,
                                                step=1,
@@ -493,7 +493,7 @@ _ = segmenter_textblob_content.fit_transform([X_test_norm_textblob_content.value
 first_lstm_size_textblob_content = 75
 second_lstm_size_textblob_content = 40
 dropout_textblob_content = 0.1
-EPOCHS_textblob_content = 50
+EPOCHS_textblob_content = 10
 BATCH_SIZE_textblob_content = 32
 column_count_textblob_content = len(X_train_norm_textblob_content.columns)
 # model with use of Funcational API of Keras
@@ -634,8 +634,8 @@ _ = minmax_scale_textblob_header(X_test_textblob_header,
                                  )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_textblob_header = 2
-FORECAST_DISTANCE_textblob_header = 9
+TIME_WINDOW_textblob_header = 30
+FORECAST_DISTANCE_textblob_header = 60
 
 segmenter_textblob_header = SegmentXYForecast(width=TIME_WINDOW_textblob_header,
                                               step=1,
@@ -665,7 +665,7 @@ _ = segmenter_textblob_header.fit_transform([X_test_norm_textblob_header.values]
 first_lstm_size_textblob_header = 75
 second_lstm_size_textblob_header = 40
 dropout_textblob_header = 0.1
-EPOCHS_textblob_header = 50
+EPOCHS_textblob_header = 10
 BATCH_SIZE_textblob_header = 32
 column_count_textblob_header = len(X_train_norm_textblob_header.columns)
 # model with use of Funcational API of Keras
@@ -806,8 +806,8 @@ _ = minmax_scale_vader_content(X_test_vader_content,
                                )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_vader_content = 2
-FORECAST_DISTANCE_vader_content = 9
+TIME_WINDOW_vader_content = 30
+FORECAST_DISTANCE_vader_content = 60
 
 segmenter_vader_content = SegmentXYForecast(width=TIME_WINDOW_vader_content,
                                             step=1,
@@ -837,7 +837,7 @@ _ = segmenter_vader_content.fit_transform([X_test_norm_vader_content.values],
 first_lstm_size_vader_content = 75
 second_lstm_size_vader_content = 40
 dropout_vader_content = 0.1
-EPOCHS_vader_content = 50
+EPOCHS_vader_content = 10
 BATCH_SIZE_vader_content = 32
 column_count_vader_content = len(X_train_norm_vader_content.columns)
 # model with use of Funcational API of Keras
@@ -978,8 +978,8 @@ _ = minmax_scale_vader_header(X_test_vader_header,
                               )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_vader_header = 2
-FORECAST_DISTANCE_vader_header = 9
+TIME_WINDOW_vader_header = 30
+FORECAST_DISTANCE_vader_header = 60
 
 segmenter_vader_header = SegmentXYForecast(width=TIME_WINDOW_vader_header,
                                            step=1,
@@ -1009,7 +1009,7 @@ _ = segmenter_vader_header.fit_transform([X_test_norm_vader_header.values],
 first_lstm_size_vader_header = 75
 second_lstm_size_vader_header = 40
 dropout_vader_header = 0.1
-EPOCHS_vader_header = 50
+EPOCHS_vader_header = 10
 BATCH_SIZE_vader_header = 32
 column_count_vader_header = len(X_train_norm_vader_header.columns)
 # model with use of Funcational API of Keras
@@ -1149,8 +1149,8 @@ _ = minmax_scale_without_semantics(X_test_without_semantics,
                                    )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_without_semantics = 2
-FORECAST_DISTANCE_without_semantics = 9
+TIME_WINDOW_without_semantics = 30
+FORECAST_DISTANCE_without_semantics = 60
 
 segmenter_without_semantics = SegmentXYForecast(width=TIME_WINDOW_without_semantics,
                                                 step=1,
@@ -1180,7 +1180,7 @@ _ = segmenter_without_semantics.fit_transform([X_test_norm_without_semantics.val
 first_lstm_size_without_semantics = 75
 second_lstm_size_without_semantics = 40
 dropout_without_semantics = 0.1
-EPOCHS_without_semantics = 50
+EPOCHS_without_semantics = 10
 BATCH_SIZE_without_semantics = 32
 column_count_without_semantics = len(X_train_norm_without_semantics.columns)
 # model with use of Funcational API of Keras
@@ -1249,21 +1249,21 @@ print(' ')
 print(predicted_stock_price_without_semantics)
 
 plt.figure(figsize=(10,5))
-#plt.plot(X_test, color='black', label='Daimler Stock Price')
-plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted Daimler Stock Price with flair content analysis')
-plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted Daimler Stock Price with flair header analysis')
-plt.plot(predicted_stock_price_textblob_header, color='yellow', label='Predicted Daimler Stock Price with textblob header analysis')
-plt.plot(predicted_stock_price_textblob_content, color='blue', label='Predicted Daimler Stock Price with textblob content analysis')
-plt.plot(predicted_stock_price_vader_content, color='cyan', label='Predicted Daimler Stock Price with vader content analysis')
-plt.plot(predicted_stock_price_vader_header, color='magenta', label='Predicted Daimler Stock Price with vader header analysis')
-plt.plot(predicted_stock_price_without_semantics, color='orange', label='Predicted Daimler Stock Price without semantics analysis')
+#plt.plot(X_test, color='black', label='Ferrari Stock Price')
+plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted Ferrari Stock Price with flair content analysis')
+plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted Ferrari Stock Price with flair header analysis')
+plt.plot(predicted_stock_price_textblob_header, color='yellow', label='Predicted Ferrari Stock Price with textblob header analysis')
+plt.plot(predicted_stock_price_textblob_content, color='blue', label='Predicted Ferrari Stock Price with textblob content analysis')
+plt.plot(predicted_stock_price_vader_content, color='cyan', label='Predicted Ferrari Stock Price with vader content analysis')
+plt.plot(predicted_stock_price_vader_header, color='magenta', label='Predicted Ferrari Stock Price with vader header analysis')
+plt.plot(predicted_stock_price_without_semantics, color='orange', label='Predicted Ferrari Stock Price without semantics analysis')
 #plt.rcParams['figure.facecolor'] = 'salmon'
-plt.title('Daimler Stock Price Prediction')
+plt.title('Ferrari Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('Daimler Stock Price')
+plt.ylabel('Ferrari Stock Price')
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.005), borderaxespad=8)
 date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\daimler\hourly\prediction_daimler_with_all_' + date_today + '.png',
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\ferrari\minutely\prediction_ferrari_with_all_' + date_today + '.png',
             bbox_inches="tight",
             dpi=100,
             pad_inches=1.5)

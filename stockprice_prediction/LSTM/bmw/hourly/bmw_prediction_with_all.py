@@ -1248,6 +1248,7 @@ print("----------------------------------------------------------------")
 print(' ')
 print(predicted_stock_price_without_semantics)
 
+plt.figure(figsize=(10,5))
 #plt.plot(X_test, color='black', label='BMW Stock Price')
 plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted BMW Stock Price with flair content analysis')
 plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted BMW Stock Price with flair header analysis')
@@ -1260,11 +1261,12 @@ plt.plot(predicted_stock_price_without_semantics, color='orange', label='Predict
 plt.title('BMW Stock Price Prediction')
 plt.xlabel('Time')
 plt.ylabel('BMW Stock Price')
-plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), borderaxespad=0)
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.005), borderaxespad=8)
 date_today = str(datetime.now().strftime("%Y%m%d"))
 plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\bmw\hourly\prediction_bmw_with_all_' + date_today + '.png',
             bbox_inches="tight",
-            pad_inches=6)
+            dpi=100,
+            pad_inches=1.5)
 plt.show()
 
 
