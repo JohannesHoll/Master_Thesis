@@ -1242,7 +1242,7 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_without_semantics["OPEN"].inverse_transform(np.array([rms_LSTM_without_semantics]).reshape(1, -1)))
+      normalizers_without_semantics["OPEN",].inverse_transform(np.array([rms_LSTM_without_semantics]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')

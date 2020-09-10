@@ -118,8 +118,8 @@ _ = minmax_scale_flair_content(X_test_flair_content,
                                )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_flair_content = 30
-FORECAST_DISTANCE_flair_content = 5
+TIME_WINDOW_flair_content = 5
+FORECAST_DISTANCE_flair_content = 30
 
 segmenter_flair_content = SegmentXYForecast(width=TIME_WINDOW_flair_content,
                                             step=1,
@@ -290,8 +290,8 @@ _ = minmax_scale_flair_header(X_test_flair_header,
                               )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_flair_header = 30
-FORECAST_DISTANCE_flair_header = 5
+TIME_WINDOW_flair_header = 5
+FORECAST_DISTANCE_flair_header = 30
 
 segmenter_flair_header = SegmentXYForecast(width=TIME_WINDOW_flair_header,
                                            step=1,
@@ -462,8 +462,8 @@ _ = minmax_scale_textblob_content(X_test_textblob_content,
                                   )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_textblob_content = 30
-FORECAST_DISTANCE_textblob_content = 5
+TIME_WINDOW_textblob_content = 5
+FORECAST_DISTANCE_textblob_content = 30
 
 segmenter_textblob_content = SegmentXYForecast(width=TIME_WINDOW_textblob_content,
                                                step=1,
@@ -634,8 +634,8 @@ _ = minmax_scale_textblob_header(X_test_textblob_header,
                                  )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_textblob_header = 30
-FORECAST_DISTANCE_textblob_header = 5
+TIME_WINDOW_textblob_header = 5
+FORECAST_DISTANCE_textblob_header = 30
 
 segmenter_textblob_header = SegmentXYForecast(width=TIME_WINDOW_textblob_header,
                                               step=1,
@@ -806,8 +806,8 @@ _ = minmax_scale_vader_content(X_test_vader_content,
                                )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_vader_content = 30
-FORECAST_DISTANCE_vader_content = 5
+TIME_WINDOW_vader_content = 5
+FORECAST_DISTANCE_vader_content = 30
 
 segmenter_vader_content = SegmentXYForecast(width=TIME_WINDOW_vader_content,
                                             step=1,
@@ -978,8 +978,8 @@ _ = minmax_scale_vader_header(X_test_vader_header,
                               )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_vader_header = 30
-FORECAST_DISTANCE_vader_header = 5
+TIME_WINDOW_vader_header = 5
+FORECAST_DISTANCE_vader_header = 30
 
 segmenter_vader_header = SegmentXYForecast(width=TIME_WINDOW_vader_header,
                                            step=1,
@@ -1149,8 +1149,8 @@ _ = minmax_scale_without_semantics(X_test_without_semantics,
                                    )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_without_semantics = 30
-FORECAST_DISTANCE_without_semantics = 5
+TIME_WINDOW_without_semantics = 5
+FORECAST_DISTANCE_without_semantics = 30
 
 segmenter_without_semantics = SegmentXYForecast(width=TIME_WINDOW_without_semantics,
                                                 step=1,
@@ -1249,7 +1249,7 @@ print(' ')
 print(predicted_stock_price_without_semantics)
 
 plt.figure(figsize=(10,5))
-#plt.plot(X_test, color='black', label='Audi Stock Price')
+#plt.plot(X_test_rolled_without_semantics['OPEN'], color='black', label='Audi Stock Price')
 plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted Audi Stock Price with flair content analysis')
 plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted Audi Stock Price with flair header analysis')
 plt.plot(predicted_stock_price_textblob_header, color='yellow', label='Predicted Audi Stock Price with textblob header analysis')

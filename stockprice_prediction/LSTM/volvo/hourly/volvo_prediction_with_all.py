@@ -118,8 +118,8 @@ _ = minmax_scale_flair_content(X_test_flair_content,
                                )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_flair_content = 2
-FORECAST_DISTANCE_flair_content = 9
+TIME_WINDOW_flair_content = 9
+FORECAST_DISTANCE_flair_content = 2
 
 segmenter_flair_content = SegmentXYForecast(width=TIME_WINDOW_flair_content,
                                             step=1,
@@ -290,8 +290,8 @@ _ = minmax_scale_flair_header(X_test_flair_header,
                               )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_flair_header = 2
-FORECAST_DISTANCE_flair_header = 9
+TIME_WINDOW_flair_header = 9
+FORECAST_DISTANCE_flair_header = 2
 
 segmenter_flair_header = SegmentXYForecast(width=TIME_WINDOW_flair_header,
                                            step=1,
@@ -462,8 +462,8 @@ _ = minmax_scale_textblob_content(X_test_textblob_content,
                                   )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_textblob_content = 2
-FORECAST_DISTANCE_textblob_content = 9
+TIME_WINDOW_textblob_content = 9
+FORECAST_DISTANCE_textblob_content = 2
 
 segmenter_textblob_content = SegmentXYForecast(width=TIME_WINDOW_textblob_content,
                                                step=1,
@@ -634,8 +634,8 @@ _ = minmax_scale_textblob_header(X_test_textblob_header,
                                  )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_textblob_header = 2
-FORECAST_DISTANCE_textblob_header = 9
+TIME_WINDOW_textblob_header = 9
+FORECAST_DISTANCE_textblob_header = 2
 
 segmenter_textblob_header = SegmentXYForecast(width=TIME_WINDOW_textblob_header,
                                               step=1,
@@ -806,8 +806,8 @@ _ = minmax_scale_vader_content(X_test_vader_content,
                                )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_vader_content = 2
-FORECAST_DISTANCE_vader_content = 9
+TIME_WINDOW_vader_content = 9
+FORECAST_DISTANCE_vader_content = 2
 
 segmenter_vader_content = SegmentXYForecast(width=TIME_WINDOW_vader_content,
                                             step=1,
@@ -978,8 +978,8 @@ _ = minmax_scale_vader_header(X_test_vader_header,
                               )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_vader_header = 2
-FORECAST_DISTANCE_vader_header = 9
+TIME_WINDOW_vader_header = 9
+FORECAST_DISTANCE_vader_header = 2
 
 segmenter_vader_header = SegmentXYForecast(width=TIME_WINDOW_vader_header,
                                            step=1,
@@ -1149,8 +1149,8 @@ _ = minmax_scale_without_semantics(X_test_without_semantics,
                                    )
 
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW_without_semantics = 2
-FORECAST_DISTANCE_without_semantics = 9
+TIME_WINDOW_without_semantics = 9
+FORECAST_DISTANCE_without_semantics = 2
 
 segmenter_without_semantics = SegmentXYForecast(width=TIME_WINDOW_without_semantics,
                                                 step=1,
