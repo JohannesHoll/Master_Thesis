@@ -1249,7 +1249,7 @@ print(' ')
 print(predicted_stock_price_without_semantics)
 
 plt.figure(figsize=(10,5))
-#plt.plot(X_test, color='black', label='Daimler Stock Price')
+#plt.plot(X_test_rolled_without_semantics['OPEN'], color='black', label='daimler Stock Price')
 plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted Daimler Stock Price with flair content analysis')
 plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted Daimler Stock Price with flair header analysis')
 plt.plot(predicted_stock_price_textblob_header, color='yellow', label='Predicted Daimler Stock Price with textblob header analysis')

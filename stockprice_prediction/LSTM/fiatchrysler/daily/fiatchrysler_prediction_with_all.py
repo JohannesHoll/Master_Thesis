@@ -1249,7 +1249,7 @@ print(' ')
 print(predicted_stock_price_without_semantics)
 
 plt.figure(figsize=(10,5))
-#plt.plot(X_test, color='black', label='Fiatchrysler Stock Price')
+#plt.plot(X_test_rolled_without_semantics['OPEN'], color='black', label='fiatchrysler Stock Price')
 plt.plot(predicted_stock_price_flair_content, color='green', label='Predicted Fiatchrysler Stock Price with flair content analysis')
 plt.plot(predicted_stock_price_flair_header, color='red', label='Predicted Fiatchrysler Stock Price with flair header analysis')
 plt.plot(predicted_stock_price_textblob_header, color='yellow', label='Predicted Fiatchrysler Stock Price with textblob header analysis')

@@ -18,6 +18,8 @@ from numpy.random import seed
 import tensorflow as tf
 import warnings
 from sklearn.exceptions import DataConversionWarning
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+import datetime
 
 model_seed = 100
 # ensure same output results
@@ -45,8 +47,26 @@ concatenate_dataframe = pd.concat(list_of_files,
 
 # print(concatenate_dataframe)
 
-new_df = concatenate_dataframe[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_content_score']]
-new_df['flair_sentiment_content_score'] = new_df['flair_sentiment_content_score'].fillna(0)
+new_df = concatenate_dataframe[['Date','OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_content_score']]
+new_df = new_df.fillna(0)
+#new_df['Date'] = pd.to_datetime(new_df['Date'])
+#mew_df = new_df.set_index(pd.DatetimeIndex(new_df['Date']), inplace=True)
+#for i in new_df.Date:
+#    datetime.datetime.strptime(str(i), "%Y-%m-%d  %H:%M:%S")
+
+new_df['Year'] = pd.DatetimeIndex(new_df['Date']).year
+new_df['Month'] = pd.DatetimeIndex(new_df['Date']).month
+new_df['Day'] = pd.DatetimeIndex(new_df['Date']).day
+new_df['Hour'] = pd.DatetimeIndex(new_df['Date']).hour
+new_df['Minute'] = pd.DatetimeIndex(new_df['Date']).minute
+new_df['Second'] = pd.DatetimeIndex(new_df['Date']).second
+# new_df['Year'] = [d.split('-')[0] for d in new_df.Date]
+# new_df['Month'] = [d.split('-')[1] for d in new_df.Date]
+# new_df['Day'] = [d.split('-')[2] for d in new_df.Date]
+
+new_df = new_df.drop(['Date'], axis=1)
+
+print(new_df.head())
 # new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']].astype(np.float64)
 # print(new_df)
 
@@ -68,7 +88,18 @@ warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 # normalize data
 def minmax_scale(df_x, series_y, normalizers=None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_content_score']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME',
+                          'flair_sentiment_content_score']
 
     if not normalizers:
         normalizers = {}
@@ -88,8 +119,42 @@ X_train_norm, y_train_norm, normalizers = minmax_scale(X_train, y_train)
 X_valid_norm, y_valid_norm, _ = minmax_scale(X_valid, y_valid, normalizers=normalizers)
 X_test_norm, y_test_norm, _ = minmax_scale(X_test, y_test, normalizers=normalizers)
 
+
+def encode_cyclicals(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+
+    return df_x
+
+X_train_norm = encode_cyclicals(X_train_norm)
+X_valid_norm = encode_cyclicals(X_valid_norm)
+X_test_norm = encode_cyclicals(X_test_norm)
+
+print(X_train_norm)
 # Creating target (y) and "windows" (X) for modeling
-TIME_WINDOW = 2
+TIME_WINDOW = 45
 FORECAST_DISTANCE = 9
 
 segmenter = SegmentXYForecast(width=TIME_WINDOW, step=1, y_func=last, forecast=FORECAST_DISTANCE)
@@ -97,11 +162,22 @@ segmenter = SegmentXYForecast(width=TIME_WINDOW, step=1, y_func=last, forecast=F
 X_train_rolled, y_train_rolled, _ = segmenter.fit_transform([X_train_norm.values], [y_train_norm.flatten()])
 X_valid_rolled, y_valid_rolled, _ = segmenter.fit_transform([X_valid_norm.values], [y_valid_norm.flatten()])
 X_test_rolled, y_test_rolled, _ = segmenter.fit_transform([X_test_norm.values], [y_test_norm.flatten()])
+
+print(X_test_rolled)
+
+# columns = ['Year','Month','Day','OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_content_score']
+#
+# for col in columns:
+#     plt.figure()
+#     plot_pacf(new_df[col].dropna(), lags=200)
+#
+# plt.show()
+
 # LSTM Model
 first_lstm_size = 75
 second_lstm_size = 40
 dropout = 0.1
-EPOCHS = 50
+EPOCHS = 3
 BATCH_SIZE = 32
 column_count = len(X_train_norm.columns)
 # model with use of Funcational API of Keras
@@ -151,30 +227,120 @@ print("----------------------------------------------------------------")
 print(' ')
 # predicting stock prices
 predicted_stock_price = model.predict(X_test_rolled)
+predicted_stock_price = normalizers['OPEN']\
+                                      .inverse_transform(predicted_stock_price).reshape(-1, 1)
 
-predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(-1, 1)
-print(' ')
-print("Root mean squared error on valid:", rms_LSTM)
-print(' ')
-print("----------------------------------------------------------------")
-print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers["OPEN"].inverse_transform(np.array([rms_LSTM]).reshape(1, -1)))
-print(' ')
-print("----------------------------------------------------------------")
-print(' ')
-print(predicted_stock_price)
+#predicted_stock_price = normalizers['OPEN'].inverse_transform(predicted_stock_price).reshape(1, -1)
+# print(' ')
+# print("Root mean squared error on valid:", rms_LSTM)
+# print(' ')
+# print("----------------------------------------------------------------")
+# print(' ')
+# print("Root mean squared error on valid inverse transformed from normalization:",
+#       normalizers["OPEN"].inverse_transform(np.array([rms_LSTM]).reshape(-1, 1)))
+# print(' ')
+# print("----------------------------------------------------------------")
+# print(' ')
+# print(predicted_stock_price)
+# print("Root mean squared error on valid inverse transformed from normalization:",
+#       normalizers["Year"].inverse_transform(np.array([rms_LSTM]).reshape(-1, 1)))
+#
+# print("Root mean squared error on valid inverse transformed from normalization:",
+#       normalizers["Month"].inverse_transform(np.array([rms_LSTM]).reshape(-1, 1)))
+#
+# print("Root mean squared error on valid inverse transformed from normalization:",
+#       normalizers["Day"].inverse_transform(np.array([rms_LSTM]).reshape(-1, 1)))
+#
+# #year = normalizers["Year"].inverse_transform(np.array([rms_LSTM]).reshape(-1, 1))
+# #month = normalizers["Month"].inverse_transform(np.array([rms_LSTM]).reshape(-1, 1))
+# #day = normalizers["Day"].inverse_transform(np.array([rms_LSTM]).reshape(-1, 1))
+#
+# year = normalizers['Year']\
+#                         .inverse_transform(predicted_stock_price).reshape(-1, 1)
+#
+# month = normalizers['Month']\
+#                         .inverse_transform(predicted_stock_price).reshape(-1, 1)
+#
+# day = normalizers['Day']\
+#                         .inverse_transform(predicted_stock_price).reshape(-1, 1)
+#
+# hour = normalizers['Hour']\
+#                         .inverse_transform(predicted_stock_price).reshape(-1, 1)
+#
+# minute = normalizers['Minute']\
+#                         .inverse_transform(predicted_stock_price).reshape(-1, 1)
+#
+# second = normalizers['Second']\
+#                         .inverse_transform(predicted_stock_price).reshape(-1, 1)
+#
+# price = normalizers['OPEN']\
+#                         .inverse_transform(predicted_stock_price).reshape(-1, 1)
+#
+# year_list = []
+# month_list = []
+# day_list = []
+# hour_list = []
+# minute_list = []
+# second_list = ()
+# price_list = []
+#
+# for y in year:
+#     yy = math.trunc(int(y))
+#     year_list.append(yy)
+#
+# for d in day:
+#     dd = math.trunc(int(d))
+#     day_list.append(dd)
+#
+# for m in month:
+#     mm = math.trunc(int(m))
+#     month_list.append(mm)
+#
+# for h in hour:
+#     hh = math.trunc(int(h))
+#     hour_list.append(hh)
+#
+# for min in minute:
+#     mi = math.trunc(int(min))
+#     month_list.append(mi)
+#
+# for s in second:
+#     ss = math.trunc(int(s))
+#     month_list.append(ss)
+#
+# for p in price:
+#     pp = math.trunc(int(p))
+#     price_list.append(pp)
 
+#prediction_df = pd.DataFrame({'Year': year_list,
+#                              'Month': month_list,
+#                              'Day': day_list,
+#                              'Hour': hour_list,
+#                              'Minute': minute_list,
+#                              'Second': second_list,
+#                              'OPEN': price_list})
 
-plt.plot(X_test, color='black', label='BMW Stock Price')
-#plt.plot(predicted_stock_price, color='green', label='Predicted bmw Stock Price')
-plt.title('bmw Stock Price Prediction')
+# print(len(year_list))
+# print(len(month_list))
+# print(len(day_list))
+# print(len(hour_list))
+# print(len(minute_list))
+# print(len(second_list))
+# print(len(price_list))
+
+#print(math.trunc(int(year)))
+#print(math.trunc(int(month)))
+#print(math.trunc(int(day)))
+
+#plt.plot(new_df.OPEN, color='black', label='bmw Stock Price')
+plt.plot(predicted_stock_price, color='green', label='Predicted BMW Stock Price')
+plt.title('BMW Stock Price Prediction')
 plt.xlabel('Time')
-plt.ylabel('bmw Stock Price')
+plt.ylabel('BMW Stock Price')
 plt.legend()
 plt.show()
-
-
-date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\bmw\hourly\flair\content\prediction_plot_with_semantics\prediction_bmw_with_semantics_' + date_today + '.png', bbox_inches="tight")
+#
+#
+# date_today = str(datetime.now().strftime("%Y%m%d"))
+# plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\bmw\hourly\flair\content\prediction_plot_with_semantics\prediction_bmw_with_semantics_' + date_today + '.png', bbox_inches="tight")
 print('Run is finished and plot is saved!')
