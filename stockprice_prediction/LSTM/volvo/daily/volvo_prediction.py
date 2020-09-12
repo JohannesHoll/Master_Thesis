@@ -866,7 +866,6 @@ X_train_norm_textblob_header = encode_cyclicals_textblob_header(X_train_norm_tex
 X_valid_norm_textblob_header = encode_cyclicals_textblob_header(X_valid_norm_textblob_header)
 X_test_norm_textblob_header = encode_cyclicals_textblob_header(X_test_norm_textblob_header)
 
-
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_textblob_header = 30
 FORECAST_DISTANCE_textblob_header = 1

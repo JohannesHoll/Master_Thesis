@@ -48,9 +48,9 @@ concatenate_dataframe = pd.concat(list_of_files,
                                   axis=0,
                                   )
 
-# print(concatenate_dataframe)
-
-new_df_flair_content = concatenate_dataframe[['OPEN',
+### analysis with flair sentiment content
+new_df_flair_content = concatenate_dataframe[['Date',
+                                              'OPEN',
                                               'HIGH',
                                               'LOW',
                                               'CLOSE',
@@ -58,20 +58,33 @@ new_df_flair_content = concatenate_dataframe[['OPEN',
                                               'flair_sentiment_content_score']]
 
 new_df_flair_content = new_df_flair_content.fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']].astype(np.float64)
-# print(new_df)
+# new_df_flair_content[['Date',
+#                       'OPEN',
+#                       'HIGH',
+#                       'LOW',
+#                       'CLOSE',
+#                       'VOLUME',
+#                       'flair_sentiment_content_score']].astype(np.float64)
+
+new_df_flair_content['Year'] = pd.DatetimeIndex(new_df_flair_content['Date']).year
+new_df_flair_content['Month'] = pd.DatetimeIndex(new_df_flair_content['Date']).month
+new_df_flair_content['Day'] = pd.DatetimeIndex(new_df_flair_content['Date']).day
+new_df_flair_content['Hour'] = pd.DatetimeIndex(new_df_flair_content['Date']).hour
+new_df_flair_content['Minute'] = pd.DatetimeIndex(new_df_flair_content['Date']).minute
+new_df_flair_content['Second'] = pd.DatetimeIndex(new_df_flair_content['Date']).second
+
+new_df_flair_content = new_df_flair_content.drop(['Date'], axis=1)
 
 # train, valid, test split
 valid_test_size_split_flair_content = 0.1
 
 X_train_flair_content, \
-X_else_flair_content, \
+X_else_flair_content,\
 y_train_flair_content, \
 y_else_flair_content = train_test_split(new_df_flair_content,
                                         new_df_flair_content['OPEN'],
                                         test_size=valid_test_size_split_flair_content*2,
-                                        shuffle=False
-                                        )
+                                        shuffle=False)
 
 X_valid_flair_content, \
 X_test_flair_content, \
@@ -79,15 +92,25 @@ y_valid_flair_content, \
 y_test_flair_content = train_test_split(X_else_flair_content,
                                         y_else_flair_content,
                                         test_size=0.5,
-                                        shuffle=False
-                                        )
-#print(y_else_flair_content)
+                                        shuffle=False)
+
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
 def minmax_scale_flair_content(df_x, series_y, normalizers_flair_content = None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_content_score']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME',
+                          'flair_sentiment_content_score']
 
     if not normalizers_flair_content:
         normalizers_flair_content = {}
@@ -122,6 +145,38 @@ _ = minmax_scale_flair_content(X_test_flair_content,
                                y_test_flair_content,
                                normalizers_flair_content=normalizers_flair_content
                                )
+
+def encode_cyclicals_flair_content(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+
+    return df_x
+
+X_train_norm_flair_content = encode_cyclicals_flair_content(X_train_norm_flair_content)
+X_valid_norm_flair_content = encode_cyclicals_flair_content(X_valid_norm_flair_content)
+X_test_norm_flair_content = encode_cyclicals_flair_content(X_test_norm_flair_content)
 
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_flair_content = 30
@@ -203,7 +258,9 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 
-new_df_flair_header = concatenate_dataframe[['OPEN',
+### analysis with flair header
+new_df_flair_header = concatenate_dataframe[['Date',
+                                             'OPEN',
                                              'HIGH',
                                              'LOW',
                                              'CLOSE',
@@ -211,20 +268,33 @@ new_df_flair_header = concatenate_dataframe[['OPEN',
                                              'flair_sentiment_header_score']]
 
 new_df_flair_header = new_df_flair_header.fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_header_score']].astype(np.float64)
-# print(new_df)
+# new_df_flair_header[['Date',
+#                      'OPEN',
+#                      'HIGH',
+#                      'LOW',
+#                      'CLOSE',
+#                      'VOLUME',
+#                      'flair_sentiment_header_score']].astype(np.float64)
+
+new_df_flair_header['Year'] = pd.DatetimeIndex(new_df_flair_header['Date']).year
+new_df_flair_header['Month'] = pd.DatetimeIndex(new_df_flair_header['Date']).month
+new_df_flair_header['Day'] = pd.DatetimeIndex(new_df_flair_header['Date']).day
+new_df_flair_header['Hour'] = pd.DatetimeIndex(new_df_flair_header['Date']).hour
+new_df_flair_header['Minute'] = pd.DatetimeIndex(new_df_flair_header['Date']).minute
+new_df_flair_header['Second'] = pd.DatetimeIndex(new_df_flair_header['Date']).second
+
+new_df_flair_header = new_df_flair_header.drop(['Date'], axis=1)
 
 # train, valid, test split
 valid_test_size_split_flair_header = 0.1
 
 X_train_flair_header, \
-X_else_flair_header, \
+X_else_flair_header,\
 y_train_flair_header, \
 y_else_flair_header = train_test_split(new_df_flair_header,
                                        new_df_flair_header['OPEN'],
                                        test_size=valid_test_size_split_flair_header*2,
-                                       shuffle=False
-                                       )
+                                       shuffle=False)
 
 X_valid_flair_header, \
 X_test_flair_header, \
@@ -232,16 +302,25 @@ y_valid_flair_header, \
 y_test_flair_header = train_test_split(X_else_flair_header,
                                        y_else_flair_header,
                                        test_size=0.5,
-                                       shuffle=False
-                                       )
+                                       shuffle=False)
 
-#print(y_else_flair_header)
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
 def minmax_scale_flair_header(df_x, series_y, normalizers_flair_header = None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'flair_sentiment_header_score']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME',
+                          'flair_sentiment_header_score']
 
     if not normalizers_flair_header:
         normalizers_flair_header = {}
@@ -276,6 +355,38 @@ _ = minmax_scale_flair_header(X_test_flair_header,
                               y_test_flair_header,
                               normalizers_flair_header=normalizers_flair_header
                               )
+
+def encode_cyclicals_flair_header(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+
+    return df_x
+
+X_train_norm_flair_header = encode_cyclicals_flair_header(X_train_norm_flair_header)
+X_valid_norm_flair_header = encode_cyclicals_flair_header(X_valid_norm_flair_header)
+X_test_norm_flair_header = encode_cyclicals_flair_header(X_test_norm_flair_header)
 
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_flair_header = 30
@@ -361,7 +472,9 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 
-new_df_textblob_content = concatenate_dataframe[['OPEN',
+### analysis with textblob sentiment content
+new_df_textblob_content = concatenate_dataframe[['Date',
+                                                 'OPEN',
                                                  'HIGH',
                                                  'LOW',
                                                  'CLOSE',
@@ -369,20 +482,33 @@ new_df_textblob_content = concatenate_dataframe[['OPEN',
                                                  'polarity_textblob_sentiment_content']]
 
 new_df_textblob_content = new_df_textblob_content.fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', ''polarity_textblob_sentiment_content']].astype(np.float64)
-# print(new_df)
+# new_df_textblob_content[['Date',
+#                          'OPEN',
+#                          'HIGH',
+#                          'LOW',
+#                          'CLOSE',
+#                          'VOLUME',
+#                          'polarity_textblob_sentiment_content']].astype(np.float64)
+
+new_df_textblob_content['Year'] = pd.DatetimeIndex(new_df_textblob_content['Date']).year
+new_df_textblob_content['Month'] = pd.DatetimeIndex(new_df_textblob_content['Date']).month
+new_df_textblob_content['Day'] = pd.DatetimeIndex(new_df_textblob_content['Date']).day
+new_df_textblob_content['Hour'] = pd.DatetimeIndex(new_df_textblob_content['Date']).hour
+new_df_textblob_content['Minute'] = pd.DatetimeIndex(new_df_textblob_content['Date']).minute
+new_df_textblob_content['Second'] = pd.DatetimeIndex(new_df_textblob_content['Date']).second
+
+new_df_textblob_content = new_df_textblob_content.drop(['Date'], axis=1)
 
 # train, valid, test split
 valid_test_size_split_textblob_content = 0.1
 
 X_train_textblob_content, \
-X_else_textblob_content, \
+X_else_textblob_content,\
 y_train_textblob_content, \
 y_else_textblob_content = train_test_split(new_df_textblob_content,
                                            new_df_textblob_content['OPEN'],
                                            test_size=valid_test_size_split_textblob_content*2,
-                                           shuffle=False
-                                           )
+                                           shuffle=False)
 
 X_valid_textblob_content, \
 X_test_textblob_content, \
@@ -390,16 +516,25 @@ y_valid_textblob_content, \
 y_test_textblob_content = train_test_split(X_else_textblob_content,
                                            y_else_textblob_content,
                                            test_size=0.5,
-                                           shuffle=False
-                                           )
+                                           shuffle=False)
 
-#print(y_else_textblob_content)
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
 def minmax_scale_textblob_content(df_x, series_y, normalizers_textblob_content = None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'polarity_textblob_sentiment_content']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME',
+                          'polarity_textblob_sentiment_content']
 
     if not normalizers_textblob_content:
         normalizers_textblob_content = {}
@@ -434,6 +569,38 @@ _ = minmax_scale_textblob_content(X_test_textblob_content,
                                   y_test_textblob_content,
                                   normalizers_textblob_content=normalizers_textblob_content
                                   )
+
+def encode_cyclicals_textblob_content(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+
+    return df_x
+
+X_train_norm_textblob_content = encode_cyclicals_textblob_content(X_train_norm_textblob_content)
+X_valid_norm_textblob_content = encode_cyclicals_textblob_content(X_valid_norm_textblob_content)
+X_test_norm_textblob_content = encode_cyclicals_textblob_content(X_test_norm_textblob_content)
 
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_textblob_content = 30
@@ -519,7 +686,9 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 
-new_df_textblob_header = concatenate_dataframe[['OPEN',
+### analysis with textblob header
+new_df_textblob_header = concatenate_dataframe[['Date',
+                                                'OPEN',
                                                 'HIGH',
                                                 'LOW',
                                                 'CLOSE',
@@ -527,20 +696,33 @@ new_df_textblob_header = concatenate_dataframe[['OPEN',
                                                 'polarity_textblob_sentiment_header']]
 
 new_df_textblob_header = new_df_textblob_header.fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'polarity_textblob_sentiment_header']].astype(np.float64)
-# print(new_df)
+# new_df_textblob_header[['Date',
+#                         'OPEN',
+#                         'HIGH',
+#                         'LOW',
+#                         'CLOSE',
+#                         'VOLUME',
+#                         'polarity_textblob_sentiment_header']].astype(np.float64)
+
+new_df_textblob_header['Year'] = pd.DatetimeIndex(new_df_textblob_header['Date']).year
+new_df_textblob_header['Month'] = pd.DatetimeIndex(new_df_textblob_header['Date']).month
+new_df_textblob_header['Day'] = pd.DatetimeIndex(new_df_textblob_header['Date']).day
+new_df_textblob_header['Hour'] = pd.DatetimeIndex(new_df_textblob_header['Date']).hour
+new_df_textblob_header['Minute'] = pd.DatetimeIndex(new_df_textblob_header['Date']).minute
+new_df_textblob_header['Second'] = pd.DatetimeIndex(new_df_textblob_header['Date']).second
+
+new_df_textblob_header = new_df_textblob_header.drop(['Date'], axis=1)
 
 # train, valid, test split
 valid_test_size_split_textblob_header = 0.1
 
 X_train_textblob_header, \
-X_else_textblob_header, \
+X_else_textblob_header,\
 y_train_textblob_header, \
 y_else_textblob_header = train_test_split(new_df_textblob_header,
                                           new_df_textblob_header['OPEN'],
                                           test_size=valid_test_size_split_textblob_header*2,
-                                          shuffle=False
-                                          )
+                                          shuffle=False)
 
 X_valid_textblob_header, \
 X_test_textblob_header, \
@@ -548,16 +730,25 @@ y_valid_textblob_header, \
 y_test_textblob_header = train_test_split(X_else_textblob_header,
                                           y_else_textblob_header,
                                           test_size=0.5,
-                                          shuffle=False
-                                          )
+                                          shuffle=False)
 
-#print(y_else_textblob_header)
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
 def minmax_scale_textblob_header(df_x, series_y, normalizers_textblob_header = None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'polarity_textblob_sentiment_header']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME',
+                          'polarity_textblob_sentiment_header']
 
     if not normalizers_textblob_header:
         normalizers_textblob_header = {}
@@ -592,6 +783,38 @@ _ = minmax_scale_textblob_header(X_test_textblob_header,
                                  y_test_textblob_header,
                                  normalizers_textblob_header=normalizers_textblob_header
                                  )
+
+def encode_cyclicals_textblob_header(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+
+    return df_x
+
+X_train_norm_textblob_header = encode_cyclicals_textblob_header(X_train_norm_textblob_header)
+X_valid_norm_textblob_header = encode_cyclicals_textblob_header(X_valid_norm_textblob_header)
+X_test_norm_textblob_header = encode_cyclicals_textblob_header(X_test_norm_textblob_header)
 
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_textblob_header = 30
@@ -677,7 +900,9 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 
-new_df_vader_content = concatenate_dataframe[['OPEN',
+### analysis with vader sentiment content
+new_df_vader_content = concatenate_dataframe[['Date',
+                                              'OPEN',
                                               'HIGH',
                                               'LOW',
                                               'CLOSE',
@@ -685,20 +910,33 @@ new_df_vader_content = concatenate_dataframe[['OPEN',
                                               'compound_vader_articel_content']]
 
 new_df_vader_content = new_df_vader_content.fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content'].astype(np.float64)
-# print(new_df)
+# new_df_vader_content[['Date',
+#                       'OPEN',
+#                       'HIGH',
+#                       'LOW',
+#                       'CLOSE',
+#                       'VOLUME',
+#                       'compound_vader_articel_content']].astype(np.float64)
+
+new_df_vader_content['Year'] = pd.DatetimeIndex(new_df_vader_content['Date']).year
+new_df_vader_content['Month'] = pd.DatetimeIndex(new_df_vader_content['Date']).month
+new_df_vader_content['Day'] = pd.DatetimeIndex(new_df_vader_content['Date']).day
+new_df_vader_content['Hour'] = pd.DatetimeIndex(new_df_vader_content['Date']).hour
+new_df_vader_content['Minute'] = pd.DatetimeIndex(new_df_vader_content['Date']).minute
+new_df_vader_content['Second'] = pd.DatetimeIndex(new_df_vader_content['Date']).second
+
+new_df_vader_content = new_df_vader_content.drop(['Date'], axis=1)
 
 # train, valid, test split
 valid_test_size_split_vader_content = 0.1
 
 X_train_vader_content, \
-X_else_vader_content, \
+X_else_vader_content,\
 y_train_vader_content, \
 y_else_vader_content = train_test_split(new_df_vader_content,
                                         new_df_vader_content['OPEN'],
                                         test_size=valid_test_size_split_vader_content*2,
-                                        shuffle=False
-                                        )
+                                        shuffle=False)
 
 X_valid_vader_content, \
 X_test_vader_content, \
@@ -706,16 +944,25 @@ y_valid_vader_content, \
 y_test_vader_content = train_test_split(X_else_vader_content,
                                         y_else_vader_content,
                                         test_size=0.5,
-                                        shuffle=False
-                                        )
+                                        shuffle=False)
 
-#print(y_else_vader_content)
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
 def minmax_scale_vader_content(df_x, series_y, normalizers_vader_content = None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_articel_content']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME',
+                          'compound_vader_articel_content']
 
     if not normalizers_vader_content:
         normalizers_vader_content = {}
@@ -750,6 +997,38 @@ _ = minmax_scale_vader_content(X_test_vader_content,
                                y_test_vader_content,
                                normalizers_vader_content=normalizers_vader_content
                                )
+
+def encode_cyclicals_vader_content(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+
+    return df_x
+
+X_train_norm_vader_content = encode_cyclicals_vader_content(X_train_norm_vader_content)
+X_valid_norm_vader_content = encode_cyclicals_vader_content(X_valid_norm_vader_content)
+X_test_norm_vader_content = encode_cyclicals_vader_content(X_test_norm_vader_content)
 
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_vader_content = 30
@@ -835,7 +1114,9 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 
-new_df_vader_header = concatenate_dataframe[['OPEN',
+### analysis with vader header
+new_df_vader_header = concatenate_dataframe[['Date',
+                                             'OPEN',
                                              'HIGH',
                                              'LOW',
                                              'CLOSE',
@@ -843,20 +1124,33 @@ new_df_vader_header = concatenate_dataframe[['OPEN',
                                              'compound_vader_header']]
 
 new_df_vader_header = new_df_vader_header.fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_header'].astype(np.float64)
-# print(new_df)
+# new_df_vader_header[['Date',
+#                      'OPEN',
+#                      'HIGH',
+#                      'LOW',
+#                      'CLOSE',
+#                      'VOLUME',
+#                      'compound_vader_header']].astype(np.float64)
+
+new_df_vader_header['Year'] = pd.DatetimeIndex(new_df_vader_header['Date']).year
+new_df_vader_header['Month'] = pd.DatetimeIndex(new_df_vader_header['Date']).month
+new_df_vader_header['Day'] = pd.DatetimeIndex(new_df_vader_header['Date']).day
+new_df_vader_header['Hour'] = pd.DatetimeIndex(new_df_vader_header['Date']).hour
+new_df_vader_header['Minute'] = pd.DatetimeIndex(new_df_vader_header['Date']).minute
+new_df_vader_header['Second'] = pd.DatetimeIndex(new_df_vader_header['Date']).second
+
+new_df_vader_header = new_df_vader_header.drop(['Date'], axis=1)
 
 # train, valid, test split
 valid_test_size_split_vader_header = 0.1
 
 X_train_vader_header, \
-X_else_vader_header, \
+X_else_vader_header,\
 y_train_vader_header, \
 y_else_vader_header = train_test_split(new_df_vader_header,
                                        new_df_vader_header['OPEN'],
                                        test_size=valid_test_size_split_vader_header*2,
-                                       shuffle=False
-                                       )
+                                       shuffle=False)
 
 X_valid_vader_header, \
 X_test_vader_header, \
@@ -864,16 +1158,25 @@ y_valid_vader_header, \
 y_test_vader_header = train_test_split(X_else_vader_header,
                                        y_else_vader_header,
                                        test_size=0.5,
-                                       shuffle=False
-                                       )
+                                       shuffle=False)
 
-#print(y_else_vader_header)
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
 def minmax_scale_vader_header(df_x, series_y, normalizers_vader_header = None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME', 'compound_vader_header']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME',
+                          'compound_vader_header']
 
     if not normalizers_vader_header:
         normalizers_vader_header = {}
@@ -908,6 +1211,37 @@ _ = minmax_scale_vader_header(X_test_vader_header,
                               y_test_vader_header,
                               normalizers_vader_header=normalizers_vader_header
                               )
+
+def encode_cyclicals_vader_header(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+    return df_x
+
+X_train_norm_vader_header = encode_cyclicals_vader_header(X_train_norm_vader_header)
+X_valid_norm_vader_header = encode_cyclicals_vader_header(X_valid_norm_vader_header)
+X_test_norm_vader_header = encode_cyclicals_vader_header(X_test_norm_vader_header)
 
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_vader_header = 30
@@ -993,44 +1327,66 @@ print(' ')
 print("----------------------------------------------------------------")
 print(' ')
 
-new_df_without_semantics = concatenate_dataframe[['OPEN',
-                                             'HIGH',
-                                             'LOW',
-                                             'CLOSE',
-                                             'VOLUME',]]
+### analysis with without semantics
+new_df_without_semantics = concatenate_dataframe[['Date',
+                                                  'OPEN',
+                                                  'HIGH',
+                                                  'LOW',
+                                                  'CLOSE',
+                                                  'VOLUME']]
 
 new_df_without_semantics = new_df_without_semantics.fillna(0)
-# new_df[['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME'].astype(np.float64)
-# print(new_df)
+# new_df_without_semantics[['Date',
+#                           'OPEN',
+#                           'HIGH',
+#                           'LOW',
+#                           'CLOSE',
+#                           'VOLUME']].astype(np.float64)
+
+new_df_without_semantics['Year'] = pd.DatetimeIndex(new_df_without_semantics['Date']).year
+new_df_without_semantics['Month'] = pd.DatetimeIndex(new_df_without_semantics['Date']).month
+new_df_without_semantics['Day'] = pd.DatetimeIndex(new_df_without_semantics['Date']).day
+new_df_without_semantics['Hour'] = pd.DatetimeIndex(new_df_without_semantics['Date']).hour
+new_df_without_semantics['Minute'] = pd.DatetimeIndex(new_df_without_semantics['Date']).minute
+new_df_without_semantics['Second'] = pd.DatetimeIndex(new_df_without_semantics['Date']).second
+
+new_df_without_semantics = new_df_without_semantics.drop(['Date'], axis=1)
 
 # train, valid, test split
 valid_test_size_split_without_semantics = 0.1
 
 X_train_without_semantics, \
-X_else_without_semantics, \
+X_else_without_semantics,\
 y_train_without_semantics, \
 y_else_without_semantics = train_test_split(new_df_without_semantics,
-                                       new_df_without_semantics['OPEN'],
-                                       test_size=valid_test_size_split_without_semantics*2,
-                                       shuffle=False
-                                       )
+                                            new_df_without_semantics['OPEN'],
+                                            test_size=valid_test_size_split_without_semantics*2,
+                                            shuffle=False)
 
 X_valid_without_semantics, \
 X_test_without_semantics, \
 y_valid_without_semantics, \
 y_test_without_semantics = train_test_split(X_else_without_semantics,
-                                       y_else_without_semantics,
-                                       test_size=0.5,
-                                       shuffle=False
-                                       )
+                                            y_else_without_semantics,
+                                            test_size=0.5,
+                                            shuffle=False)
 
-#print(y_else_without_semantics)
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 
 # normalize data
 def minmax_scale_without_semantics(df_x, series_y, normalizers_without_semantics = None):
-    features_to_minmax = ['OPEN', 'HIGH', 'LOW', 'CLOSE', 'VOLUME']
+    features_to_minmax = ['Year',
+                          'Month',
+                          'Day',
+                          'Hour',
+                          'Minute',
+                          'Second',
+                          'OPEN',
+                          'HIGH',
+                          'LOW',
+                          'CLOSE',
+                          'VOLUME']
 
     if not normalizers_without_semantics:
         normalizers_without_semantics = {}
@@ -1049,22 +1405,54 @@ def minmax_scale_without_semantics(df_x, series_y, normalizers_without_semantics
 X_train_norm_without_semantics, \
 y_train_norm_without_semantics, \
 normalizers_without_semantics = minmax_scale_without_semantics(X_train_without_semantics,
-                                                     y_train_without_semantics
-                                                     )
+                                                               y_train_without_semantics
+                                                               )
 
 X_valid_norm_without_semantics, \
 y_valid_norm_without_semantics, \
 _ = minmax_scale_without_semantics(X_valid_without_semantics,
-                              y_valid_without_semantics,
-                              normalizers_without_semantics=normalizers_without_semantics
-                              )
+                                   y_valid_without_semantics,
+                                   normalizers_without_semantics=normalizers_without_semantics
+                                   )
 
 X_test_norm_without_semantics, \
 y_test_norm_without_semantics, \
 _ = minmax_scale_without_semantics(X_test_without_semantics,
-                              y_test_without_semantics,
-                              normalizers_without_semantics=normalizers_without_semantics
-                              )
+                                   y_test_without_semantics,
+                                   normalizers_without_semantics=normalizers_without_semantics
+                                   )
+
+def encode_cyclicals_without_semantics(df_x):
+    # "month","day","hour", "cdbw", "dayofweek"
+
+    #DIRECTIONS = {"N": 1.0, "NE": 2.0, "E": 3.0, "SE": 4.0, "S": 5.0, "SW": 6.0, "W": 7.0, "NW": 8.0, "cv": np.nan}
+
+    df_x['month_sin'] = np.sin(2 * np.pi * df_x.Month / 12)
+    df_x['month_cos'] = np.cos(2 * np.pi * df_x.Month / 12)
+    df_x.drop('Month', axis=1, inplace=True)
+
+    df_x['day_sin'] = np.sin(2 * np.pi * df_x.Day / 31)
+    df_x['day_cos'] = np.cos(2 * np.pi * df_x.Day / 31)
+    df_x.drop('Day', axis=1, inplace=True)
+
+    df_x['hour_sin'] = np.sin(2 * np.pi * df_x.Hour / 24)
+    df_x['hour_cos'] = np.cos(2 * np.pi * df_x.Hour / 24)
+    df_x.drop('Hour', axis=1, inplace=True)
+
+    df_x['min_sin'] = np.sin(2 * np.pi * df_x.Minute / 60)
+    df_x['min_cos'] = np.cos(2 * np.pi * df_x.Minute / 60)
+    df_x.drop('Minute', axis=1, inplace=True)
+
+    df_x['sec_sin'] = np.sin(2 * np.pi * df_x.Second / 60)
+    df_x['sec_cos'] = np.cos(2 * np.pi * df_x.Second / 60)
+    df_x.drop('Second', axis=1, inplace=True)
+
+
+    return df_x
+
+X_train_norm_without_semantics = encode_cyclicals_without_semantics(X_train_norm_without_semantics)
+X_valid_norm_without_semantics = encode_cyclicals_without_semantics(X_valid_norm_without_semantics)
+X_test_norm_without_semantics = encode_cyclicals_without_semantics(X_test_norm_without_semantics)
 
 # Creating target (y) and "windows" (X) for modeling
 TIME_WINDOW_without_semantics = 30
@@ -1164,7 +1552,7 @@ plt.ylabel('Porsche Stock Price')
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.005), borderaxespad=8)
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\RandomForest_feature_model\porsche\daily\prediction_porsche_with_all_' + date_today + '.png',
+plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\RandomForest_feature_model\porsche\daily\prediction_porsche_' + date_today + '.png',
             bbox_inches="tight",
             dpi=100,
             pad_inches=1.5)
