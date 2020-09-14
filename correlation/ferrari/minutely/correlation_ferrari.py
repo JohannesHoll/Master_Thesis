@@ -6,6 +6,7 @@ import glob
 import os
 from datetime import datetime
 import matplotlib.pyplot as plt
+import re
 
 # file where csv files lies
 path = r'C:\Users\victo\Master_Thesis\merging_data\ferrari\minutely\merged_files'
@@ -26,7 +27,7 @@ concatenate_dataframe = pd.concat(list_of_files,
                                       axis=0,
                                       )
 
-print(concatenate_dataframe)
+#print(concatenate_dataframe)
 
 #calculating correlation price vs semantics
 new_df_price = concatenate_dataframe[['return_one_hot_encoded',
@@ -51,10 +52,11 @@ new_df_price[['return_one_hot_encoded',
                                                                       'polarity_textblob_sentiment_header',
                                                                       'polarity_textblob_sentiment_content']].fillna(0)
 
+print(new_df_price)
 corr_price = new_df_price.corr()
+corr_price.fillna(0)
 print(corr_price)
 corr_price.to_excel(r'C:\Users\victo\Master_Thesis\correlation\ferrari\minutely\correlation\ferrari_correlation_price_with_semantics.xlsx')
-
 
 #calculating correlation volume vs semantics
 new_df_volume = concatenate_dataframe[['volume_one_hot_encoded',
@@ -79,6 +81,8 @@ new_df_volume[['volume_one_hot_encoded',
                                                                         'polarity_textblob_sentiment_header',
                                                                         'polarity_textblob_sentiment_content']].fillna(0)
 
+print(new_df_volume)
 corr_volume = new_df_volume.corr()
+corr_volume.fillna(0)
 print(corr_volume)
 corr_volume.to_excel(r'C:\Users\victo\Master_Thesis\correlation\ferrari\minutely\correlation\ferrari_correlation_volume_with_semantics.xlsx')
