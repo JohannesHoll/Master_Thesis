@@ -226,7 +226,7 @@ dmatrix_valid_flair_content = xgb.DMatrix(data=X_valid_flattened_flair_content,
                                           label=y_valid_rolled_flair_content
                                           )
 
-params_flair_content = {'objective': 'reg:linear', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
+params_flair_content = {'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
 #param['nthread'] = 4
 evallist_flair_content = [(dmatrix_valid_flair_content, 'eval'), (dmatrix_train_flair_content, 'train')]
 
@@ -255,7 +255,7 @@ all_params_flair_content = {
     # 'max_depth': [3, 4, 5],
     'n_estimators': [30, 100, 200, 500],
     'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'objective': ['reg:linear'],
+    'objective': ['reg:squarederror'],
     'eval_metric': ['rmse'],
     'tree_method': ['gpu_hist'],
 }
@@ -471,7 +471,7 @@ dmatrix_valid_flair_header = xgb.DMatrix(data=X_valid_flattened_flair_header,
                                          label=y_valid_rolled_flair_header
                                          )
 
-params_flair_header = {'objective': 'reg:linear', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
+params_flair_header = {'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
 #param['nthread'] = 4
 evallist_flair_header = [(dmatrix_valid_flair_header, 'eval'), (dmatrix_train_flair_header, 'train')]
 
@@ -500,7 +500,7 @@ all_params_flair_header = {
     # 'max_depth': [3, 4, 5],
     'n_estimators': [30, 100, 200, 500],
     'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'objective': ['reg:linear'],
+    'objective': ['reg:squarederror'],
     'eval_metric': ['rmse'],
     'tree_method': ['gpu_hist'],
 }
@@ -716,7 +716,7 @@ dmatrix_valid_textblob_content = xgb.DMatrix(data=X_valid_flattened_textblob_con
                                              label=y_valid_rolled_textblob_content
                                              )
 
-params_textblob_content = {'objective': 'reg:linear', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
+params_textblob_content = {'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
 #param['nthread'] = 4
 evallist_textblob_content = [(dmatrix_valid_textblob_content, 'eval'), (dmatrix_train_textblob_content, 'train')]
 
@@ -745,7 +745,7 @@ all_params_textblob_content = {
     # 'max_depth': [3, 4, 5],
     'n_estimators': [30, 100, 200, 500],
     'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'objective': ['reg:linear'],
+    'objective': ['reg:squarederror'],
     'eval_metric': ['rmse'],
     'tree_method': ['gpu_hist'],
 }
@@ -962,7 +962,7 @@ dmatrix_valid_textblob_header = xgb.DMatrix(data=X_valid_flattened_textblob_head
                                             label=y_valid_rolled_textblob_header
                                             )
 
-params_textblob_header = {'objective': 'reg:linear', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
+params_textblob_header = {'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
 #param['nthread'] = 4
 evallist_textblob_header = [(dmatrix_valid_textblob_header, 'eval'), (dmatrix_train_textblob_header, 'train')]
 
@@ -991,7 +991,7 @@ all_params_textblob_header = {
     # 'max_depth': [3, 4, 5],
     'n_estimators': [30, 100, 200, 500],
     'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'objective': ['reg:linear'],
+    'objective': ['reg:squarederror'],
     'eval_metric': ['rmse'],
     'tree_method': ['gpu_hist'],
 }
@@ -1208,7 +1208,7 @@ dmatrix_valid_vader_content = xgb.DMatrix(data=X_valid_flattened_vader_content,
                                           label=y_valid_rolled_vader_content
                                           )
 
-params_vader_content = {'objective': 'reg:linear', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
+params_vader_content = {'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
 #param['nthread'] = 4
 evallist_vader_content = [(dmatrix_valid_vader_content, 'eval'), (dmatrix_train_vader_content, 'train')]
 
@@ -1237,7 +1237,7 @@ all_params_vader_content = {
     # 'max_depth': [3, 4, 5],
     'n_estimators': [30, 100, 200, 500],
     'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'objective': ['reg:linear'],
+    'objective': ['reg:squarederror'],
     'eval_metric': ['rmse'],
     'tree_method': ['gpu_hist'],
 }
@@ -1452,7 +1452,7 @@ dmatrix_valid_vader_header = xgb.DMatrix(data=X_valid_flattened_vader_header,
                                          label=y_valid_rolled_vader_header
                                          )
 
-params_vader_header = {'objective': 'reg:linear', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
+params_vader_header = {'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
 #param['nthread'] = 4
 evallist_vader_header = [(dmatrix_valid_vader_header, 'eval'), (dmatrix_train_vader_header, 'train')]
 
@@ -1481,7 +1481,7 @@ all_params_vader_header = {
     # 'max_depth': [3, 4, 5],
     'n_estimators': [30, 100, 200, 500],
     'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'objective': ['reg:linear'],
+    'objective': ['reg:squarederror'],
     'eval_metric': ['rmse'],
     'tree_method': ['gpu_hist'],
 }
@@ -1694,7 +1694,7 @@ dmatrix_valid_without_semantics = xgb.DMatrix(data=X_valid_flattened_without_sem
                                               label=y_valid_rolled_without_semantics
                                               )
 
-params_without_semantics = {'objective': 'reg:linear', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
+params_without_semantics = {'objective': 'reg:squarederror', 'eval_metric': 'rmse', 'n_estimators': 30, 'tree_method':'gpu_hist'}
 #param['nthread'] = 4
 evallist_without_semantics = [(dmatrix_valid_without_semantics, 'eval'), (dmatrix_train_without_semantics, 'train')]
 
@@ -1723,7 +1723,7 @@ all_params_without_semantics = {
     # 'max_depth': [3, 4, 5],
     'n_estimators': [30, 100, 200, 500],
     'learning_rate': [0.01, 0.1, 0.2, 0.3],
-    'objective': ['reg:linear'],
+    'objective': ['reg:squarederror'],
     'eval_metric': ['rmse'],
     'tree_method': ['gpu_hist'],
 }

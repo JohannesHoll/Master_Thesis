@@ -38,19 +38,7 @@ new_df_price = concatenate_dataframe[['return_one_hot_encoded',
                                       'polarity_textblob_sentiment_header',
                                       'polarity_textblob_sentiment_content']]
 
-new_df_price[['return_one_hot_encoded',
-              'flair_sentiment_header_score',
-              'flair_sentiment_content_score',
-              'compound_vader_header',
-              'compound_vader_articel_content',
-              'polarity_textblob_sentiment_header',
-              'polarity_textblob_sentiment_content']] = new_df_price[['return_one_hot_encoded',
-                                                                      'flair_sentiment_header_score',
-                                                                      'flair_sentiment_content_score',
-                                                                      'compound_vader_header',
-                                                                      'compound_vader_articel_content',
-                                                                      'polarity_textblob_sentiment_header',
-                                                                      'polarity_textblob_sentiment_content']].fillna(0)
+new_df_price= new_df_price.fillna(0)
 
 print(new_df_price)
 corr_price = new_df_price.corr()
