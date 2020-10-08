@@ -1776,9 +1776,30 @@ plt.ylabel('Fiatchrysler Stock Price')
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.005), borderaxespad=8)
 
 date_today = str(datetime.now().strftime("%Y%m%d"))
-plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\xgboost\fiatchrysler\hourly\prediction_fiatchrysler_' + date_today + '.png',
-            bbox_inches="tight",
-            dpi=100,
-            pad_inches=1.5)
+#plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\xgboost\fiatchrysler\hourly\prediction_fiatchrysler_' + date_today + '.png',
+#            bbox_inches="tight",
+#            dpi=100,
+#            pad_inches=1.5)
 plt.show()
+print("Root mean squared error flair content on valid:", rms_base_flair_content)
+print("Root mean squared error on flair content valid inverse transformed from normalization:",
+      normalizers_flair_content["OPEN"].inverse_transform(np.array([rms_base_flair_content]).reshape(-1, 1)))
+print("Root mean squared error on flair header valid:", rms_base_flair_header)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_flair_header["OPEN"].inverse_transform(np.array([rms_base_flair_header]).reshape(-1, 1)))
+print("Root mean squared error on textblob content valid:", rms_base_textblob_content)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_textblob_content["OPEN"].inverse_transform(np.array([rms_base_textblob_content]).reshape(-1, 1)))
+print("Root mean squared error on textblob header valid:", rms_base_textblob_header)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_textblob_header["OPEN"].inverse_transform(np.array([rms_base_textblob_header]).reshape(-1, 1)))
+print("Root mean squared error on vader vader content valid:", rms_base_vader_content)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_vader_content["OPEN"].inverse_transform(np.array([rms_base_vader_content]).reshape(-1, 1)))
+print("Root mean squared error on vader header valid:", rms_base_vader_header)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_vader_header["OPEN"].inverse_transform(np.array([rms_base_vader_header]).reshape(-1, 1)))
+print("Root mean squared error on valid:", rms_base_without_semantics)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_without_semantics["OPEN"].inverse_transform(np.array([rms_base_without_semantics]).reshape(-1, 1)))
 print('Run is finished and plot is saved!')

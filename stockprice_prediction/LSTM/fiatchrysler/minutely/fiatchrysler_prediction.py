@@ -264,12 +264,10 @@ predicted_stock_price_flair_content = model_flair_content.predict(X_test_rolled_
 predicted_stock_price_flair_content = normalizers_flair_content['OPEN']\
                                       .inverse_transform(predicted_stock_price_flair_content).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM_flair_content)
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_flair_content["OPEN"].inverse_transform(np.array([rms_LSTM_flair_content]).reshape(1, -1)))
+
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
@@ -495,12 +493,10 @@ predicted_stock_price_flair_header = model_flair_header.predict(X_test_rolled_fl
 predicted_stock_price_flair_header = normalizers_flair_header['OPEN']\
                                       .inverse_transform(predicted_stock_price_flair_header).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM_flair_header)
+
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_flair_header["OPEN"].inverse_transform(np.array([rms_LSTM_flair_header]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
@@ -725,12 +721,10 @@ predicted_stock_price_textblob_content = model_textblob_content.predict(X_test_r
 predicted_stock_price_textblob_content = normalizers_textblob_content['OPEN']\
                                       .inverse_transform(predicted_stock_price_textblob_content).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM_textblob_content)
+
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_textblob_content["OPEN"].inverse_transform(np.array([rms_LSTM_textblob_content]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
@@ -956,12 +950,10 @@ predicted_stock_price_textblob_header = model_textblob_header.predict(X_test_rol
 predicted_stock_price_textblob_header = normalizers_textblob_header['OPEN']\
                                       .inverse_transform(predicted_stock_price_textblob_header).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM_textblob_header)
+
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_textblob_header["OPEN"].inverse_transform(np.array([rms_LSTM_textblob_header]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
@@ -1187,12 +1179,10 @@ predicted_stock_price_vader_content = model_vader_content.predict(X_test_rolled_
 predicted_stock_price_vader_content = normalizers_vader_content['OPEN']\
                                       .inverse_transform(predicted_stock_price_vader_content).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM_vader_content)
+
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_vader_content["OPEN"].inverse_transform(np.array([rms_LSTM_vader_content]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
@@ -1417,12 +1407,10 @@ predicted_stock_price_vader_header = model_vader_header.predict(X_test_rolled_va
 predicted_stock_price_vader_header = normalizers_vader_header['OPEN']\
                                       .inverse_transform(predicted_stock_price_vader_header).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM_vader_header)
+
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_vader_header["OPEN"].inverse_transform(np.array([rms_LSTM_vader_header]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
@@ -1645,12 +1633,10 @@ predicted_stock_price_without_semantics = model_without_semantics.predict(X_test
 predicted_stock_price_without_semantics = normalizers_without_semantics['OPEN']\
                                       .inverse_transform(predicted_stock_price_without_semantics).reshape(-1, 1)
 print(' ')
-print("Root mean squared error on valid:", rms_LSTM_without_semantics)
+
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
-print("Root mean squared error on valid inverse transformed from normalization:",
-      normalizers_without_semantics["OPEN"].inverse_transform(np.array([rms_LSTM_without_semantics]).reshape(1, -1)))
 print(' ')
 print("----------------------------------------------------------------")
 print(' ')
@@ -1677,5 +1663,26 @@ plt.savefig(r'C:\Users\victo\Master_Thesis\stockprice_prediction\LSTM\fiatchrysl
             pad_inches=1.5)
 plt.show()
 
+print("Root mean squared error flair content on valid:", rms_LSTM_flair_content)
+print("Root mean squared error on flair content valid inverse transformed from normalization:",
+      normalizers_flair_content["OPEN"].inverse_transform(np.array([rms_LSTM_flair_content]).reshape(-1, 1)))
+print("Root mean squared error on flair header valid:", rms_LSTM_flair_header)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_flair_header["OPEN"].inverse_transform(np.array([rms_LSTM_flair_header]).reshape(-1, 1)))
+print("Root mean squared error on textblob content valid:", rms_LSTM_textblob_content)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_textblob_content["OPEN"].inverse_transform(np.array([rms_LSTM_textblob_content]).reshape(-1, 1)))
+print("Root mean squared error on textblob header valid:", rms_LSTM_textblob_header)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_textblob_header["OPEN"].inverse_transform(np.array([rms_LSTM_textblob_header]).reshape(-1, 1)))
+print("Root mean squared error on vader vader content valid:", rms_LSTM_vader_content)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_vader_content["OPEN"].inverse_transform(np.array([rms_LSTM_vader_content]).reshape(-1, 1)))
+print("Root mean squared error on vader header valid:", rms_LSTM_vader_header)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_vader_header["OPEN"].inverse_transform(np.array([rms_LSTM_vader_header]).reshape(-1, 1)))
+print("Root mean squared error on valid:", rms_LSTM_without_semantics)
+print("Root mean squared error on valid inverse transformed from normalization:",
+      normalizers_without_semantics["OPEN"].inverse_transform(np.array([rms_LSTM_without_semantics]).reshape(-1, 1)))
 
 print('Run is finished and plot is saved!')
